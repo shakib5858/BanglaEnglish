@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub ইংরেজি শিক্ষা - বাংলাদেশী ফ্রিল্যান্সারদের জন্য</title>
+    <title>বাংলায় রিয়েল-টাইম ইংরেজি শিক্ষা</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -17,16 +17,17 @@
             --primary: #1a73e8;
             --secondary: #34a853;
             --accent: #fbbc05;
-            --github-purple: #6e40c9;
+            --red: #ea4335;
             --dark: #202124;
             --light: #f8f9fa;
             --bangla-text: #1a237e;
-            --section-bg: #e8f0fe;
-            --card-bg: #ffffff;
+            --teacher-bg: #e3f2fd;
+            --student-bg: #e8f5e9;
+            --assistant-bg: #fff8e1;
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
             color: #333;
             line-height: 1.8;
             min-height: 100vh;
@@ -65,7 +66,7 @@
         
         .logo i {
             font-size: 36px;
-            color: var(--github-purple);
+            color: var(--primary);
         }
         
         .logo h1 {
@@ -90,7 +91,7 @@
         }
         
         .nav-links a:hover {
-            color: var(--github-purple);
+            color: var(--primary);
         }
         
         .nav-links a::after {
@@ -100,7 +101,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background: var(--github-purple);
+            background: var(--primary);
             transition: width 0.3s;
         }
         
@@ -108,8 +109,8 @@
             width: 100%;
         }
         
-        .github-badge {
-            background: var(--github-purple);
+        .free-badge {
+            background: var(--secondary);
             color: white;
             padding: 5px 15px;
             border-radius: 30px;
@@ -120,87 +121,186 @@
         
         /* Hero Section */
         .hero {
-            padding: 80px 0 60px;
+            padding: 80px 0 40px;
             position: relative;
             overflow: hidden;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236e40c9" opacity="0.05"/></svg>');
+            text-align: center;
         }
         
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .hero-text {
-            flex: 1;
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hero h2 {
-            font-size: 2.8rem;
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
             color: var(--bangla-text);
             line-height: 1.3;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
             color: #444;
-            max-width: 600px;
+            max-width: 800px;
+            margin: 0 auto 30px;
         }
         
         .highlight {
-            background: linear-gradient(120deg, rgba(110,64,201,0.15) 0%, rgba(251,188,5,0.15) 100%);
+            background: linear-gradient(120deg, rgba(26,115,232,0.15) 0%, rgba(251,188,5,0.15) 100%);
             padding: 0 5px;
             border-radius: 5px;
             font-weight: 600;
         }
         
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 40px;
+        /* Assistant Section */
+        .assistant-section {
+            padding: 40px 0 80px;
         }
         
-        .feature-card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--github-purple);
-            transition: transform 0.3s;
+        .assistant-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .assistant-header {
+            background: var(--primary);
+            color: white;
+            padding: 25px;
+            text-align: center;
         }
         
-        .feature-card i {
-            font-size: 24px;
-            color: var(--github-purple);
+        .assistant-header h2 {
+            font-size: 2.2rem;
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
         
-        .feature-card h3 {
-            color: var(--bangla-text);
-            margin-bottom: 10px;
+        .assistant-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
         
-        /* Courses Section */
-        .courses-section {
-            background: var(--section-bg);
-            padding: 80px 0;
+        .conversation-container {
+            padding: 25px;
+            height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: #fafafa;
+        }
+        
+        .message {
+            max-width: 85%;
+            padding: 15px 20px;
+            border-radius: 18px;
             position: relative;
+            animation: fadeIn 0.4s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .teacher-message {
+            align-self: flex-start;
+            background: var(--teacher-bg);
+            border-bottom-left-radius: 5px;
+            color: #0d47a1;
+        }
+        
+        .student-message {
+            align-self: flex-end;
+            background: var(--student-bg);
+            border-bottom-right-radius: 5px;
+            color: #1b5e20;
+        }
+        
+        .bangla-translation {
+            font-style: italic;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+            color: var(--bangla-text);
+        }
+        
+        .correction {
+            background: #fff8e1;
+            border-left: 4px solid var(--accent);
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+            color: #5d4037;
+        }
+        
+        .correction h4 {
+            color: var(--bangla-text);
+            margin-bottom: 8px;
+        }
+        
+        .voice-controls {
+            display: flex;
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #eee;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .voice-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .voice-btn.listening {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(26, 115, 232, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(26, 115, 232, 0); }
+        }
+        
+        .voice-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+        
+        .status-indicator {
+            font-size: 1.2rem;
+            color: var(--bangla-text);
+            min-height: 30px;
+            text-align: center;
+            padding: 10px 20px;
+            background: var(--assistant-bg);
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        
+        /* Features Section */
+        .features-section {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 60px 0;
+            backdrop-filter: blur(10px);
         }
         
         .section-title {
@@ -221,238 +321,43 @@
             margin: 0 auto;
         }
         
-        .courses-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
-        .course-card {
-            background: var(--card-bg);
+        .feature-card {
+            background: white;
             border-radius: 15px;
-            overflow: hidden;
+            padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: transform 0.3s;
+            text-align: center;
         }
         
-        .course-card:hover {
+        .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
         
-        .course-header {
-            background: var(--github-purple);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .course-header i {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-        
-        .course-content {
-            padding: 25px;
-        }
-        
-        .course-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--bangla-text);
-        }
-        
-        .course-content ul {
-            list-style: none;
-            margin-top: 15px;
-        }
-        
-        .course-content li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .course-content li:before {
-            content: "✓";
-            color: var(--secondary);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .free-tag {
-            background: var(--secondary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-        
-        /* Interactive Assistant */
-        .assistant-section {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .assistant-container {
-            background: linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .assistant-header {
-            margin-bottom: 30px;
-        }
-        
-        .assistant-header i {
-            font-size: 50px;
-            color: var(--github-purple);
-            margin-bottom: 15px;
-        }
-        
-        .assistant-header h2 {
-            font-size: 2.2rem;
-            color: var(--bangla-text);
-            margin-bottom: 10px;
-        }
-        
-        .assistant-box {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            width: 100%;
-            max-width: 700px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            text-align: left;
-        }
-        
-        .assistant-message {
-            background: #f0f4ff;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .assistant-message:after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 30px;
-            border-width: 10px 10px 0;
-            border-style: solid;
-            border-color: #f0f4ff transparent;
-        }
-        
-        .assistant-response {
-            font-size: 1.1rem;
-            color: var(--bangla-text);
-        }
-        
-        .bangla-translation {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px dashed #ccc;
-            color: #d32f2f;
-            font-style: italic;
-        }
-        
-        .user-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .option-btn {
-            background: var(--github-purple);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 15px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .option-btn:hover {
-            background: #5a32a8;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(110,64,201,0.2);
-        }
-        
-        .option-btn i {
-            font-size: 20px;
-        }
-        
-        .correction {
-            background: #fff8e1;
-            border-left: 4px solid var(--accent);
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 20px;
-        }
-        
-        .correction h4 {
-            color: var(--bangla-text);
-            margin-bottom: 8px;
-        }
-        
-        /* GitHub Section */
-        .github-section {
-            background: var(--section-bg);
-            padding: 60px 0;
-        }
-        
-        .github-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .github-content {
-            flex: 1;
-        }
-        
-        .github-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .github-steps {
-            margin-top: 30px;
-        }
-        
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .step-number {
-            background: var(--github-purple);
-            color: white;
-            width: 36px;
-            height: 36px;
+        .feature-icon {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
+            background: rgba(26, 115, 232, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--bangla-text);
         }
         
         /* Footer */
@@ -524,7 +429,7 @@
         }
         
         .social-links a:hover {
-            background: var(--github-purple);
+            background: var(--primary);
         }
         
         .copyright {
@@ -549,16 +454,212 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
             
-            .hero-text, .hero-image {
-                text-align: center;
+            .hero h1 {
+                font-size: 2rem;
             }
             
-            .features {
-                grid-template-columns: 1fr 1fr;
+            .voice-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .assistant-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-microphone-alt"></i>
+                <h1>কণ্ঠে ইংরেজি শিক্ষা</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">হোম</a></li>
+                <li><a href="#assistant">সহায়িকা</a></li>
+                <li><a href="#features">বৈশিষ্ট্য</a></li>
+                <li><a href="#about">সম্পর্কে</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <div class="free-banner">
+        <i class="fas fa-gift"></i> সম্পূর্ণ ফ্রি! সরাসরি কণ্ঠে ইংরেজি শিখুন
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>সরাসরি কণ্ঠে ইংরেজি শিখুন</h1>
+            <p>আমাদের প্ল্যাটফর্মে আপনি <span class="highlight">সরাসরি কথা বলে</span> ইংরেজি শিখতে পারবেন। ক্লায়েন্টের সাথে যোগাযোগ, প্রপোজাল লেখা, কথোপকথন - সবকিছু বাংলায় বোঝানো হবে সহজভাবে।</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>কণ্ঠে শেখা</h3>
+                    <p>কথা বলুন এবং রিয়েল-টাইমে শিখুন</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assistant Section -->
+    <section class="assistant-section" id="assistant">
+        <div class="container">
+            <div class="assistant-container">
+                <div class="assistant-header">
+                    <h2><i class="fas fa-robot"></i> ইংরেজি শিক্ষা সহায়িকা</h2>
+                    <p>মাইক্রোফোন চাপুন এবং ইংরেজিতে কথা বলুন - আমি আপনাকে শেখাবো</p>
+                </div>
+                
+                <div class="conversation-container" id="conversation">
+                    <div class="message teacher-message">
+                        হ্যালো! আমি আপনার ইংরেজি শিক্ষা সহায়ক। আপনি কী শিখতে চান?
+                        <div class="bangla-translation">Hello! I am your English learning assistant. What would you like to learn?</div>
+                    </div>
+                    
+                    <div class="message teacher-message">
+                        আপনি বলতে পারেন: "আমি ইংরেজি ব্যাকরণ শিখতে চাই", "আমাকে প্রপোজাল লেখা শিখুন", বা "কথোপকথন অনুশীলন করুন"
+                        <div class="bangla-translation">You can say: "I want to learn English grammar", "Teach me proposal writing", or "Practice conversation"</div>
+                    </div>
+                </div>
+                
+                <div class="voice-controls">
+                    <button class="voice-btn" id="voiceButton">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <div class="status-indicator" id="statusIndicator">
+                        মাইক্রোফোন চাপুন এবং কথা বলুন
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>প্ল্যাটফর্মের বৈশিষ্ট্য</h2>
+                <p>আমাদের প্ল্যাটফর্মে যা যা পাবেন</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>রিয়েল-টাইম কথোপকথন</h3>
+                    <p>সরাসরি কথা বলুন এবং রিয়েল-টাইমে প্রতিক্রিয়া পান</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3>ব্যাকরণ সংশোধন</h3>
+                    <p>আপনার ভুলগুলো তাৎক্ষণিকভাবে সংশোধন করা হবে</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>বাংলা অনুবাদ</h3>
+                    <p>সমস্ত কিছু বাংলায় বোঝানো হবে</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-business-time"></i>
+                    </div>
+                    <h3>ফ্রিল্যান্সার ফোকাস</h3>
+                    <p>ফ্রিল্যান্সারদের জন্য প্রয়োজনীয় ইংরেজি</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub হোস্টেড</h3>
+                    <p>কোনো সার্ভার কস্ট নেই, GitHub Pages-এ হোস্ট করুন</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>কোনো API কী প্রয়োজন নেই</h3>
+                    <p>কোনো বাহ্যিক নির্ভরতা ছাড়াই কাজ করে</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>কণ্ঠে ইংরেজি শিক্ষা</h3>
+                    <p>বাংলাদেশী ফ্রিল্যান্সারদের জন্য সম্পূর্ণ ফ্রি ইংরেজি শিক্ষা প্ল্যাটফর্ম।</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>গুরুত্বপূর্ণ লিংক</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">হোম</a></li>
+                        <li><a href="#assistant">সহায়িকা</a></li>
+                        <li><a href="#features">বৈশিষ্ট্য</a></li>
+                        <li><a href="#">ব্লগ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>কোর্সসমূহ</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">ইংরেজি ব্যাকরণ</a></li>
+                        <li><a href="#">ফ্রিল্যান্সিং ইংরেজি</a></li>
+                        <li><a href="#">প্রপোজাল রাইটিং</a></li>
+                        <li><a href="#">ক্লায়েন্ট কমিউনিকেশন</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>যোগাযোগ</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@voice-en-template-columns: 1fr 1fr;
             }
             
             .github-container {
@@ -977,3 +1078,4 @@
     </script>
 </body>
 </html>
+
