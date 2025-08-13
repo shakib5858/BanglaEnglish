@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ফ্রি ইংরেজি শিক্ষা - বাংলাদেশী ফ্রিল্যান্সারদের জন্য</title>
+    <title>GitHub ইংরেজি শিক্ষা - বাংলাদেশী ফ্রিল্যান্সারদের জন্য</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -17,15 +17,16 @@
             --primary: #1a73e8;
             --secondary: #34a853;
             --accent: #fbbc05;
-            --red: #ea4335;
+            --github-purple: #6e40c9;
             --dark: #202124;
             --light: #f8f9fa;
             --bangla-text: #1a237e;
             --section-bg: #e8f0fe;
+            --card-bg: #ffffff;
         }
         
         body {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
             color: #333;
             line-height: 1.8;
             min-height: 100vh;
@@ -64,7 +65,7 @@
         
         .logo i {
             font-size: 36px;
-            color: var(--primary);
+            color: var(--github-purple);
         }
         
         .logo h1 {
@@ -89,7 +90,7 @@
         }
         
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--github-purple);
         }
         
         .nav-links a::after {
@@ -99,7 +100,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background: var(--primary);
+            background: var(--github-purple);
             transition: width 0.3s;
         }
         
@@ -107,8 +108,8 @@
             width: 100%;
         }
         
-        .free-badge {
-            background: var(--secondary);
+        .github-badge {
+            background: var(--github-purple);
             color: white;
             padding: 5px 15px;
             border-radius: 30px;
@@ -122,7 +123,7 @@
             padding: 80px 0 60px;
             position: relative;
             overflow: hidden;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a73e8" opacity="0.05"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236e40c9" opacity="0.05"/></svg>');
         }
         
         .hero-content {
@@ -139,6 +140,7 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
         
         .hero h2 {
@@ -156,9 +158,10 @@
         }
         
         .highlight {
-            background: linear-gradient(120deg, rgba(26,115,232,0.15) 0%, rgba(251,188,5,0.15) 100%);
+            background: linear-gradient(120deg, rgba(110,64,201,0.15) 0%, rgba(251,188,5,0.15) 100%);
             padding: 0 5px;
             border-radius: 5px;
+            font-weight: 600;
         }
         
         .features {
@@ -169,11 +172,11 @@
         }
         
         .feature-card {
-            background: white;
+            background: var(--card-bg);
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--github-purple);
             transition: transform 0.3s;
         }
         
@@ -184,7 +187,7 @@
         
         .feature-card i {
             font-size: 24px;
-            color: var(--primary);
+            color: var(--github-purple);
             margin-bottom: 15px;
         }
         
@@ -225,7 +228,7 @@
         }
         
         .course-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -238,7 +241,7 @@
         }
         
         .course-header {
-            background: var(--primary);
+            background: var(--github-purple);
             color: white;
             padding: 20px;
             text-align: center;
@@ -288,14 +291,14 @@
             font-weight: bold;
         }
         
-        /* Voice Assistant */
-        .voice-section {
+        /* Interactive Assistant */
+        .assistant-section {
             padding: 80px 0;
             background: white;
         }
         
-        .voice-container {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        .assistant-container {
+            background: linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%);
             border-radius: 20px;
             padding: 40px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -305,74 +308,151 @@
             text-align: center;
         }
         
-        .voice-header {
+        .assistant-header {
             margin-bottom: 30px;
         }
         
-        .voice-header i {
+        .assistant-header i {
             font-size: 50px;
-            color: var(--primary);
+            color: var(--github-purple);
             margin-bottom: 15px;
         }
         
-        .voice-header h2 {
+        .assistant-header h2 {
             font-size: 2.2rem;
             color: var(--bangla-text);
             margin-bottom: 10px;
         }
         
-        .voice-controls {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            width: 100%;
-            max-width: 500px;
-        }
-        
-        .voice-btn {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        
-        .voice-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .status-indicator {
-            font-size: 1.2rem;
-            color: var(--bangla-text);
-            margin-top: 15px;
-            min-height: 30px;
-        }
-        
-        .voice-example {
+        .assistant-box {
             background: white;
             border-radius: 15px;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 30px;
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             text-align: left;
         }
         
-        .voice-example h3 {
+        .assistant-message {
+            background: #f0f4ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .assistant-message:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 30px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: #f0f4ff transparent;
+        }
+        
+        .assistant-response {
+            font-size: 1.1rem;
             color: var(--bangla-text);
-            margin-bottom: 15px;
-            border-left: 4px solid var(--primary);
-            padding-left: 15px;
+        }
+        
+        .bangla-translation {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+            color: #d32f2f;
+            font-style: italic;
+        }
+        
+        .user-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .option-btn {
+            background: var(--github-purple);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .option-btn:hover {
+            background: #5a32a8;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(110,64,201,0.2);
+        }
+        
+        .option-btn i {
+            font-size: 20px;
+        }
+        
+        .correction {
+            background: #fff8e1;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+        }
+        
+        .correction h4 {
+            color: var(--bangla-text);
+            margin-bottom: 8px;
+        }
+        
+        /* GitHub Section */
+        .github-section {
+            background: var(--section-bg);
+            padding: 60px 0;
+        }
+        
+        .github-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .github-content {
+            flex: 1;
+        }
+        
+        .github-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .github-steps {
+            margin-top: 30px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .step-number {
+            background: var(--github-purple);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
         }
         
         /* Footer */
@@ -444,7 +524,7 @@
         }
         
         .social-links a:hover {
-            background: var(--primary);
+            background: var(--github-purple);
         }
         
         .copyright {
@@ -480,6 +560,14 @@
             .features {
                 grid-template-columns: 1fr 1fr;
             }
+            
+            .github-container {
+                flex-direction: column;
+            }
+            
+            .user-options {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 768px) {
@@ -512,49 +600,57 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-book-open"></i>
-                <h1>ফ্রি ইংরেজি শিক্ষা</h1>
+                <i class="fab fa-github"></i>
+                <h1>GitHub ইংরেজি শিক্ষা</h1>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">হোম</a></li>
                 <li><a href="#courses">কোর্সসমূহ</a></li>
-                <li><a href="#voice">কণ্ঠ সহায়িকা</a></li>
-                <li><a href="#about">আমাদের সম্পর্কে</a></li>
+                <li><a href="#assistant">সহায়ক</a></li>
+                <li><a href="#github">GitHub</a></li>
             </ul>
         </div>
     </header>
     
     <div class="free-banner">
-        <i class="fas fa-gift"></i> সম্পূর্ণ ফ্রি! কোনো ফি নেই, কোনো লুকানো খরচ নেই
+        <i class="fas fa-gift"></i> সম্পূর্ণ ফ্রি! কোনো API কী বা কণ্ঠস্বর নির্ভরতা নেই
     </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <h2>বাংলাদেশী ফ্রিল্যান্সারদের জন্য সম্পূর্ণ ফ্রি ইংরেজি শিক্ষা</h2>
-                <p>আমাদের প্ল্যাটফর্মে আপনি <span class="highlight">সম্পূর্ণ বিনামূল্যে</span> ইংরেজি শিখতে পারবেন। ক্লায়েন্টের সাথে যোগাযোগ, প্রপোজাল লেখা, ইংরেজি কথোপকথন - সবকিছু বাংলায় বোঝানো হবে সহজভাবে।</p>
+                <h2>GitHub-হোস্টেড ইংরেজি শিক্ষা প্ল্যাটফর্ম</h2>
+                <p>এই প্ল্যাটফর্মে আপনি <span class="highlight">কোনো API কী বা কণ্ঠস্বর নির্ভরতা ছাড়াই</span> সম্পূর্ণ বিনামূল্যে ইংরেজি শিখতে পারবেন। ক্লায়েন্টের সাথে যোগাযোগ, প্রপোজাল লেখা, ইংরেজি কথোপকথন - সবকিছু বাংলায় বোঝানো হবে সহজভাবে।</p>
                 
                 <div class="features">
                     <div class="feature-card">
-                        <i class="fas fa-comments"></i>
-                        <h3>ক্লায়েন্ট কমিউনিকেশন</h3>
-                        <p>আন্তর্জাতিক ক্লায়েন্টদের সাথে দক্ষতার সাথে যোগাযোগ করার কৌশল</p>
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub হোস্টেড</h3>
+                        <p>কোনো সার্ভার কস্ট নেই, GitHub Pages-এ হোস্ট করুন</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-file-alt"></i>
-                        <h3>প্রপোজাল রাইটিং</h3>
-                        <p>জব পেতে কার্যকরী প্রপোজাল ও কভার লেটার লেখার পদ্ধতি</p>
+                        <i class="fas fa-code"></i>
+                        <h3>কোনো API কী প্রয়োজন নেই</h3>
+                        <p>কোনো বাহ্যিক নির্ভরতা ছাড়াই কাজ করে</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-microphone"></i>
-                        <h3>কণ্ঠস্বর অনুশীলন</h3>
-                        <p>ইংরেজি উচ্চারণ ও কথা বলার দক্ষতা উন্নত করার সরঞ্জাম</p>
+                        <i class="fas fa-volume-mute"></i>
+                        <h3>কণ্ঠস্বর মুক্ত</h3>
+                        <p>কোনো ভয়েস ইনপুট/আউটপুট নেই, সম্পূর্ণ টেক্সট ভিত্তিক</p>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'><rect width='400' height='400' fill='%231a73e8' opacity='0.1' rx='20'/><circle cx='200' cy='150' r='80' fill='%231a73e8' opacity='0.2'/><path d='M120,300 L280,300 L280,350 L120,350 Z' fill='%231a73e8' opacity='0.3'/></svg>" alt="ইংরেজি শিক্ষা">
+                <div class="github-card">
+                    <div style="background: #6e40c9; color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
+                        <i class="fab fa-github" style="font-size: 48px;"></i>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 0 0 10px 10px; text-align: center;">
+                        <h3 style="color: #1a237e; margin-bottom: 10px;">GitHub Pages</h3>
+                        <p style="color: #444;">english-learning-platform.github.io</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -622,26 +718,124 @@
         </div>
     </section>
 
-    <!-- Voice Assistant -->
-    <section class="voice-section" id="voice">
+    <!-- Interactive Assistant -->
+    <section class="assistant-section" id="assistant">
         <div class="container">
-            <div class="voice-container">
-                <div class="voice-header">
-                    <i class="fas fa-microphone-alt"></i>
-                    <h2>কণ্ঠ সহায়িকা</h2>
-                    <p>ইংরেজি কথা বলার অনুশীলন করুন আমাদের AI সহায়িকার সাথে</p>
+            <div class="assistant-container">
+                <div class="assistant-header">
+                    <i class="fas fa-robot"></i>
+                    <h2>ইংরেজি শিক্ষা সহায়ক</h2>
+                    <p>কোনো কণ্ঠস্বর বা API কী ছাড়াই সম্পূর্ণ টেক্সট ভিত্তিক সহায়িকা</p>
                 </div>
                 
-                <div class="voice-controls">
-                    <button class="voice-btn">
-                        <i class="fas fa-microphone"></i>
-                    </button>
-                    <div class="status-indicator">মাইক্রোফোন চাপুন এবং কথা বলুন</div>
+                <div class="assistant-box">
+                    <div class="assistant-message">
+                        <div class="assistant-response">
+                            হ্যালো! আমি আপনার ইংরেজি শিক্ষা সহায়ক। আপনি কী শিখতে চান?
+                        </div>
+                        <div class="bangla-translation">
+                            Hello! I am your English learning assistant. What would you like to learn?
+                        </div>
+                    </div>
+                    
+                    <div class="user-options">
+                        <button class="option-btn" id="option1">
+                            <i class="fas fa-envelope"></i> ক্লায়েন্টকে ইমেইল লিখতে শিখুন
+                        </button>
+                        <button class="option-btn" id="option2">
+                            <i class="fas fa-comments"></i> কথোপকথন অনুশীলন করুন
+                        </button>
+                        <button class="option-btn" id="option3">
+                            <i class="fas fa-file-alt"></i> প্রপোজাল লেখা শিখুন
+                        </button>
+                        <button class="option-btn" id="option4">
+                            <i class="fas fa-question-circle"></i> ইংরেজি ব্যাকরণ সম্পর্কে জানুন
+                        </button>
+                    </div>
+                    
+                    <div id="assistant-response-area"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section class="github-section" id="github">
+        <div class="container">
+            <div class="github-container">
+                <div class="github-content">
+                    <div class="section-title" style="text-align: left;">
+                        <h2>GitHub-এ কীভাবে হোস্ট করবেন</h2>
+                        <p>এই প্ল্যাটফর্ম GitHub Pages-এ সহজেই হোস্ট করার জন্য ডিজাইন করা হয়েছে</p>
+                    </div>
+                    
+                    <div class="github-steps">
+                        <div class="step">
+                            <div class="step-number">১</div>
+                            <div>
+                                <h3>GitHub রিপোজিটরি তৈরি করুন</h3>
+                                <p>একটি নতুন পাবলিক রিপোজিটরি তৈরি করুন এবং এই কোডটি আপলোড করুন</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">২</div>
+                            <div>
+                                <h3>GitHub Pages সেটিংস</h3>
+                                <p>রিপোজিটরি সেটিংসে যান, "Pages" সেকশনে ব্রাঞ্চ সিলেক্ট করুন</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">৩</div>
+                            <div>
+                                <h3>সাইট একটিভ করুন</h3>
+                                <p>Save বাটনে ক্লিক করুন, কয়েক মিনিটের মধ্যে আপনার সাইট লাইভ হয়ে যাবে</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">৪</div>
+                            <div>
+                                <h3>সাইট অ্যাক্সেস করুন</h3>
+                                <p>https://yourusername.github.io/repositoryname ঠিকানায় সাইটটি ভিজিট করুন</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="voice-example">
-                    <h3>অনুশীলনের উদাহরণ:</h3>
-                    <p>"আমার নাম [আপনার নাম], আমি একজন [আপনার পেশা]। আমি [বছর] বছর ধরে এই কাজ করছি। আমার দক্ষতাগুলো হলো [আপনার দক্ষতা]। আমি এই প্রজেক্টের জন্য ভালো ফিট কারণ..."</p>
+                <div class="github-image">
+                    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="background: #6e40c9; color: white; padding: 10px; border-radius: 5px 5px 0 0; text-align: center; font-weight: bold;">
+                            GitHub Pages Settings
+                        </div>
+                        <div style="padding: 20px;">
+                            <div style="margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                    <span>Source</span>
+                                    <span style="color: #6e40c9; font-weight: bold;">Deploy from a branch</span>
+                                </div>
+                                <div style="background: #f5f5f5; padding: 10px; border-radius: 5px;">
+                                    Branch: main <span style="color: #34a853;">(√)</span>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                    <span>Custom domain</span>
+                                </div>
+                                <div style="background: #f5f5f5; padding: 10px; border-radius: 5px;">
+                                    No custom domain
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button style="background: #6e40c9; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -652,12 +846,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>ফ্রি ইংরেজি শিক্ষা</h3>
+                    <h3>GitHub ইংরেজি শিক্ষা</h3>
                     <p>বাংলাদেশী ফ্রিল্যান্সারদের জন্য সম্পূর্ণ ফ্রি ইংরেজি শিক্ষা প্ল্যাটফর্ম।</p>
                     <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
@@ -666,8 +860,8 @@
                     <ul class="footer-links">
                         <li><a href="#home">হোম</a></li>
                         <li><a href="#courses">কোর্সসমূহ</a></li>
-                        <li><a href="#voice">কণ্ঠ সহায়িকা</a></li>
-                        <li><a href="#">ব্লগ</a></li>
+                        <li><a href="#assistant">সহায়ক</a></li>
+                        <li><a href="#github">GitHub</a></li>
                     </ul>
                 </div>
                 
@@ -682,45 +876,82 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>যোগাযোগ</h3>
+                    <h3>GitHub রিসোর্স</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> info@free-english-shikkha.com</li>
-                        <li><i class="fab fa-whatsapp"></i> +৮৮০ ১৭XX XXXXXX</li>
-                        <li><i class="fas fa-map-marker-alt"></i> ঢাকা, বাংলাদেশ</li>
+                        <li><a href="#">GitHub Pages ডকুমেন্টেশন</a></li>
+                        <li><a href="#">HTML/CSS টিউটোরিয়াল</a></li>
+                        <li><a href="#">ফ্রি টেমপ্লেটস</a></li>
+                        <li><a href="#">কোড উদাহরণ</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; ২০২৩ ফ্রি ইংরেজি শিক্ষা - সকল অধিকার সংরক্ষিত। একটি সম্পূর্ণ ফ্রি প্ল্যাটফর্ম।</p>
-                <p>ডিজাইন করা হয়েছে বাংলাদেশী ফ্রিল্যান্সারদের জন্য</p>
+                <p>&copy; ২০২৩ GitHub ইংরেজি শিক্ষা - সকল অধিকার সংরক্ষিত। একটি সম্পূর্ণ ফ্রি প্ল্যাটফর্ম।</p>
+                <p>API কী বা কণ্ঠস্বর নির্ভরতা ছাড়াই GitHub Pages-এ হোস্ট করার জন্য ডিজাইন করা হয়েছে</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Voice assistant functionality
-        const voiceBtn = document.querySelector('.voice-btn');
-        const statusIndicator = document.querySelector('.status-indicator');
-        
-        voiceBtn.addEventListener('click', function() {
-            statusIndicator.innerHTML = "শোনা হচ্ছে... কথা বলুন";
-            voiceBtn.style.background = 'linear-gradient(135deg, #ea4335, #fbbc05)';
-            
-            // Simulate listening and response
-            setTimeout(() => {
-                statusIndicator.innerHTML = "আপনার কথা বিশ্লেষণ করা হচ্ছে...";
-                
-                setTimeout(() => {
-                    statusIndicator.innerHTML = "ভালো হয়েছে! আপনি বললেন: \"আমার নাম রাকিব, আমি একজন গ্রাফিক ডিজাইনার\"";
-                    voiceBtn.style.background = 'linear-gradient(135deg, #1a73e8, #34a853)';
-                    
-                    setTimeout(() => {
-                        statusIndicator.innerHTML = "পরবর্তী প্রশ্ন: আপনি কত বছর ধরে গ্রাফিক ডিজাইনের কাজ করছেন?";
-                    }, 2000);
-                }, 3000);
-            }, 1000);
+        // Assistant functionality
+        document.getElementById('option1').addEventListener('click', function() {
+            showAssistantResponse('ক্লায়েন্টকে ইমেইল লিখতে শিখুন', 
+                'একটি পেশাদার ইমেইল লিখতে নিম্নলিখিত কাঠামো অনুসরণ করুন:<br><br>' +
+                '1. বিষয়: পরিষ্কার এবং সংক্ষিপ্ত<br>' +
+                '2. সম্বোধন: Dear [Client\'s Name],<br>' +
+                '3. মূল অংশ: আপনার উদ্দেশ্য পরিষ্কারভাবে ব্যাখ্যা করুন<br>' +
+                '4. সমাপ্তি: Best regards, [Your Name]<br><br>' +
+                'উদাহরণ: "Dear Mr. Smith, I am writing to discuss the project timeline..."');
         });
+        
+        document.getElementById('option2').addEventListener('click', function() {
+            showAssistantResponse('কথোপকথন অনুশীলন', 
+                'চলুন একটি সাধারণ কথোপকথন অনুশীলন করি:<br><br>' +
+                'আপনি: Hello, how are you today?<br>' +
+                'ক্লায়েন্ট: I\'m good, thanks. How about you?<br>' +
+                'আপনি: I\'m doing well, thank you. I wanted to discuss the project progress.<br>' +
+                'ক্লায়েন্ট: Sure, what updates do you have?<br><br>' +
+                'টিপ: স্পষ্টভাবে কথা বলুন এবং সক্রিয়ভাবে শুনুন।');
+        });
+        
+        document.getElementById('option3').addEventListener('click', function() {
+            showAssistantResponse('প্রপোজাল লেখা শিখুন', 
+                'একটি কার্যকরী প্রপোজালে থাকা উচিত:<br><br>' +
+                '1. পরিচিতি: আপনি কে এবং কেন যোগাযোগ করছেন<br>' +
+                '2. সমস্যা বিবৃতি: ক্লায়েন্টের সমস্যা বা চাহিদা<br>' +
+                '3. সমাধান: আপনি কীভাবে সাহায্য করতে পারেন<br>' +
+                '4. সময়সীমা ও মূল্য: প্রজেক্টের সময়সীমা এবং খরচ<br>' +
+                '5. আপনার যোগ্যতা: আপনার অভিজ্ঞতা ও দক্ষতা<br><br>' +
+                'সবসময় ক্লায়েন্টের প্রয়োজনীয়তার উপর ফোকাস করুন।');
+        });
+        
+        document.getElementById('option4').addEventListener('click', function() {
+            showAssistantResponse('ইংরেজি ব্যাকরণ', 
+                'প্রাথমিক ব্যাকরণ নিয়ম:<br><br>' +
+                '1. বাক্য গঠন: Subject + Verb + Object<br>' +
+                '2. Tense: Present, Past, Future<br>' +
+                '3. Articles: a, an, the<br>' +
+                '4. Prepositions: in, on, at, by, with<br><br>' +
+                'উদাহরণ: "I (subject) work (verb) as a designer (object)."');
+        });
+        
+        function showAssistantResponse(title, content) {
+            const responseArea = document.getElementById('assistant-response-area');
+            responseArea.innerHTML = `
+                <div class="assistant-message">
+                    <div class="assistant-response">${title}</div>
+                    <div class="bangla-translation">${title}</div>
+                </div>
+                <div class="correction">
+                    <h4>${title}</h4>
+                    <p>${content}</p>
+                </div>
+            `;
+            
+            // Scroll to the response
+            responseArea.scrollIntoView({ behavior: 'smooth' });
+        }
         
         // Animation for feature cards
         const featureCards = document.querySelectorAll('.feature-card');
@@ -740,7 +971,7 @@
         setInterval(() => {
             freeBanner.style.background = 'linear-gradient(135deg, #34a853, #fbbc05)';
             setTimeout(() => {
-                freeBanner.style.background = 'linear-gradient(135deg, #fbbc05, #ea4335)';
+                freeBanner.style.background = 'linear-gradient(135deg, #fbbc05, #6e40c9)';
             }, 1500);
         }, 3000);
     </script>
