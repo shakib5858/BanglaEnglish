@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দিন ২২: Google Analytics ও Data Analysis - FSP Team</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projector.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-graduation-cap"></i> FSP Team</h1>
+                    <p>ডিজিটাল মার্কেটিং কোর্স</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-home"></i>
+                        <a href="../index.html" style="color: white; text-decoration: none;">হোম পেজ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-detail">
+        <div class="lesson-header-detail">
+            <div class="lesson-day-number">দিন ২২</div>
+            <h1 class="lesson-main-title">Google Analytics ও Data Analysis</h1>
+            <p class="lesson-subtitle"><span class="english-term">Web Analytics, Data Tracking</span> এবং Performance Measurement</p>
+        </div>
+
+        <div class="content-section">
+            <h3><i class="fas fa-target"></i> আজকের শিক্ষার লক্ষ্য</h3>
+            <ul class="step-list">
+                <li class="step-item">Google Analytics 4 setup ও configure করতে পারবেন</li>
+                <li class="step-item">Website traffic ও user behavior analyze করতে পারবেন</li>
+                <li class="step-item">Conversion tracking setup করতে পারবেন</li>
+                <li class="step-item">Data-driven decisions নিতে পারবেন</li>
+            </ul>
+        </div>
+
+        <div class="tabs">
+            <div class="tab-headers">
+                <button class="tab-header active" data-tab="theory">তত্ত্বীয় জ্ঞান</button>
+                <button class="tab-header" data-tab="practical">প্র্যাকটিক্যাল</button>
+                <button class="tab-header" data-tab="teacher">শিক্ষক গাইড</button>
+                <button class="tab-header" data-tab="homework">হোমওয়ার্ক</button>
+            </div>
+
+            <div class="tab-content active" data-tab-content="theory">
+                <div class="content-section">
+                    <h3><i class="fas fa-chart-bar"></i> Web Analytics এর গুরুত্ব</h3>
+                    <p><span class="english-term">Web Analytics</span> ছাড়া digital marketing করা অন্ধকারে তীর ছোড়ার মতো। Data-driven decisions ৫-৬ গুণ বেশি effective হয়।</p>
+                    
+                    <div class="highlight-box important">
+                        <h5><i class="fas fa-lightbulb"></i> Analytics এর সুবিধা</h5>
+                        <ul>
+                            <li><strong>Performance Tracking:</strong> Campaign effectiveness measure</li>
+                            <li><strong>User Insights:</strong> Customer behavior বোঝা</li>
+                            <li><strong>ROI Calculation:</strong> Investment return measure</li>
+                            <li><strong>Optimization:</strong> Data-based improvements</li>
+                            <li><strong>Reporting:</strong> Stakeholder communication</li>
+                        </ul>
+                    </div>
+
+                    <h4>Google Analytics 4 vs Universal Analytics:</h4>
+                    <table>
+                        <tr>
+                            <th>Feature</th>
+                            <th>GA4</th>
+                            <th>Universal Analytics</th>
+                        </tr>
+                        <tr>
+                            <td>Data Model</td>
+                            <td>Event-based</td>
+                            <td>Session-based</td>
+                        </tr>
+                        <tr>
+                            <td>Cross-platform</td>
+                            <td>Yes</td>
+                            <td>Limited</td>
+                        </tr>
+                        <tr>
+                            <td>Privacy</td>
+                            <td>Enhanced</td>
+                            <td>Basic</td>
+                        </tr>
+                        <tr>
+                            <td>Machine Learning</td>
+                            <td>Built-in</td>
+                            <td>Limited</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>Current</td>
+                            <td>Deprecated</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-users"></i> Key Metrics ও KPIs</h3>
+                    <p>সঠিক <span class="english-term">Metrics</span> track করা business growth এর জন্য অপরিহার্য।</p>
+                    
+                    <h4>Traffic Metrics:</h4>
+                    <ul>
+                        <li><strong>Users:</strong> Unique visitors</li>
+                        <li><strong>Sessions:</strong> Website visits</li>
+                        <li><strong>Page Views:</strong> Total pages viewed</li>
+                        <li><strong>Bounce Rate:</strong> Single page visits</li>
+                        <li><strong>Session Duration:</strong> Time spent on site</li>
+                    </ul>
+
+                    <h4>Engagement Metrics:</h4>
+                    <ul>
+                        <li><strong>Pages per Session:</strong> Depth of engagement</li>
+                        <li><strong>Average Session Duration:</strong> Quality of content</li>
+                        <li><strong>Engagement Rate:</strong> Active user percentage</li>
+                        <li><strong>Scroll Depth:</strong> Content consumption</li>
+                        <li><strong>Event Tracking:</strong> Specific interactions</li>
+                    </ul>
+
+                    <h4>Conversion Metrics:</h4>
+                    <ul>
+                        <li><strong>Goal Completions:</strong> Desired actions</li>
+                        <li><strong>Conversion Rate:</strong> Success percentage</li>
+                        <li><strong>Revenue:</strong> Sales generated</li>
+                        <li><strong>ROI:</strong> Return on investment</li>
+                        <li><strong>Customer Lifetime Value:</strong> Long-term value</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-route"></i> Customer Journey Analysis</h3>
+                    <p><span class="english-term">Customer Journey</span> বুঝলে marketing optimization করা সহজ হয়।</p>
+                    
+                    <h4>Attribution Models:</h4>
+                    <ul>
+                        <li><strong>First-click:</strong> First touchpoint credit</li>
+                        <li><strong>Last-click:</strong> Final touchpoint credit</li>
+                        <li><strong>Linear:</strong> Equal credit distribution</li>
+                        <li><strong>Time-decay:</strong> Recent touchpoints more credit</li>
+                        <li><strong>Data-driven:</strong> AI-based attribution</li>
+                    </ul>
+
+                    <h4>Multi-Channel Funnels:</h4>
+                    <ul>
+                        <li><strong>Awareness:</strong> First brand interaction</li>
+                        <li><strong>Consideration:</strong> Research ও comparison</li>
+                        <li><strong>Decision:</strong> Purchase intent</li>
+                        <li><strong>Action:</strong> Conversion</li>
+                        <li><strong>Retention:</strong> Repeat engagement</li>
+                    </ul>
+
+                    <div class="highlight-box tip">
+                        <h5><i class="fas fa-lightbulb"></i> Journey Optimization</h5>
+                        <p>Customer journey এর প্রতিটি stage optimize করুন conversion rate বাড়ানোর জন্য।</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-filter"></i> Audience Segmentation</h3>
+                    <p><span class="english-term">Audience Segments</span> তৈরি করে targeted analysis ও marketing করা যায়।</p>
+                    
+                    <h4>Segmentation Types:</h4>
+                    <ul>
+                        <li><strong>Demographics:</strong> Age, gender, location</li>
+                        <li><strong>Technology:</strong> Device, browser, OS</li>
+                        <li><strong>Behavior:</strong> Pages visited, actions taken</li>
+                        <li><strong>Traffic Source:</strong> How users arrived</li>
+                        <li><strong>Custom:</strong> Business-specific criteria</li>
+                    </ul>
+
+                    <h4>Advanced Segments:</h4>
+                    <ul>
+                        <li><strong>High-Value Customers:</strong> Top revenue generators</li>
+                        <li><strong>New vs Returning:</strong> User loyalty analysis</li>
+                        <li><strong>Mobile Users:</strong> Device-specific behavior</li>
+                        <li><strong>Converters:</strong> Goal completion users</li>
+                        <li><strong>Engaged Users:</strong> High interaction users</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab-content="practical">
+                <div class="content-section">
+                    <h3><i class="fas fa-cog"></i> Google Analytics 4 Setup</h3>
+                    <h4>Initial Setup Process:</h4>
+                    
+                    <ol class="step-list">
+                        <li class="step-item">
+                            <strong>Google Account:</strong><br>
+                            Gmail account দিয়ে analytics.google.com এ sign in
+                        </li>
+                        <li class="step-item">
+                            <strong>Property Creation:</strong><br>
+                            "Create Property" → Website details enter
+                        </li>
+                        <li class="step-item">
+                            <strong>Data Stream Setup:</strong><br>
+                            Web stream create করুন website URL দিয়ে
+                        </li>
+                        <li class="step-item">
+                            <strong>Tracking Code:</strong><br>
+                            Global Site Tag (gtag.js) copy করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>Code Implementation:</strong><br>
+                            Website এর <head> section এ code add করুন
+                        </li>
+                    </ol>
+
+                    <div class="code-block">
+                        <pre>Google Analytics 4 Tracking Code:
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script></pre>
+                    </div>
+
+                    <h4>Verification Steps:</h4>
+                    <ul>
+                        <li><strong>Real-time Reports:</strong> Live data check করুন</li>
+                        <li><strong>Google Tag Assistant:</strong> Chrome extension ব্যবহার করুন</li>
+                        <li><strong>Debug Mode:</strong> Implementation verify করুন</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-bullseye"></i> Goals ও Conversions Setup</h3>
+                    <h4>Conversion Events Configuration:</h4>
+                    
+                    <h5>Standard Events:</h5>
+                    <ul>
+                        <li><strong>Purchase:</strong> E-commerce transactions</li>
+                        <li><strong>Sign_up:</strong> User registrations</li>
+                        <li><strong>Login:</strong> User authentication</li>
+                        <li><strong>Contact:</strong> Form submissions</li>
+                        <li><strong>Download:</strong> File downloads</li>
+                    </ul>
+
+                    <h5>Custom Events Setup:</h5>
+                    <div class="code-block">
+                        <pre>Custom Event Tracking:
+
+// Form submission tracking
+gtag('event', 'form_submit', {
+  'event_category': 'engagement',
+  'event_label': 'contact_form',
+  'value': 1
+});
+
+// Button click tracking
+gtag('event', 'click', {
+  'event_category': 'engagement',
+  'event_label': 'cta_button',
+  'value': 1
+});
+
+// Scroll depth tracking
+gtag('event', 'scroll', {
+  'event_category': 'engagement',
+  'event_label': '75_percent',
+  'value': 75
+});</pre>
+                    </div>
+
+                    <h4>E-commerce Tracking:</h4>
+                    <ul>
+                        <li><strong>Enhanced E-commerce:</strong> Detailed product data</li>
+                        <li><strong>Purchase Events:</strong> Transaction tracking</li>
+                        <li><strong>Product Performance:</strong> Item-level analysis</li>
+                        <li><strong>Shopping Behavior:</strong> Funnel analysis</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-chart-line"></i> Reports ও Analysis</h3>
+                    <h4>Key Report Types:</h4>
+                    
+                    <h5>1. Acquisition Reports:</h5>
+                    <ul>
+                        <li><strong>Traffic Sources:</strong> Where users come from</li>
+                        <li><strong>Campaign Performance:</strong> Marketing campaign analysis</li>
+                        <li><strong>Channel Grouping:</strong> Traffic categorization</li>
+                        <li><strong>Source/Medium:</strong> Detailed traffic breakdown</li>
+                    </ul>
+
+                    <h5>2. Engagement Reports:</h5>
+                    <ul>
+                        <li><strong>Pages and Screens:</strong> Content performance</li>
+                        <li><strong>Events:</strong> User interactions</li>
+                        <li><strong>Conversions:</strong> Goal completions</li>
+                        <li><strong>Real-time:</strong> Live user activity</li>
+                    </ul>
+
+                    <h5>3. Monetization Reports:</h5>
+                    <ul>
+                        <li><strong>E-commerce Purchases:</strong> Sales data</li>
+                        <li><strong>Publisher Ads:</strong> Ad revenue</li>
+                        <li><strong>In-app Purchases:</strong> Mobile app revenue</li>
+                        <li><strong>LTV:</strong> Customer lifetime value</li>
+                    </ul>
+
+                    <h4>Custom Reports Creation:</h4>
+                    <ul>
+                        <li><strong>Exploration Reports:</strong> Advanced analysis</li>
+                        <li><strong>Custom Dimensions:</strong> Business-specific data</li>
+                        <li><strong>Calculated Metrics:</strong> Derived measurements</li>
+                        <li><strong>Data Studio Integration:</strong> Visual dashboards</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-users-cog"></i> Advanced Features</h3>
+                    <h4>Google Tag Manager Integration:</h4>
+                    
+                    <h5>GTM Benefits:</h5>
+                    <ul>
+                        <li><strong>Code Management:</strong> Centralized tag control</li>
+                        <li><strong>No Code Changes:</strong> Marketing team independence</li>
+                        <li><strong>Version Control:</strong> Change tracking</li>
+                        <li><strong>Testing:</strong> Preview ও debug mode</li>
+                    </ul>
+
+                    <h5>GTM Setup Process:</h5>
+                    <ol class="step-list">
+                        <li class="step-item">Google Tag Manager account তৈরি</li>
+                        <li class="step-item">Container code website এ install</li>
+                        <li class="step-item">GA4 tag configure</li>
+                        <li class="step-item">Triggers ও variables setup</li>
+                        <li class="step-item">Testing ও publishing</li>
+                    </ol>
+
+                    <h4>Data Privacy ও Compliance:</h4>
+                    <ul>
+                        <li><strong>GDPR Compliance:</strong> European data protection</li>
+                        <li><strong>Cookie Consent:</strong> User permission</li>
+                        <li><strong>Data Retention:</strong> Storage duration settings</li>
+                        <li><strong>IP Anonymization:</strong> Privacy protection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab-content="teacher">
+                <div class="content-section">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> শিক্ষকের জন্য নির্দেশনা</h3>
+                    
+                    <h4>ক্লাস শুরুর আগে (৫ মিনিট):</h4>
+                    <ul class="step-list">
+                        <li class="step-item">Google Analytics demo account prepare করুন</li>
+                        <li class="step-item">Sample website data ready রাখুন</li>
+                        <li class="step-item">Report examples screenshot করুন</li>
+                    </ul>
+
+                    <h4>মূল পাঠ (৩৫ মিনিট):</h4>
+                    <ul class="step-list">
+                        <li class="step-item"><strong>Analytics Overview (৫ মিনিট):</strong> Importance ও benefits</li>
+                        <li class="step-item"><strong>GA4 Setup Demo (১৫ মিনিট):</strong> Live account creation</li>
+                        <li class="step-item"><strong>Reports Walkthrough (১০ মিনিট):</strong> Key reports explanation</li>
+                        <li class="step-item"><strong>Goals Setup (৫ মিনিট):</strong> Conversion tracking</li>
+                    </ul>
+
+                    <h4>প্র্যাকটিক্যাল সেশন (১৫ মিনিট):</h4>
+                    <ul class="step-list">
+                        <li class="step-item">Students দের GA4 account তৈরি করতে সাহায্য করুন</li>
+                        <li class="step-item">Tracking code implementation করুন</li>
+                        <li class="step-item">Basic goals setup করুন</li>
+                        <li class="step-item">Reports interpretation practice করুন</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab-content="homework">
+                <div class="content-section">
+                    <h3><i class="fas fa-home"></i> আজকের হোমওয়ার্ক</h3>
+                    
+                    <ol class="step-list">
+                        <li class="step-item">
+                            <strong>Google Analytics 4 Setup</strong><br>
+                            Complete GA4 account তৈরি করুন এবং website এ implement করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>Conversion Goals Setup</strong><br>
+                            ৫টি important conversion events configure করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>Custom Segments Creation</strong><br>
+                            ৩টি business-relevant audience segments তৈরি করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>Weekly Report Analysis</strong><br>
+                            ১ সপ্তাহের data analyze করে insights document করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>Dashboard Creation</strong><br>
+                            Key metrics এর জন্য custom dashboard তৈরি করুন
+                        </li>
+                    </ol>
+
+                    <div class="highlight-box tip">
+                        <h5><i class="fas fa-lightbulb"></i> বোনাস টাস্ক</h5>
+                        <p>Google Tag Manager setup করুন advanced tracking এর জন্য।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lesson-navigation">
+            <a href="day-21.html" class="nav-button">
+                <i class="fas fa-chevron-left"></i> আগের পাঠ
+            </a>
+            <span>দিন ২২ / ৩০</span>
+            <a href="day-23.html" class="nav-button">
+                পরের পাঠ <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.tab-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const tabGroup = header.closest('.tabs');
+                    const targetTab = header.dataset.tab;
+                    
+                    tabGroup.querySelectorAll('.tab-header').forEach(h => h.classList.remove('active'));
+                    tabGroup.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    header.classList.add('active');
+                    tabGroup.querySelector(`[data-tab-content="${targetTab}"]`).classList.add('active');
+                });
+            });
+
+            let lessonCompleted = false;
+            window.addEventListener('scroll', () => {
+                if (!lessonCompleted && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                    lessonCompleted = true;
+                    if (window.digitalMarketingCourse) {
+                        window.digitalMarketingCourse.markLessonComplete(22);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

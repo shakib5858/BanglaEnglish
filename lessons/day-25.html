@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দিন ২৫: Performance Optimization ও A/B Testing - FSP Team</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projector.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-graduation-cap"></i> FSP Team</h1>
+                    <p>ডিজিটাল মার্কেটিং কোর্স</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-home"></i>
+                        <a href="../index.html" style="color: white; text-decoration: none;">হোম পেজ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-detail">
+        <div class="lesson-header-detail">
+            <div class="lesson-day-number">দিন ২৫</div>
+            <h1 class="lesson-main-title">Performance Optimization ও A/B Testing</h1>
+            <p class="lesson-subtitle"><span class="english-term">Conversion Rate Optimization, Split Testing</span> এবং Data-driven Improvements</p>
+        </div>
+
+        <div class="content-section">
+            <h3><i class="fas fa-target"></i> আজকের শিক্ষার লক্ষ্য</h3>
+            <ul class="step-list">
+                <li class="step-item">A/B Testing strategy ও implementation করতে পারবেন</li>
+                <li class="step-item">Conversion Rate Optimization (CRO) করতে পারবেন</li>
+                <li class="step-item">Statistical significance বুঝতে পারবেন</li>
+                <li class="step-item">Performance optimization tools ব্যবহার করতে পারবেন</li>
+            </ul>
+        </div>
+
+        <div class="tabs">
+            <div class="tab-headers">
+                <button class="tab-header active" data-tab="theory">তত্ত্বীয় জ্ঞান</button>
+                <button class="tab-header" data-tab="practical">প্র্যাকটিক্যাল</button>
+                <button class="tab-header" data-tab="teacher">শিক্ষক গাইড</button>
+                <button class="tab-header" data-tab="homework">হোমওয়ার্ক</button>
+            </div>
+
+            <div class="tab-content active" data-tab-content="theory">
+                <div class="content-section">
+                    <h3><i class="fas fa-chart-line"></i> A/B Testing এর গুরুত্ব</h3>
+                    <p><span class="english-term">A/B Testing</span> data-driven decision making এর foundation। Companies যারা A/B testing করে তারা ৩০-৫০% বেশি conversion rate পায়।</p>
+                    
+                    <div class="highlight-box important">
+                        <h5><i class="fas fa-lightbulb"></i> A/B Testing এর সুবিধা</h5>
+                        <ul>
+                            <li><strong>Data-driven Decisions:</strong> Assumptions এর পরিবর্তে facts</li>
+                            <li><strong>Risk Reduction:</strong> Small changes test করে big risks avoid</li>
+                            <li><strong>ROI Improvement:</strong> Better conversion rates</li>
+                            <li><strong>User Experience:</strong> Customer preference understanding</li>
+                            <li><strong>Continuous Optimization:</strong> Ongoing improvements</li>
+                        </ul>
+                    </div>
+
+                    <h4>A/B Testing vs Other Methods:</h4>
+                    <table>
+                        <tr>
+                            <th>Method</th>
+                            <th>Accuracy</th>
+                            <th>Time Required</th>
+                            <th>Cost</th>
+                            <th>Reliability</th>
+                        </tr>
+                        <tr>
+                            <td>A/B Testing</td>
+                            <td>High</td>
+                            <td>Medium</td>
+                            <td>Low</td>
+                            <td>Very High</td>
+                        </tr>
+                        <tr>
+                            <td>User Surveys</td>
+                            <td>Medium</td>
+                            <td>Low</td>
+                            <td>Medium</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics Analysis</td>
+                            <td>Medium</td>
+                            <td>Low</td>
+                            <td>Low</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Expert Opinion</td>
+                            <td>Low</td>
+                            <td>Very Low</td>
+                            <td>High</td>
+                            <td>Low</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-flask"></i> A/B Testing Methodology</h3>
+                    <p>Successful A/B testing এর জন্য systematic approach প্রয়োজন।</p>
+                    
+                    <h4>Testing Process:</h4>
+                    <ol class="step-list">
+                        <li class="step-item"><strong>Hypothesis Formation:</strong> Clear, testable hypothesis তৈরি</li>
+                        <li class="step-item"><strong>Metric Selection:</strong> Primary ও secondary metrics define</li>
+                        <li class="step-item"><strong>Sample Size Calculation:</strong> Statistical power ensure</li>
+                        <li class="step-item"><strong>Test Design:</strong> Control ও variant creation</li>
+                        <li class="step-item"><strong>Implementation:</strong> Random traffic split</li>
+                        <li class="step-item"><strong>Data Collection:</strong> Sufficient sample gathering</li>
+                        <li class="step-item"><strong>Analysis:</strong> Statistical significance check</li>
+                        <li class="step-item"><strong>Implementation:</strong> Winner rollout</li>
+                    </ol>
+
+                    <h4>Hypothesis Framework:</h4>
+                    <div class="code-block">
+                        <pre>Good Hypothesis Structure:
+
+"If we [change/add/remove] [element],
+then [metric] will [increase/decrease] by [amount]
+because [reasoning based on user behavior/data]."
+
+Example:
+"If we change the CTA button color from blue to red,
+then click-through rate will increase by 15%
+because red creates more urgency and stands out better."</pre>
+                    </div>
+
+                    <h4>Test Types:</h4>
+                    <ul>
+                        <li><strong>A/B Test:</strong> Two versions comparison</li>
+                        <li><strong>A/B/n Test:</strong> Multiple variants testing</li>
+                        <li><strong>Multivariate Test:</strong> Multiple elements simultaneously</li>
+                        <li><strong>Split URL Test:</strong> Different page versions</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-calculator"></i> Statistical Significance</h3>
+                    <p><span class="english-term">Statistical Significance</span> বুঝা A/B testing এর জন্য অপরিহার্য।</p>
+                    
+                    <h4>Key Statistical Concepts:</h4>
+                    <ul>
+                        <li><strong>Confidence Level:</strong> ৯৫% standard (৫% error rate)</li>
+                        <li><strong>P-value:</strong> <০.০৫ for significance</li>
+                        <li><strong>Statistical Power:</strong> ৮০% minimum recommended</li>
+                        <li><strong>Effect Size:</strong> Minimum detectable difference</li>
+                        <li><strong>Sample Size:</strong> Required visitors for valid results</li>
+                    </ul>
+
+                    <h4>Sample Size Calculation:</h4>
+                    <div class="code-block">
+                        <pre>Sample Size Factors:
+
+Base Conversion Rate: 5%
+Minimum Detectable Effect: 20% (1% absolute increase)
+Confidence Level: 95%
+Statistical Power: 80%
+
+Required Sample Size: ~16,000 visitors per variant
+
+Tools for Calculation:
+- Optimizely Sample Size Calculator
+- Google Optimize Calculator
+- Evan Miller's A/B Testing Calculator</pre>
+                    </div>
+
+                    <h4>Common Statistical Mistakes:</h4>
+                    <ul>
+                        <li><strong>Peeking:</strong> Stopping test early based on interim results</li>
+                        <li><strong>Small Sample Size:</strong> Insufficient data for conclusions</li>
+                        <li><strong>Multiple Testing:</strong> Not adjusting for multiple comparisons</li>
+                        <li><strong>Seasonal Effects:</strong> Not accounting for time-based variations</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-rocket"></i> Conversion Rate Optimization (CRO)</h3>
+                    <p><span class="english-term">CRO</span> হলো systematic process যা website visitors কে customers এ convert করার rate বাড়ায়।</p>
+                    
+                    <h4>CRO Elements to Test:</h4>
+                    <ul>
+                        <li><strong>Headlines:</strong> Value proposition clarity</li>
+                        <li><strong>Call-to-Action:</strong> Button text, color, placement</li>
+                        <li><strong>Forms:</strong> Field number, layout, labels</li>
+                        <li><strong>Images:</strong> Product photos, testimonials</li>
+                        <li><strong>Copy:</strong> Benefits vs features, length</li>
+                        <li><strong>Layout:</strong> Page structure, navigation</li>
+                        <li><strong>Trust Signals:</strong> Reviews, security badges</li>
+                        <li><strong>Pricing:</strong> Display format, positioning</li>
+                    </ul>
+
+                    <h4>CRO Best Practices:</h4>
+                    <ul>
+                        <li><strong>Start with High-Impact Pages:</strong> Landing pages, checkout</li>
+                        <li><strong>Test One Element:</strong> Isolate variables</li>
+                        <li><strong>Mobile Optimization:</strong> Mobile-first approach</li>
+                        <li><strong>Page Speed:</strong> Load time optimization</li>
+                        <li><strong>User Feedback:</strong> Qualitative insights</li>
+                    </ul>
+
+                    <div class="highlight-box tip">
+                        <h5><i class="fas fa-lightbulb"></i> CRO Priority Matrix</h5>
+                        <p>High Impact + Low Effort tests করুন first। Data দিয়ে prioritize করুন assumptions নয়।</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab-content="practical">
+                <div class="content-section">
+                    <h3><i class="fas fa-tools"></i> A/B Testing Tools</h3>
+                    <h4>Popular Testing Platforms:</h4>
+                    
+                    <h5>Free Tools:</h5>
+                    <ul>
+                        <li><strong>Google Optimize:</strong> Free, GA integration</li>
+                        <li><strong>Microsoft Clarity:</strong> Heatmaps ও session recordings</li>
+                        <li><strong>Hotjar (Free Plan):</strong> Basic heatmaps</li>
+                    </ul>
+
+                    <h5>Paid Tools:</h5>
+                    <table>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Starting Price</th>
+                            <th>Features</th>
+                            <th>Best For</th>
+                        </tr>
+                        <tr>
+                            <td>Optimizely</td>
+                            <td>$50/month</td>
+                            <td>Advanced targeting, Stats engine</td>
+                            <td>Enterprise</td>
+                        </tr>
+                        <tr>
+                            <td>VWO</td>
+                            <td>$199/month</td>
+                            <td>Heatmaps, Surveys, Testing</td>
+                            <td>Mid-market</td>
+                        </tr>
+                        <tr>
+                            <td>Unbounce</td>
+                            <td>$80/month</td>
+                            <td>Landing pages, A/B testing</td>
+                            <td>Small business</td>
+                        </tr>
+                        <tr>
+                            <td>Convert</td>
+                            <td>$99/month</td>
+                            <td>Privacy-focused, GDPR compliant</td>
+                            <td>EU companies</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-cog"></i> Google Optimize Setup</h3>
+                    <h4>Step-by-step Implementation:</h4>
+                    
+                    <ol class="step-list">
+                        <li class="step-item">
+                            <strong>Account Creation:</strong><br>
+                            optimize.google.com → Create account
+                        </li>
+                        <li class="step-item">
+                            <strong>Container Setup:</strong><br>
+                            Create container for website
+                        </li>
+                        <li class="step-item">
+                            <strong>Google Analytics Link:</strong><br>
+                            Connect to GA property
+                        </li>
+                        <li class="step-item">
+                            <strong>Code Installation:</strong><br>
+                            Add Optimize snippet to website
+                        </li>
+                        <li class="step-item">
+                            <strong>Experience Creation:</strong><br>
+                            Create A/B test experience
+                        </li>
+                    </ol>
+
+                    <div class="code-block">
+                        <pre>Google Optimize Installation:
+
+<!-- Google Optimize Anti-flicker snippet -->
+<style>.async-hide { opacity: 0 !important} </style>
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'GTM-XXXXXX':true});</script>
+
+<!-- Google Analytics + Optimize -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID', { optimize_id: 'OPT-XXXXXXX'});
+</script></pre>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-chart-bar"></i> Test Implementation Examples</h3>
+                    <h4>Common A/B Test Scenarios:</h4>
+                    
+                    <h5>1. CTA Button Testing:</h5>
+                    <ul>
+                        <li><strong>Hypothesis:</strong> Red button will increase clicks vs blue</li>
+                        <li><strong>Variants:</strong> Control (blue) vs Variant (red)</li>
+                        <li><strong>Metric:</strong> Click-through rate</li>
+                        <li><strong>Duration:</strong> 2-4 weeks</li>
+                    </ul>
+
+                    <h5>2. Headline Testing:</h5>
+                    <ul>
+                        <li><strong>Control:</strong> "Best Digital Marketing Course"</li>
+                        <li><strong>Variant A:</strong> "Learn Digital Marketing in 30 Days"</li>
+                        <li><strong>Variant B:</strong> "Master Digital Marketing - Get Job Ready"</li>
+                        <li><strong>Metric:</strong> Sign-up conversion rate</li>
+                    </ul>
+
+                    <h5>3. Form Optimization:</h5>
+                    <ul>
+                        <li><strong>Control:</strong> 5-field form</li>
+                        <li><strong>Variant:</strong> 3-field form</li>
+                        <li><strong>Hypothesis:</strong> Fewer fields = higher completion</li>
+                        <li><strong>Metric:</strong> Form completion rate</li>
+                    </ul>
+
+                    <h4>Test Results Analysis:</h4>
+                    <div class="code-block">
+                        <pre>Sample Test Results:
+
+Control (Blue Button):
+Visitors: 10,000
+Conversions: 500
+Conversion Rate: 5.0%
+
+Variant (Red Button):
+Visitors: 10,000
+Conversions: 580
+Conversion Rate: 5.8%
+
+Improvement: +16% (0.8% absolute)
+Confidence Level: 95%
+P-value: 0.032 (< 0.05 = Significant)
+
+Decision: Implement red button</pre>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-eye"></i> User Behavior Analysis</h3>
+                    <h4>Qualitative Research Methods:</h4>
+                    
+                    <h5>Heatmap Analysis:</h5>
+                    <ul>
+                        <li><strong>Click Heatmaps:</strong> Where users click most</li>
+                        <li><strong>Scroll Heatmaps:</strong> How far users scroll</li>
+                        <li><strong>Move Heatmaps:</strong> Mouse movement patterns</li>
+                        <li><strong>Attention Heatmaps:</strong> Eye-tracking simulation</li>
+                    </ul>
+
+                    <h5>Session Recordings:</h5>
+                    <ul>
+                        <li><strong>User Journey:</strong> Complete session playback</li>
+                        <li><strong>Pain Points:</strong> Where users struggle</li>
+                        <li><strong>Drop-off Analysis:</strong> Exit points identification</li>
+                        <li><strong>Form Analytics:</strong> Field-level interactions</li>
+                    </ul>
+
+                    <h4>User Feedback Collection:</h4>
+                    <ul>
+                        <li><strong>Exit Intent Surveys:</strong> Why users leave</li>
+                        <li><strong>Post-purchase Surveys:</strong> Conversion factors</li>
+                        <li><strong>Usability Testing:</strong> Task-based testing</li>
+                        <li><strong>Customer Interviews:</strong> In-depth insights</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-tachometer-alt"></i> Performance Optimization</h3>
+                    <h4>Technical Optimization:</h4>
+                    
+                    <h5>Page Speed Optimization:</h5>
+                    <ul>
+                        <li><strong>Image Compression:</strong> WebP format, lazy loading</li>
+                        <li><strong>Code Minification:</strong> CSS, JS compression</li>
+                        <li><strong>Caching:</strong> Browser ও server-side caching</li>
+                        <li><strong>CDN:</strong> Content delivery network</li>
+                        <li><strong>Critical CSS:</strong> Above-the-fold optimization</li>
+                    </ul>
+
+                    <h5>Mobile Optimization:</h5>
+                    <ul>
+                        <li><strong>Responsive Design:</strong> Mobile-first approach</li>
+                        <li><strong>Touch Targets:</strong> 44px minimum size</li>
+                        <li><strong>Font Size:</strong> 16px+ for readability</li>
+                        <li><strong>Form Optimization:</strong> Mobile-friendly inputs</li>
+                    </ul>
+
+                    <h4>Performance Metrics:</h4>
+                    <ul>
+                        <li><strong>Core Web Vitals:</strong> LCP, FID, CLS</li>
+                        <li><strong>Page Load Time:</strong> <3 seconds target</li>
+                        <li><strong>Time to Interactive:</strong> <5 seconds</li>
+                        <li><strong>Bounce Rate:</strong> <40% target</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab-content="teacher">
+                <div class="content-section">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> শিক্ষকের জন্য নির্দেশনা</h3>
+                    
+                    <h4>ক্লাস শুরুর আগে (৫ মিনিট):</h4>
+                    <ul class="step-list">
+                        <li class="step-item">A/B testing tools access ensure করুন</li>
+                        <li class="step-item">Sample test results prepare করুন</li>
+                        <li class="step-item">Statistical significance calculator ready রাখুন</li>
+                    </ul>
+
+                    <h4>মূল পাঠ (৩৫ মিনিট):</h4>
+                    <ul class="step-list">
+                        <li class="step-item"><strong>A/B Testing Concepts (১০ মিনিট):</strong> Methodology ও importance</li>
+                        <li class="step-item"><strong>Tool Demo (১৫ মিনিট):</strong> Google Optimize setup</li>
+                        <li class="step-item"><strong>Statistical Analysis (৫ মিনিট):</strong> Significance interpretation</li>
+                        <li class="step-item"><strong>CRO Best Practices (৫ মিনিট):</strong> Optimization strategies</li>
+                    </ul>
+
+                    <h4>প্র্যাকটিক্যাল সেশন (১৫ মিনিট):</h4>
+                    <ul class="step-list">
+                        <li class="step-item">Students দের A/B test setup করতে সাহায্য করুন</li>
+                        <li class="step-item">Hypothesis writing practice করুন</li>
+                        <li class="step-item">Sample size calculation করুন</li>
+                        <li class="step-item">Test results interpretation করুন</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab-content="homework">
+                <div class="content-section">
+                    <h3><i class="fas fa-home"></i> আজকের হোমওয়ার্ক</h3>
+                    
+                    <ol class="step-list">
+                        <li class="step-item">
+                            <strong>A/B Testing Tool Setup</strong><br>
+                            Google Optimize বা অন্য tool setup করুন website এ
+                        </li>
+                        <li class="step-item">
+                            <strong>৩টি A/B Test Design</strong><br>
+                            Different elements এর জন্য test hypothesis ও design তৈরি করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>CRO Audit</strong><br>
+                            Website এর conversion funnel analyze করে optimization opportunities identify করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>Performance Analysis</strong><br>
+                            Page speed ও mobile optimization audit করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>Test Implementation</strong><br>
+                            একটি A/B test run করুন এবং results analyze করুন
+                        </li>
+                    </ol>
+
+                    <div class="highlight-box tip">
+                        <h5><i class="fas fa-lightbulb"></i> বোনাস টাস্ক</h5>
+                        <p>Multivariate test design করুন multiple elements simultaneously test করার জন্য।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lesson-navigation">
+            <a href="day-24.html" class="nav-button">
+                <i class="fas fa-chevron-left"></i> আগের পাঠ
+            </a>
+            <span>দিন ২৫ / ৩০</span>
+            <a href="day-26.html" class="nav-button">
+                পরের পাঠ <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.tab-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const tabGroup = header.closest('.tabs');
+                    const targetTab = header.dataset.tab;
+                    
+                    tabGroup.querySelectorAll('.tab-header').forEach(h => h.classList.remove('active'));
+                    tabGroup.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    header.classList.add('active');
+                    tabGroup.querySelector(`[data-tab-content="${targetTab}"]`).classList.add('active');
+                });
+            });
+
+            let lessonCompleted = false;
+            window.addEventListener('scroll', () => {
+                if (!lessonCompleted && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                    lessonCompleted = true;
+                    if (window.digitalMarketingCourse) {
+                        window.digitalMarketingCourse.markLessonComplete(25);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

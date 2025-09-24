@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>৩০ দিনের ডিজিটাল মার্কেটিং কোর্স - FSP Team</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projector.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/ui-enhancements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-graduation-cap"></i> FSP Team</h1>
+                    <p>ডিজিটাল মার্কেটিং কোর্স</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>হবিগঞ্জ, লাখাই, বুল্লা বাজার</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>০১৩১২১২৫৮৫৮</span>
+                    </div>
+                    <div class="contact-item">
+                        <button id="logoutBtn" class="logout-btn" style="display: none;">
+                            <i class="fas fa-sign-out-alt"></i> লগআউট
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> হোম</a></li>
+                <li><a href="#course-overview" class="nav-link"><i class="fas fa-book"></i> কোর্স পরিচিতি</a></li>
+                <li><a href="#lessons" class="nav-link"><i class="fas fa-calendar-alt"></i> দৈনিক পাঠ</a></li>
+                <li><a href="#progress" class="nav-link"><i class="fas fa-chart-line"></i> অগ্রগতি</a></li>
+                <li><a href="#resources" class="nav-link"><i class="fas fa-tools"></i> রিসোর্স</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="বিষয় খুঁজুন..." class="search-input">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section id="home" class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">৩০ দিনের সম্পূর্ণ ডিজিটাল মার্কেটিং কোর্স</h1>
+                    <p class="hero-subtitle">২০২৫ সালের সর্বশেষ কৌশল ও AI টুলস সহ</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">30</span>
+                            <span class="stat-label">দিন</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">9</span>
+                            <span class="stat-label">মূল বিষয়</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">প্র্যাকটিক্যাল টাস্ক</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Course Overview -->
+            <section id="course-overview" class="course-overview">
+                <h2 class="section-title">কোর্স পরিচিতি</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>SEO (Search Engine Optimization)</h3>
+                        <p>On-page, Off-page, Core Web Vitals, AI SEO টুলস</p>
+                        <span class="duration">দিন ১-৪</span>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <h3>SEM (Search Engine Marketing)</h3>
+                        <p>Google Ads, PPC, ২০২৫ এর ট্রেন্ড</p>
+                        <span class="duration">দিন ৫-৮</span>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Social Media Marketing</h3>
+                        <p>Facebook, Instagram, LinkedIn, TikTok, YouTube</p>
+                        <span class="duration">দিন ৯-১৪</span>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <h3>Content Marketing</h3>
+                        <p>Blogging, AI Content, Video, Reels</p>
+                        <span class="duration">দিন ১৫-১৮</span>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Marketing</h3>
+                        <p>Automation, AI-assisted campaigns</p>
+                        <span class="duration">দিন ১৯-২১</span>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Analytics</h3>
+                        <p>GA4, Reports, AI insights</p>
+                        <span class="duration">দিন ২২-২৪</span>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Paid Advertising</h3>
+                        <p>Facebook Ads, Google Ads, TikTok Ads</p>
+                        <span class="duration">দিন ২৫-২৭</span>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Tools & Automation</h3>
+                        <p>ChatGPT, MidJourney, Canva AI</p>
+                        <span class="duration">দিন ২৮-২৯</span>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-strategy"></i>
+                        </div>
+                        <h3>Strategy & Planning</h3>
+                        <p>Marketing Funnel, Campaign Planning</p>
+                        <span class="duration">দিন ৩০</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Tracker -->
+            <section id="progress" class="progress-section">
+                <h2 class="section-title">আপনার অগ্রগতি</h2>
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <h3>সম্পূর্ণ কোর্স অগ্রগতি</h3>
+                        <span class="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="overallProgress"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <div class="progress-stat">
+                            <span class="stat-value" id="completedLessons">0</span>
+                            <span class="stat-label">সম্পূর্ণ পাঠ</span>
+                        </div>
+                        <div class="progress-stat">
+                            <span class="stat-value" id="remainingLessons">30</span>
+                            <span class="stat-label">বাকি পাঠ</span>
+                        </div>
+                        <div class="progress-stat">
+                            <span class="stat-value" id="currentStreak">0</span>
+                            <span class="stat-label">ধারাবাহিক দিন</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Daily Lessons -->
+            <section id="lessons" class="lessons-section">
+                <h2 class="section-title">দৈনিক পাঠসমূহ</h2>
+                <div class="lessons-grid" id="lessonsGrid">
+                    <!-- Lessons will be dynamically generated -->
+                </div>
+            </section>
+
+            <!-- Resources -->
+            <section id="resources" class="resources-section">
+                <h2 class="section-title">প্রয়োজনীয় রিসোর্স</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3><i class="fas fa-tools"></i> প্রয়োজনীয় টুলস</h3>
+                        <ul>
+                            <li>Google Analytics 4</li>
+                            <li>Google Search Console</li>
+                            <li>Facebook Business Manager</li>
+                            <li>Canva (AI features)</li>
+                            <li>ChatGPT</li>
+                            <li>Mailchimp/ConvertKit</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3><i class="fas fa-download"></i> অফলাইন রিসোর্স</h3>
+                        <ul>
+                            <li>সকল টেমপ্লেট ডাউনলোড</li>
+                            <li>চেকলিস্ট PDF</li>
+                            <li>প্র্যাকটিস ফাইল</li>
+                            <li>স্ক্রিনশট গাইড</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3><i class="fas fa-question-circle"></i> সাহায্য</h3>
+                        <ul>
+                            <li>শিক্ষক গাইড</li>
+                            <li>FAQ সেকশন</li>
+                            <li>ট্রাবলশুটিং গাইড</li>
+                            <li>যোগাযোগ তথ্য</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FSP Team</h3>
+                    <p>আধুনিক ডিজিটাল মার্কেটিং শিক্ষায় আমরা অগ্রগামী</p>
+                </div>
+                <div class="footer-section">
+                    <h3>যোগাযোগ</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> হবিগঞ্জ, লাখাই, বুল্লা বাজার</p>
+                    <p><i class="fas fa-phone"></i> ০১৩১২১২৫৮৫৮</p>
+                </div>
+                <div class="footer-section">
+                    <h3>কোর্স তথ্য</h3>
+                    <p>৩০ দিনের সম্পূর্ণ কোর্স</p>
+                    <p>অফলাইন ও অনলাইন সাপোর্ট</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; ২০২৫ FSP Team. সকল অধিকার সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/lessons.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/ui-enhancements.js"></script>
+    
+    <!-- Login Protection Script -->
+    <script>
+        // Check login status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
+        });
+
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('fspLogin') || sessionStorage.getItem('fspLogin');
+            const loginTime = localStorage.getItem('fspLoginTime');
+            
+            if (!isLoggedIn) {
+                // Redirect to login page if not logged in
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Check if login is still valid (24 hours for remember me)
+            if (loginTime) {
+                const timeDiff = Date.now() - parseInt(loginTime);
+                const hoursDiff = timeDiff / (1000 * 60 * 60);
+                
+                if (hoursDiff >= 24) {
+                    // Login expired, clear storage and redirect
+                    localStorage.removeItem('fspLogin');
+                    localStorage.removeItem('fspLoginTime');
+                    sessionStorage.removeItem('fspLogin');
+                    window.location.href = 'login.html';
+                    return;
+                }
+            }
+            
+            // Show logout button if logged in
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.style.display = 'inline-flex';
+                logoutBtn.addEventListener('click', logout);
+            }
+        }
+
+        function logout() {
+            // Clear all login data
+            localStorage.removeItem('fspLogin');
+            localStorage.removeItem('fspLoginTime');
+            sessionStorage.removeItem('fspLogin');
+            
+            // Show logout confirmation
+            if (confirm('আপনি কি নিশ্চিত যে লগআউট করতে চান?')) {
+                // Redirect to login page
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Add logout button styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .logout-btn {
+                background: linear-gradient(135deg, #dc2626, #b91c1c);
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 8px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-family: 'Noto Sans Bengali', sans-serif;
+            }
+            
+            .logout-btn:hover {
+                background: linear-gradient(135deg, #b91c1c, #991b1b);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+            }
+            
+            .logout-btn:active {
+                transform: translateY(0);
+            }
+            
+            .logout-btn i {
+                font-size: 0.8rem;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

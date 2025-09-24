@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দিন ২ৄ: Conversion Tracking ও Attribution - FSP Team</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projector.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-graduation-cap"></i> FSP Team</h1>
+                    <p>ডিজিটাল মার্কেটিং কোর্স</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-home"></i>
+                        <a href="../index.html" style="color: white; text-decoration: none;">হোম পেজ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-detail">
+        <div class="lesson-header-detail">
+            <div class="lesson-day-number">দিন ২৪</div>
+            <h1 class="lesson-main-title">Conversion Tracking ও Attribution</h1>
+            <p class="lesson-subtitle"><span class="english-term">Multi-touch Attribution, Customer Journey</span> এবং ROI Analysis</p>
+        </div>
+
+        <div class="content-section">
+            <h3><i class="fas fa-target"></i> আজকের শিক্ষার লক্ষ্য</h3>
+            <ul class="step-list">
+                <li class="step-item">Advanced Conversion Tracking setup করতে পারবেন</li>
+                <li class="step-item">Attribution Models বুঝতে ও implement করতে পারবেন</li>
+                <li class="step-item">Customer Journey map করতে পারবেন</li>
+                <li class="step-item">Cross-channel Attribution analyze করতে পারবেন</li>
+            </ul>
+        </div>
+
+        <div class="tabs">
+            <div class="tab-headers">
+                <button class="tab-header active" data-tab="theory">তত্ত্বীয় জ্ঞান</button>
+                <button class="tab-header" data-tab="practical">প্র্যাকটিক্যাল</button>
+                <button class="tab-header" data-tab="teacher">শিক্ষক গাইড</button>
+                <button class="tab-header" data-tab="homework">হোমওয়ার্ক</button>
+            </div>
+
+            <div class="tab-content active" data-tab-content="theory">
+                <div class="content-section">
+                    <h3><i class="fas fa-bullseye"></i> Conversion Tracking এর গুরুত্ব</h3>
+                    <p><span class="english-term">Conversion Tracking</span> ছাড়া marketing ROI measure করা অসম্ভব। ৭৩% businesses conversion tracking ব্যবহার করে performance optimize করে।</p>
+                    
+                    <div class="highlight-box important">
+                        <h5><i class="fas fa-lightbulb"></i> Conversion Tracking এর সুবিধা</h5>
+                        <ul>
+                            <li><strong>ROI Measurement:</strong> Exact return on investment</li>
+                            <li><strong>Campaign Optimization:</strong> Best performing channels identify</li>
+                            <li><strong>Budget Allocation:</strong> Effective channel prioritization</li>
+                            <li><strong>Customer Journey:</strong> Complete path understanding</li>
+                            <li><strong>Attribution Analysis:</strong> Credit distribution across touchpoints</li>
+                        </ul>
+                    </div>
+
+                    <h4>Conversion Types:</h4>
+                    <table>
+                        <tr>
+                            <th>Conversion Type</th>
+                            <th>Definition</th>
+                            <th>Examples</th>
+                            <th>Tracking Method</th>
+                        </tr>
+                        <tr>
+                            <td>Macro Conversions</td>
+                            <td>Primary business goals</td>
+                            <td>Sales, Signups</td>
+                            <td>E-commerce, Goal tracking</td>
+                        </tr>
+                        <tr>
+                            <td>Micro Conversions</td>
+                            <td>Secondary actions</td>
+                            <td>Newsletter signup, Download</td>
+                            <td>Event tracking</td>
+                        </tr>
+                        <tr>
+                            <td>Assisted Conversions</td>
+                            <td>Supporting touchpoints</td>
+                            <td>Social media engagement</td>
+                            <td>Multi-channel funnels</td>
+                        </tr>
+                        <tr>
+                            <td>View-through</td>
+                            <td>Impression influence</td>
+                            <td>Display ad views</td>
+                            <td>Post-impression tracking</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-route"></i> Attribution Models</h3>
+                    <p><span class="english-term">Attribution Models</span> বিভিন্ন touchpoints এর মধ্যে conversion credit distribute করে।</p>
+                    
+                    <h4>Standard Attribution Models:</h4>
+                    <ul>
+                        <li><strong>Last Click:</strong> Final touchpoint gets 100% credit</li>
+                        <li><strong>First Click:</strong> Initial touchpoint gets 100% credit</li>
+                        <li><strong>Linear:</strong> Equal credit across all touchpoints</li>
+                        <li><strong>Time Decay:</strong> Recent touchpoints get more credit</li>
+                        <li><strong>Position-based:</strong> First ও last get 40% each, middle gets 20%</li>
+                        <li><strong>Data-driven:</strong> AI-based credit distribution</li>
+                    </ul>
+
+                    <h4>Attribution Model Comparison:</h4>
+                    <div class="code-block">
+                        <pre>Customer Journey Example:
+Facebook Ad → Google Search → Email → Direct → Purchase
+
+Last Click: Direct gets 100% credit
+First Click: Facebook gets 100% credit
+Linear: Each gets 25% credit
+Time Decay: Direct 40%, Email 30%, Google 20%, Facebook 10%
+Position-based: Facebook 40%, Direct 40%, Google+Email 20%</pre>
+                    </div>
+
+                    <h4>Model Selection Criteria:</h4>
+                    <ul>
+                        <li><strong>Business Type:</strong> B2B vs B2C journey length</li>
+                        <li><strong>Sales Cycle:</strong> Short vs long consideration period</li>
+                        <li><strong>Channel Mix:</strong> Number of marketing channels</li>
+                        <li><strong>Data Availability:</strong> Historical conversion data</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-map-marked-alt"></i> Customer Journey Mapping</h3>
+                    <p><span class="english-term">Customer Journey</span> বুঝলে প্রতিটি touchpoint optimize করা যায়।</p>
+                    
+                    <h4>Journey Stages:</h4>
+                    <ul>
+                        <li><strong>Awareness:</strong> Problem recognition, brand discovery</li>
+                        <li><strong>Interest:</strong> Information gathering, research</li>
+                        <li><strong>Consideration:</strong> Option evaluation, comparison</li>
+                        <li><strong>Intent:</strong> Purchase decision, final evaluation</li>
+                        <li><strong>Purchase:</strong> Transaction completion</li>
+                        <li><strong>Retention:</strong> Post-purchase engagement</li>
+                        <li><strong>Advocacy:</strong> Referral ও recommendation</li>
+                    </ul>
+
+                    <h4>Touchpoint Categories:</h4>
+                    <ul>
+                        <li><strong>Paid Media:</strong> Ads, sponsored content</li>
+                        <li><strong>Owned Media:</strong> Website, email, social profiles</li>
+                        <li><strong>Earned Media:</strong> Reviews, mentions, PR</li>
+                        <li><strong>Offline:</strong> Store visits, phone calls</li>
+                    </ul>
+
+                    <div class="highlight-box tip">
+                        <h5><i class="fas fa-lightbulb"></i> Journey Optimization</h5>
+                        <p>প্রতিটি stage এর জন্য appropriate content ও messaging তৈরি করুন।</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-link"></i> Cross-Channel Attribution</h3>
+                    <p><span class="english-term">Cross-Channel Attribution</span> সব marketing channels এর combined impact measure করে।</p>
+                    
+                    <h4>Attribution Challenges:</h4>
+                    <ul>
+                        <li><strong>Device Switching:</strong> Mobile to desktop transitions</li>
+                        <li><strong>Cookie Limitations:</strong> Privacy restrictions</li>
+                        <li><strong>Offline Integration:</strong> Online to offline connections</li>
+                        <li><strong>Data Silos:</strong> Platform-specific tracking</li>
+                        <li><strong>Attribution Windows:</strong> Time frame definitions</li>
+                    </ul>
+
+                    <h4>Advanced Attribution Solutions:</h4>
+                    <ul>
+                        <li><strong>Unified Customer ID:</strong> Cross-device tracking</li>
+                        <li><strong>Marketing Mix Modeling:</strong> Statistical analysis</li>
+                        <li><strong>Incrementality Testing:</strong> Lift measurement</li>
+                        <li><strong>Machine Learning:</strong> AI-powered attribution</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab-content="practical">
+                <div class="content-section">
+                    <h3><i class="fas fa-cogs"></i> Conversion Tracking Setup</h3>
+                    <h4>Google Analytics 4 Enhanced E-commerce:</h4>
+                    
+                    <ol class="step-list">
+                        <li class="step-item">
+                            <strong>E-commerce Settings:</strong><br>
+                            GA4 → Admin → E-commerce Settings enable
+                        </li>
+                        <li class="step-item">
+                            <strong>Purchase Event:</strong><br>
+                            Transaction tracking code implement
+                        </li>
+                        <li class="step-item">
+                            <strong>Product Data:</strong><br>
+                            Item details, categories, revenue tracking
+                        </li>
+                        <li class="step-item">
+                            <strong>Funnel Analysis:</strong><br>
+                            Shopping behavior reports setup
+                        </li>
+                    </ol>
+
+                    <div class="code-block">
+                        <pre>Enhanced E-commerce Tracking Code:
+
+// Purchase Event
+gtag('event', 'purchase', {
+  transaction_id: '12345',
+  value: 25.42,
+  currency: 'BDT',
+  items: [{
+    item_id: 'SKU123',
+    item_name: 'Product Name',
+    category: 'Electronics',
+    quantity: 1,
+    price: 25.42
+  }]
+});
+
+// Add to Cart Event
+gtag('event', 'add_to_cart', {
+  currency: 'BDT',
+  value: 15.25,
+  items: [{
+    item_id: 'SKU456',
+    item_name: 'Another Product',
+    category: 'Clothing',
+    quantity: 2,
+    price: 7.625
+  }]
+});</pre>
+                    </div>
+
+                    <h4>Facebook Pixel Advanced Setup:</h4>
+                    <ul>
+                        <li><strong>Standard Events:</strong> Purchase, Lead, ViewContent</li>
+                        <li><strong>Custom Events:</strong> Business-specific actions</li>
+                        <li><strong>Custom Conversions:</strong> URL-based tracking</li>
+                        <li><strong>Offline Events:</strong> Store visit integration</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-chart-network"></i> Multi-Channel Funnel Analysis</h3>
+                    <h4>Google Analytics Multi-Channel Funnels:</h4>
+                    
+                    <h5>Setup Process:</h5>
+                    <ol class="step-list">
+                        <li class="step-item">GA4 → Advertising → Attribution</li>
+                        <li class="step-item">Attribution models comparison</li>
+                        <li class="step-item">Conversion paths analysis</li>
+                        <li class="step-item">Time lag ও path length reports</li>
+                    </ol>
+
+                    <h5>Key Reports:</h5>
+                    <ul>
+                        <li><strong>Top Conversion Paths:</strong> Most common customer journeys</li>
+                        <li><strong>Time Lag:</strong> Days between first touch ও conversion</li>
+                        <li><strong>Path Length:</strong> Number of touchpoints before conversion</li>
+                        <li><strong>Assisted Conversions:</strong> Supporting channel contributions</li>
+                    </ul>
+
+                    <h4>Attribution Model Comparison:</h4>
+                    <table>
+                        <tr>
+                            <th>Channel</th>
+                            <th>Last Click</th>
+                            <th>First Click</th>
+                            <th>Linear</th>
+                            <th>Time Decay</th>
+                        </tr>
+                        <tr>
+                            <td>Google Ads</td>
+                            <td>45%</td>
+                            <td>25%</td>
+                            <td>35%</td>
+                            <td>40%</td>
+                        </tr>
+                        <tr>
+                            <td>Facebook</td>
+                            <td>15%</td>
+                            <td>40%</td>
+                            <td>25%</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>25%</td>
+                            <td>20%</td>
+                            <td>25%</td>
+                            <td>25%</td>
+                        </tr>
+                        <tr>
+                            <td>Direct</td>
+                            <td>15%</td>
+                            <td>15%</td>
+                            <td>15%</td>
+                            <td>15%</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-tools"></i> Attribution Tools ও Platforms</h3>
+                    <h4>Enterprise Attribution Solutions:</h4>
+                    
+                    <h5>Google Attribution (Free):</h5>
+                    <ul>
+                        <li><strong>Data-driven Attribution:</strong> Machine learning models</li>
+                        <li><strong>Cross-device Tracking:</strong> Signed-in users</li>
+                        <li><strong>YouTube Integration:</strong> Video ad attribution</li>
+                        <li><strong>Offline Import:</strong> Store visit tracking</li>
+                    </ul>
+
+                    <h5>Third-party Solutions:</h5>
+                    <ul>
+                        <li><strong>Adobe Analytics:</strong> Advanced segmentation</li>
+                        <li><strong>Salesforce Analytics:</strong> CRM integration</li>
+                        <li><strong>HubSpot Attribution:</strong> Marketing automation</li>
+                        <li><strong>Bizible (Microsoft):</strong> B2B attribution</li>
+                    </ul>
+
+                    <h4>Custom Attribution Implementation:</h4>
+                    <div class="code-block">
+                        <pre>UTM Parameter Strategy:
+
+Campaign Structure:
+utm_source: facebook, google, email
+utm_medium: cpc, social, email, organic
+utm_campaign: summer_sale_2024
+utm_term: digital_marketing_course
+utm_content: video_ad_v1
+
+Example URL:
+https://example.com/course?
+utm_source=facebook&
+utm_medium=cpc&
+utm_campaign=summer_sale_2024&
+utm_term=digital_marketing&
+utm_content=carousel_ad</pre>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class="fas fa-chart-line"></i> ROI ও ROAS Analysis</h3>
+                    <h4>Attribution-based ROI Calculation:</h4>
+                    
+                    <h5>Channel-specific ROAS:</h5>
+                    <div class="code-block">
+                        <pre>ROAS Calculation by Attribution Model:
+
+Last Click ROAS:
+Google Ads: ৫০,০০০ টাকা revenue / ১০,০০০ টাকা spend = 5:1
+
+Linear Attribution ROAS:
+Google Ads: ৩৫,০০০ টাকা attributed revenue / ১০,০০০ টাকা = 3.5:1
+Facebook: ২৫,০০০ টাকা attributed revenue / ৮,০০০ টাকা = 3.1:1
+
+Data-driven Attribution:
+More accurate credit distribution based on actual conversion paths</pre>
+                    </div>
+
+                    <h5>Incremental Revenue Analysis:</h5>
+                    <ul>
+                        <li><strong>Baseline Revenue:</strong> Organic ও direct traffic</li>
+                        <li><strong>Incremental Revenue:</strong> Paid channel contribution</li>
+                        <li><strong>Cannibalization:</strong> Channel overlap impact</li>
+                        <li><strong>Lift Testing:</strong> True incremental measurement</li>
+                    </ul>
+
+                    <h4>Advanced Metrics:</h4>
+                    <ul>
+                        <li><strong>Customer Acquisition Cost (CAC):</strong> By attribution model</li>
+                        <li><strong>Lifetime Value (LTV):</strong> Long-term customer worth</li>
+                        <li><strong>Payback Period:</strong> Time to recover acquisition cost</li>
+                        <li><strong>Contribution Margin:</strong> Profit after variable costs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab-content="teacher">
+                <div class="content-section">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> শিক্ষকের জন্য নির্দেশনা</h3>
+                    
+                    <h4>ক্লাস শুরুর আগে (৫ মিনিট):</h4>
+                    <ul class="step-list">
+                        <li class="step-item">Attribution model examples prepare করুন</li>
+                        <li class="step-item">Customer journey case studies ready রাখুন</li>
+                        <li class="step-item">Multi-channel funnel reports screenshot করুন</li>
+                    </ul>
+
+                    <h4>মূল পাঠ (৩৫ মিনিট):</h4>
+                    <ul class="step-list">
+                        <li class="step-item"><strong>Attribution Concepts (১০ মিনিট):</strong> Models ও importance</li>
+                        <li class="step-item"><strong>Tracking Setup Demo (১৫ মিনিট):</strong> GA4 ও Facebook Pixel</li>
+                        <li class="step-item"><strong>Journey Analysis (৫ মিনিট):</strong> Multi-channel funnels</li>
+                        <li class="step-item"><strong>ROI Calculation (৫ মিনিট):</strong> Attribution-based ROAS</li>
+                    </ul>
+
+                    <h4>প্র্যাকটিক্যাল সেশন (১৫ মিনিট):</h4>
+                    <ul class="step-list">
+                        <li class="step-item">Students দের conversion tracking setup করতে সাহায্য করুন</li>
+                        <li class="step-item">Attribution model comparison করুন</li>
+                        <li class="step-item">Customer journey mapping exercise করুন</li>
+                        <li class="step-item">ROI calculation practice করুন</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" data-tab-content="homework">
+                <div class="content-section">
+                    <h3><i class="fas fa-home"></i> আজকের হোমওয়ার্ক</h3>
+                    
+                    <ol class="step-list">
+                        <li class="step-item">
+                            <strong>Enhanced Conversion Tracking</strong><br>
+                            GA4 ও Facebook Pixel এ advanced conversion tracking setup করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>Attribution Model Analysis</strong><br>
+                            বিভিন্ন attribution models compare করে best model select করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>Customer Journey Mapping</strong><br>
+                            Complete customer journey map তৈরি করুন সব touchpoints সহ
+                        </li>
+                        <li class="step-item">
+                            <strong>Multi-Channel ROI Analysis</strong><br>
+                            Attribution-based channel performance ও ROI calculate করুন
+                        </li>
+                        <li class="step-item">
+                            <strong>UTM Strategy Implementation</strong><br>
+                            Comprehensive UTM parameter strategy তৈরি ও implement করুন
+                        </li>
+                    </ol>
+
+                    <div class="highlight-box tip">
+                        <h5><i class="fas fa-lightbulb"></i> বোনাস টাস্ক</h5>
+                        <p>Cross-device tracking setup করুন এবং device switching patterns analyze করুন।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lesson-navigation">
+            <a href="day-23.html" class="nav-button">
+                <i class="fas fa-chevron-left"></i> আগের পাঠ
+            </a>
+            <span>দিন ২৪ / ৩০</span>
+            <a href="day-25.html" class="nav-button">
+                পরের পাঠ <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.tab-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const tabGroup = header.closest('.tabs');
+                    const targetTab = header.dataset.tab;
+                    
+                    tabGroup.querySelectorAll('.tab-header').forEach(h => h.classList.remove('active'));
+                    tabGroup.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    header.classList.add('active');
+                    tabGroup.querySelector(`[data-tab-content="${targetTab}"]`).classList.add('active');
+                });
+            });
+
+            let lessonCompleted = false;
+            window.addEventListener('scroll', () => {
+                if (!lessonCompleted && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                    lessonCompleted = true;
+                    if (window.digitalMarketingCourse) {
+                        window.digitalMarketingCourse.markLessonComplete(24);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

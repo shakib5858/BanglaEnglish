@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>লগইন - FSP Team Digital Marketing Course</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/ui-enhancements.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Enhanced Meta Tags -->
+    <meta name="description" content="FSP Team ডিজিটাল মার্কেটিং কোর্সে লগইন করুন। আপনার ফোন নম্বর ও পাসওয়ার্ড দিয়ে প্রবেশ করুন।">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body class="login-body">
+    <!-- Loading Screen -->
+    <div id="loginLoadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <h2><i class="fas fa-graduation-cap"></i> FSP Team</h2>
+            <p>লগইন পেজ লোড হচ্ছে...</p>
+        </div>
+    </div>
+
+    <!-- Skip to main content -->
+    <a href="#loginForm" class="skip-link">লগইন ফর্মে যান</a>
+
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Theme Toggle -->
+            <button id="loginThemeToggle" class="login-theme-toggle" aria-label="ডার্ক মোড টগল করুন" title="ডার্ক মোড টগল করুন">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+
+            <div class="login-header">
+                <div class="logo-section" role="img" aria-label="FSP Team Logo">
+                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                    <h1>FSP Team</h1>
+                    <p>ডিজিটাল মার্কেটিং কোর্স</p>
+                </div>
+            </div>
+
+            <div class="login-form-container">
+                <h2>কোর্সে প্রবেশ করুন</h2>
+                <p class="login-subtitle">আপনার ফোন নম্বর ও পাসওয়ার্ড দিয়ে লগইন করুন</p>
+
+                <form id="loginForm" class="login-form" role="form" novalidate>
+                    <div class="form-group">
+                        <label for="phone">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            ফোন নম্বর
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="01312125858" 
+                                required
+                                autocomplete="tel"
+                                aria-describedby="phone-error"
+                                pattern="[0-9]{11}"
+                                maxlength="11"
+                            >
+                            <div class="validation-feedback" id="phone-error" role="alert"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fas fa-lock" aria-hidden="true"></i>
+                            পাসওয়ার্ড
+                        </label>
+                        <div class="input-wrapper">
+                            <div class="password-input">
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    placeholder="আপনার পাসওয়ার্ড লিখুন" 
+                                    required
+                                    autocomplete="current-password"
+                                    aria-describedby="password-error"
+                                    minlength="6"
+                                >
+                                <button type="button" class="toggle-password" onclick="togglePassword()" aria-label="পাসওয়ার্ড দেখান/লুকান">
+                                    <i class="fas fa-eye" id="toggleIcon" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="validation-feedback" id="password-error" role="alert"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember" aria-describedby="remember-help">
+                            <span class="checkmark" aria-hidden="true"></span>
+                            আমাকে মনে রাখুন
+                            <small id="remember-help" class="help-text">২৪ ঘন্টার জন্য লগইন থাকবেন</small>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="login-btn" id="loginButton">
+                        <span class="btn-content">
+                            <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+                            লগইন করুন
+                        </span>
+                        <div class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+                            যাচাই করা হচ্ছে...
+                        </div>
+                    </button>
+
+                    <div class="error-message" id="errorMessage" style="display: none;" role="alert" aria-live="polite">
+                        <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+                        <span id="errorText"></span>
+                    </div>
+
+                    <div class="success-message" id="successMessage" style="display: none;" role="alert" aria-live="polite">
+                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                        <span>সফলভাবে লগইন হয়েছে! পুনঃনির্দেশ করা হচ্ছে...</span>
+                    </div>
+                </form>
+
+                <div class="login-footer">
+                    <div class="contact-info">
+                        <h4>সাহায্যের জন্য যোগাযোগ করুন:</h4>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                <span>01312125858</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span>Habiganj, Lakhai, Bolla Bazar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="background-animation">
+            <div class="floating-icon" style="--delay: 0s;">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="floating-icon" style="--delay: 2s;">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <div class="floating-icon" style="--delay: 4s;">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="floating-icon" style="--delay: 6s;">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="floating-icon" style="--delay: 8s;">
+                <i class="fas fa-rocket"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced JavaScript -->
+    <script src="js/login-enhancements.js"></script>
+</body>
+</html>

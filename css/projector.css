@@ -1,0 +1,530 @@
+/* Projector-Friendly Styles */
+/* These styles override the main styles for better projection visibility */
+
+@media screen and (min-width: 1024px) {
+    /* Enhanced Typography for Projection */
+    :root {
+        --font-size-xs: 1rem;
+        --font-size-sm: 1.125rem;
+        --font-size-base: 1.25rem;
+        --font-size-lg: 1.5rem;
+        --font-size-xl: 1.75rem;
+        --font-size-2xl: 2rem;
+        --font-size-3xl: 2.5rem;
+        --font-size-4xl: 3rem;
+        
+        /* Enhanced contrast colors */
+        --primary-color: #1d4ed8;
+        --secondary-color: #1e3a8a;
+        --accent-color: #d97706;
+        --text-primary: #111827;
+        --text-secondary: #374151;
+    }
+    
+    /* Increased line height for better readability */
+    body {
+        line-height: 1.8;
+        font-size: var(--font-size-base);
+    }
+    
+    /* Enhanced header for projection */
+    .header {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .logo h1 {
+        font-size: var(--font-size-4xl);
+        font-weight: 700;
+    }
+    
+    .logo p {
+        font-size: var(--font-size-xl);
+    }
+    
+    .contact-item {
+        font-size: var(--font-size-xl);
+    }
+    
+    /* Enhanced navigation */
+    .main-nav {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .nav-link {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-weight: 600;
+    }
+    
+    .search-input {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-md) var(--spacing-lg);
+        width: 300px;
+    }
+    
+    .search-btn {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    /* Enhanced hero section */
+    .hero-title {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .stat-number {
+        font-size: 5rem;
+        font-weight: 900;
+    }
+    
+    .stat-label {
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+    }
+    
+    /* Enhanced section titles */
+    .section-title {
+        font-size: var(--font-size-4xl);
+        font-weight: 700;
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .section-title::after {
+        width: 120px;
+        height: 4px;
+    }
+    
+    /* Enhanced cards */
+    .overview-card {
+        padding: var(--spacing-2xl);
+        border-width: 2px;
+    }
+    
+    .overview-card::before {
+        height: 6px;
+    }
+    
+    .card-icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .card-icon i {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .overview-card h3 {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+    }
+    
+    .overview-card p {
+        font-size: var(--font-size-lg);
+    }
+    
+    .duration {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-weight: 600;
+    }
+    
+    /* Enhanced progress section */
+    .progress-container {
+        padding: var(--spacing-2xl);
+    }
+    
+    .progress-header h3 {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+    }
+    
+    .progress-percentage {
+        font-size: var(--font-size-4xl);
+        font-weight: 900;
+    }
+    
+    .progress-bar {
+        height: 16px;
+    }
+    
+    .stat-value {
+        font-size: var(--font-size-4xl);
+        font-weight: 900;
+    }
+    
+    .stat-label {
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+    }
+    
+    /* Enhanced lesson cards */
+    .lesson-card {
+        padding: var(--spacing-xl);
+        border-width: 2px;
+    }
+    
+    .lesson-number {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+    }
+    
+    .lesson-status {
+        font-size: var(--font-size-xl);
+    }
+    
+    .lesson-title {
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+    }
+    
+    .lesson-description {
+        font-size: var(--font-size-base);
+    }
+    
+    .topic-tag {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-weight: 500;
+    }
+    
+    /* Enhanced resource cards */
+    .resource-card {
+        padding: var(--spacing-2xl);
+    }
+    
+    .resource-card h3 {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+    }
+    
+    .resource-card li {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-md) 0;
+    }
+    
+    /* Enhanced footer */
+    .footer-section h3 {
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+    }
+    
+    .footer-section p {
+        font-size: var(--font-size-lg);
+    }
+    
+    .footer-bottom {
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* High Contrast Mode for Better Projection */
+.high-contrast {
+    --primary-color: #000080;
+    --secondary-color: #000060;
+    --accent-color: #ff6600;
+    --success-color: #008000;
+    --warning-color: #ff8c00;
+    --danger-color: #dc143c;
+    
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f0f0;
+    --bg-tertiary: #e0e0e0;
+    --bg-dark: #000000;
+    
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-light: #666666;
+    --text-white: #ffffff;
+}
+
+/* Lesson Detail Styles for Individual Lesson Pages */
+.lesson-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-2xl);
+}
+
+.lesson-header-detail {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-white);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-2xl);
+    text-align: center;
+}
+
+.lesson-day-number {
+    font-size: var(--font-size-4xl);
+    font-weight: 900;
+    margin-bottom: var(--spacing-sm);
+}
+
+.lesson-main-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.lesson-subtitle {
+    font-size: var(--font-size-xl);
+    opacity: 0.9;
+}
+
+/* Content Sections */
+.content-section {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.content-section h3 {
+    color: var(--primary-color);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.content-section h4 {
+    color: var(--text-primary);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+/* Step-by-step instructions */
+.step-list {
+    counter-reset: step-counter;
+    list-style: none;
+    padding: 0;
+}
+
+.step-item {
+    counter-increment: step-counter;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-color);
+    position: relative;
+}
+
+.step-item::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: -20px;
+    top: var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+}
+
+/* Highlighted boxes */
+.highlight-box {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin: var(--spacing-lg) 0;
+    border-left: 4px solid;
+}
+
+.highlight-box.tip {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-color: var(--success-color);
+}
+
+.highlight-box.warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-color: var(--warning-color);
+}
+
+.highlight-box.important {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-color: var(--primary-color);
+}
+
+.highlight-box.danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-color: var(--danger-color);
+}
+
+.highlight-box h5 {
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* Navigation between lessons */
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-2xl);
+    padding: var(--spacing-lg);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.nav-button.disabled {
+    background-color: var(--bg-tertiary);
+    color: var(--text-light);
+    cursor: not-allowed;
+}
+
+/* Accordion styles for collapsible sections */
+.accordion {
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg);
+}
+
+.accordion-header {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.accordion-header.active {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+}
+
+.accordion-content {
+    padding: 0 var(--spacing-lg);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-content.active {
+    padding: var(--spacing-lg);
+    max-height: 1000px;
+}
+
+/* Tab styles */
+.tabs {
+    margin-bottom: var(--spacing-xl);
+}
+
+.tab-headers {
+    display: flex;
+    border-bottom: 2px solid var(--bg-tertiary);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.tab-header {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-header:hover {
+    color: var(--primary-color);
+}
+
+.tab-header.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Print styles for offline use */
+@media print {
+    .header,
+    .main-nav,
+    .footer,
+    .lesson-navigation {
+        display: none;
+    }
+    
+    .lesson-detail {
+        padding: 0;
+        max-width: none;
+    }
+    
+    .content-section {
+        border: 1px solid #000;
+        page-break-inside: avoid;
+    }
+    
+    .step-item {
+        page-break-inside: avoid;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    h1 { font-size: 24pt; }
+    h2 { font-size: 20pt; }
+    h3 { font-size: 18pt; }
+    h4 { font-size: 16pt; }
+    h5 { font-size: 14pt; }
+    h6 { font-size: 12pt; }
+}
