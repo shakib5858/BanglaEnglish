@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - FSP Team | Get Your Free Ad Campaign Consultation</title>
+    <meta name="description" content="Contact FSP Team for professional ad campaign management and pixel setup services. Get your free consultation and start maximizing your advertising ROI today.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- WordPress Header Section Start -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-text">FSP</span>
+                        <span class="logo-subtext">Team</span>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link active">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- WordPress Header Section End -->
+
+    <!-- WordPress Main Content Start -->
+    <main class="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Get in Touch</h1>
+                    <p class="page-description">
+                        Ready to take your advertising to the next level? Contact us for a free 
+                        consultation and discover how we can help you maximize your advertising ROI.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <div class="form-header">
+                            <h2 class="form-title">Send Us a Message</h2>
+                            <p class="form-description">
+                                Fill out the form below and we'll get back to you within 24 hours.
+                            </p>
+                        </div>
+                        
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                    <span class="error-message" id="firstNameError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                    <span class="error-message" id="lastNameError"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                    <span class="error-message" id="emailError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input">
+                                    <span class="error-message" id="phoneError"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company" class="form-label">Company Name</label>
+                                <input type="text" id="company" name="company" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service" class="form-label">Service Interest *</label>
+                                <select id="service" name="service" class="form-select" required>
+                                    <option value="">Select a service</option>
+                                    <option value="campaign-management">Ad Campaign Management</option>
+                                    <option value="pixel-setup">Pixel Setup & Tracking</option>
+                                    <option value="performance-analytics">Performance Analytics</option>
+                                    <option value="conversion-optimization">Conversion Optimization</option>
+                                    <option value="full-service">Full Service Package</option>
+                                    <option value="consultation">Strategy Consultation</option>
+                                </select>
+                                <span class="error-message" id="serviceError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget" class="form-label">Monthly Ad Budget</label>
+                                <select id="budget" name="budget" class="form-select">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-5k">Under $5,000</option>
+                                    <option value="5k-15k">$5,000 - $15,000</option>
+                                    <option value="15k-50k">$15,000 - $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="over-100k">Over $100,000</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="5" 
+                                    placeholder="Tell us about your business and advertising goals..." required></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter" class="form-checkbox">
+                                    <span class="checkmark"></span>
+                                    Subscribe to our newsletter for advertising tips and industry insights
+                                </label>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="privacy" name="privacy" class="form-checkbox" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#privacy" class="privacy-link">Privacy Policy</a> *
+                                </label>
+                                <span class="error-message" id="privacyError"></span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary form-submit">
+                                Send Message
+                                <span class="loading-spinner" id="loadingSpinner"></span>
+                            </button>
+                            
+                            <div class="form-success" id="formSuccess">
+                                <div class="success-icon">✓</div>
+                                <h3>Message Sent Successfully!</h3>
+                                <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="contact-info-container">
+                        <div class="contact-info-card">
+                            <h3 class="contact-info-title">Get in Touch</h3>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <div class="contact-icon">📧</div>
+                                    <div class="contact-text">
+                                        <h4>Email Us</h4>
+                                        <p>hello@fspteam.com</p>
+                                        <p>support@fspteam.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon">📞</div>
+                                    <div class="contact-text">
+                                        <h4>Call Us</h4>
+                                        <p>+1 (555) 123-4567</p>
+                                        <p>Mon-Fri: 9AM-6PM EST</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon">📍</div>
+                                    <div class="contact-text">
+                                        <h4>Visit Us</h4>
+                                        <p>123 Business Ave</p>
+                                        <p>New York, NY 10001</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-card">
+                            <h3 class="contact-info-title">Why Choose FSP Team?</h3>
+                            <ul class="benefits-list">
+                                <li>✓ Free initial consultation</li>
+                                <li>✓ 24-hour response guarantee</li>
+                                <li>✓ Transparent pricing</li>
+                                <li>✓ Proven track record</li>
+                                <li>✓ Dedicated account manager</li>
+                                <li>✓ No long-term contracts</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="contact-info-card">
+                            <h3 class="contact-info-title">Quick Links</h3>
+                            <div class="quick-links">
+                                <a href="services.html" class="quick-link">View Our Services</a>
+                                <a href="about.html" class="quick-link">About Our Team</a>
+                                <a href="#case-studies" class="quick-link">Case Studies</a>
+                                <a href="#pricing" class="quick-link">Pricing Plans</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-description">
+                        Common questions about our services and process
+                    </p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How quickly can you start managing our campaigns?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We can typically start managing your campaigns within 3-5 business days after our initial consultation and contract signing. This includes pixel setup, campaign creation, and initial optimization.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you require long-term contracts?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, we don't require long-term contracts. We work on a month-to-month basis because we're confident in our ability to deliver results that will make you want to continue working with us.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What platforms do you manage campaigns on?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We manage campaigns across all major platforms including Facebook, Instagram, Google Ads, YouTube, LinkedIn, and TikTok. We'll recommend the best platforms based on your target audience and business goals.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do you measure and report campaign performance?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We provide detailed weekly and monthly reports covering key metrics like ROAS, CPA, conversion rates, and more. You'll also have access to a real-time dashboard to monitor performance 24/7.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What's included in your pixel setup service?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our pixel setup includes Facebook Pixel, Google Analytics 4, Google Tag Manager configuration, conversion tracking, custom event setup, and cross-platform attribution to ensure accurate measurement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Maximize Your Ad Performance?</h2>
+                    <p class="cta-description">
+                        Schedule your free consultation today and discover how FSP Team 
+                        can help you achieve exceptional advertising results.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#contactForm" class="btn btn-primary smooth-scroll">Schedule Consultation</a>
+                        <a href="tel:+15551234567" class="btn btn-secondary">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- WordPress Main Content End -->
+
+    <!-- WordPress Footer Section Start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <span class="logo-text">FSP</span>
+                            <span class="logo-subtext">Team</span>
+                        </a>
+                        <p class="footer-description">
+                            Professional USA Ad Campaign & Pixel Setup Agency helping businesses 
+                            maximize their advertising ROI through expert campaign management.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Ad Campaign Management</a></li>
+                        <li><a href="services.html">Pixel Setup & Tracking</a></li>
+                        <li><a href="services.html">Performance Analytics</a></li>
+                        <li><a href="services.html">Conversion Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <div class="contact-info">
+                        <p>📧 hello@fspteam.com</p>
+                        <p>📞 +1 (555) 123-4567</p>
+                        <p>📍 New York, NY, USA</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 FSP Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- WordPress Footer Section End -->
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
