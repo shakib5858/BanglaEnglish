@@ -1,0 +1,357 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 420 1188"
+     width="420mm" height="1188mm"
+     style="display:block">
+  <!--
+    BIZFLOW WALL POSTER BACKGROUND
+    ═══════════════════════════════════════════
+    Layout : 2 columns × 4 rows of A4 Portrait
+    Each tile : 210mm × 297mm
+    Total     : 420mm × 1188mm
+    Purpose   : Pin all 8 printed pages on a wall
+                and they form one seamless Bangladesh
+                map + business blueprint poster.
+    Units     : 1 SVG unit = 1mm
+    ═══════════════════════════════════════════
+  -->
+  <defs>
+    <!-- Subtle diamond Jamdani tile -->
+    <pattern id="jd" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+      <polygon points="6,0.5 11.5,6 6,11.5 0.5,6"
+               fill="none" stroke="#1a3a6e" stroke-width="0.18" opacity="0.28"/>
+      <circle cx="6" cy="6" r="0.6" fill="#1a3a6e" opacity="0.15"/>
+      <circle cx="0" cy="0" r="0.4" fill="#1a6b45" opacity="0.12"/>
+      <circle cx="12" cy="0" r="0.4" fill="#1a6b45" opacity="0.12"/>
+      <circle cx="0" cy="12" r="0.4" fill="#1a6b45" opacity="0.12"/>
+      <circle cx="12" cy="12" r="0.4" fill="#1a6b45" opacity="0.12"/>
+    </pattern>
+
+    <!-- Fine dot grid -->
+    <pattern id="dots" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+      <circle cx="0" cy="0" r="0.3" fill="#1a3a6e" opacity="0.1"/>
+    </pattern>
+
+    <!-- Radial fade for vignette per tile -->
+    <radialGradient id="vig" cx="50%" cy="50%" r="65%">
+      <stop offset="0%"   stop-color="#fff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0.82"/>
+    </radialGradient>
+
+    <!-- Gold shimmer gradient -->
+    <linearGradient id="gold-h" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#b8950a" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#b8950a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#b8950a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="navy-v" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#1a3a6e" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#1a3a6e" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#1a3a6e" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clip tiles to their cells -->
+    <clipPath id="c11"><rect x="0"   y="0"   width="210" height="297"/></clipPath>
+    <clipPath id="c21"><rect x="210" y="0"   width="210" height="297"/></clipPath>
+    <clipPath id="c12"><rect x="0"   y="297" width="210" height="297"/></clipPath>
+    <clipPath id="c22"><rect x="210" y="297" width="210" height="297"/></clipPath>
+    <clipPath id="c13"><rect x="0"   y="594" width="210" height="297"/></clipPath>
+    <clipPath id="c23"><rect x="210" y="594" width="210" height="297"/></clipPath>
+    <clipPath id="c14"><rect x="0"   y="891" width="210" height="297"/></clipPath>
+    <clipPath id="c24"><rect x="210" y="891" width="210" height="297"/></clipPath>
+  </defs>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 1: BASE — warm white fill
+  ══════════════════════════════════════════════ -->
+  <rect width="420" height="1188" fill="#fafaf8"/>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 2: DOT GRID (ultra-faint)
+  ══════════════════════════════════════════════ -->
+  <rect width="420" height="1188" fill="url(#dots)"/>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 3: JAMDANI LATTICE (whole poster)
+  ══════════════════════════════════════════════ -->
+  <rect width="420" height="1188" fill="url(#jd)"/>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 4: BANGLADESH MAP OUTLINE
+       Centred on the full poster (420×1188 mm)
+       Simplified outline — key geographic features
+       Scale: ~1:3 500 000 (Bangladesh = ~800×650 km)
+  ══════════════════════════════════════════════ -->
+  <g opacity="0.055" fill="none" stroke="#1a3a6e" stroke-width="1.4"
+     stroke-linejoin="round" stroke-linecap="round">
+    <!--
+      Approximate Bangladesh border in poster coordinates.
+      Centre of poster: (210, 594).
+      Bangladesh bounding box ~230mm wide × 185mm tall at this scale,
+      centred at (210, 594).
+      Origin of path data: SW corner ≈ (95, 687)
+    -->
+    <path d="
+      M 145 690
+      L 150 682
+      L 158 678
+      L 165 672
+      L 172 668
+      L 180 660
+      L 188 655
+      L 195 648
+      L 200 640
+      L 205 632
+      L 210 625
+      L 215 618
+      L 222 612
+      L 228 606
+      L 235 600
+      L 242 594
+      L 248 588
+      L 255 582
+      L 260 575
+      L 265 568
+      L 270 562
+      L 275 556
+      L 278 548
+      L 282 542
+      L 286 536
+      L 288 528
+      L 290 520
+      L 292 512
+      L 293 504
+      L 294 496
+      L 294 488
+      L 292 480
+      L 290 472
+      L 287 464
+      L 283 456
+      L 278 450
+      L 273 444
+      L 267 440
+      L 260 436
+      L 252 433
+      L 244 430
+      L 236 428
+      L 228 427
+      L 220 427
+      L 212 428
+      L 204 430
+      L 196 433
+      L 189 436
+      L 182 440
+      L 175 445
+      L 169 450
+      L 163 456
+      L 158 462
+      L 153 469
+      L 148 476
+      L 144 483
+      L 141 491
+      L 138 499
+      L 136 507
+      L 135 515
+      L 135 523
+      L 136 531
+      L 138 539
+      L 140 547
+      L 143 555
+      L 146 562
+      L 149 569
+      L 152 576
+      L 155 582
+      L 156 589
+      L 157 596
+      L 156 603
+      L 155 610
+      L 153 617
+      L 151 624
+      L 149 631
+      L 147 638
+      L 146 645
+      L 145 652
+      L 144 660
+      L 143 668
+      L 144 676
+      Z
+    "/>
+
+    <!-- Ganges / Padma river suggestion -->
+    <path d="M 135 515 Q 175 510 210 520 Q 245 530 280 515" stroke-width="1" opacity="0.6" stroke="#1a6b45"/>
+    <!-- Meghna river -->
+    <path d="M 210 520 Q 215 560 220 600 Q 222 630 225 660" stroke-width="0.8" opacity="0.5" stroke="#1a6b45"/>
+    <!-- Jamuna / Brahmaputra -->
+    <path d="M 180 450 Q 185 480 183 510 Q 181 540 185 570" stroke-width="0.8" opacity="0.5" stroke="#1a6b45"/>
+
+    <!-- Bay of Bengal suggestion (bottom open curve) -->
+    <path d="M 144 676 Q 155 700 175 710 Q 200 718 210 716 Q 225 714 240 706 Q 258 696 268 682 Q 275 670 278 660"
+          stroke-width="1.2" opacity="0.4" stroke="#2a5298"/>
+
+    <!-- Chittagong Hill Tracts rough outline -->
+    <path d="M 265 568 L 270 562 L 280 555 L 290 548 L 296 538 L 296 525 L 292 512"
+          stroke-width="0.8" opacity="0.35"/>
+
+    <!-- Sylhet area bump -->
+    <path d="M 255 455 L 265 445 L 278 438 L 290 434 L 298 428 L 300 420 L 295 412 L 286 408"
+          stroke-width="0.8" opacity="0.35"/>
+  </g>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 5: DIVISIONAL CITY MARKERS
+       8 divisions × 1 dot + label
+  ══════════════════════════════════════════════ -->
+  <g opacity="0.09" font-family="'Inter','Hind Siliguri',sans-serif" font-size="5.5">
+
+    <!-- Dhaka (capital) -->
+    <circle cx="213" cy="530" r="4.5" fill="#c8102e" stroke="#fff" stroke-width="0.8"/>
+    <circle cx="213" cy="530" r="7"   fill="none" stroke="#c8102e" stroke-width="0.5"/>
+    <text x="218" y="528" fill="#1a1a2e" font-weight="700" font-size="6.5">ঢাকা ★</text>
+
+    <!-- Chittagong -->
+    <circle cx="270" cy="590" r="3" fill="#1a3a6e" stroke="#fff" stroke-width="0.6"/>
+    <text x="274" y="588" fill="#1a1a2e">চট্টগ্রাম</text>
+
+    <!-- Sylhet -->
+    <circle cx="278" cy="490" r="3" fill="#1a3a6e" stroke="#fff" stroke-width="0.6"/>
+    <text x="282" y="488" fill="#1a1a2e">সিলেট</text>
+
+    <!-- Rajshahi -->
+    <circle cx="160" cy="480" r="3" fill="#1a3a6e" stroke="#fff" stroke-width="0.6"/>
+    <text x="148" y="478" fill="#1a1a2e">রাজশাহী</text>
+
+    <!-- Khulna -->
+    <circle cx="168" cy="590" r="3" fill="#1a3a6e" stroke="#fff" stroke-width="0.6"/>
+    <text x="156" y="588" fill="#1a1a2e">খুলনা</text>
+
+    <!-- Barisal -->
+    <circle cx="210" cy="625" r="3" fill="#1a3a6e" stroke="#fff" stroke-width="0.6"/>
+    <text x="214" y="623" fill="#1a1a2e">বরিশাল</text>
+
+    <!-- Rangpur -->
+    <circle cx="175" cy="445" r="3" fill="#1a3a6e" stroke="#fff" stroke-width="0.6"/>
+    <text x="163" y="443" fill="#1a1a2e">রংপুর</text>
+
+    <!-- Mymensingh -->
+    <circle cx="228" cy="497" r="3" fill="#1a3a6e" stroke="#fff" stroke-width="0.6"/>
+    <text x="232" y="495" fill="#1a1a2e">ময়মনসিংহ</text>
+  </g>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 6: CORNER DECORATIVE GEOMETRY
+       Large shapes at poster corners
+  ══════════════════════════════════════════════ -->
+  <!-- Top-left quadrant accent -->
+  <g opacity="0.04">
+    <circle cx="0"   cy="0"    r="140" fill="none" stroke="#1a3a6e" stroke-width="2"/>
+    <circle cx="0"   cy="0"    r="100" fill="none" stroke="#b8950a" stroke-width="1.2"/>
+    <circle cx="0"   cy="0"    r="60"  fill="none" stroke="#1a6b45" stroke-width="0.8"/>
+  </g>
+
+  <!-- Top-right -->
+  <g opacity="0.04">
+    <circle cx="420" cy="0"    r="120" fill="none" stroke="#b8950a" stroke-width="2"/>
+    <circle cx="420" cy="0"    r="80"  fill="none" stroke="#1a3a6e" stroke-width="1.2"/>
+  </g>
+
+  <!-- Bottom-left -->
+  <g opacity="0.04">
+    <circle cx="0"   cy="1188" r="140" fill="none" stroke="#1a6b45" stroke-width="2"/>
+    <circle cx="0"   cy="1188" r="95"  fill="none" stroke="#b8950a" stroke-width="1.2"/>
+  </g>
+
+  <!-- Bottom-right -->
+  <g opacity="0.04">
+    <circle cx="420" cy="1188" r="130" fill="none" stroke="#1a3a6e" stroke-width="2"/>
+    <circle cx="420" cy="1188" r="85"  fill="none" stroke="#1a6b45" stroke-width="1.2"/>
+  </g>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 7: SHAPLA WATER-LILY — centre of map
+  ══════════════════════════════════════════════ -->
+  <g transform="translate(210,530)" opacity="0.07">
+    <!-- 8 petals -->
+    <ellipse cx="0" cy="-22" rx="6" ry="14" fill="#1a6b45" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-22" rx="6" ry="14" fill="#1a6b45" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-22" rx="6" ry="14" fill="#1a6b45" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-22" rx="6" ry="14" fill="#1a6b45" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-22" rx="6" ry="14" fill="#1a6b45" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-22" rx="6" ry="14" fill="#1a6b45" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-22" rx="6" ry="14" fill="#1a6b45" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-22" rx="6" ry="14" fill="#1a6b45" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="9"  fill="#b8950a" opacity="0.85"/>
+    <circle cx="0" cy="0" r="5"  fill="#1a3a6e"/>
+    <circle cx="0" cy="0" r="2"  fill="#b8950a"/>
+  </g>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 8: TILE GRID LINES (show assembly guides)
+       Very faint dashed lines showing where pages meet
+  ══════════════════════════════════════════════ -->
+  <g stroke="#1a3a6e" stroke-width="0.25" stroke-dasharray="3,4" opacity="0.12">
+    <!-- Vertical split at x=210 -->
+    <line x1="210" y1="0" x2="210" y2="1188"/>
+    <!-- Horizontal splits at y=297, 594, 891 -->
+    <line x1="0" y1="297"  x2="420" y2="297"/>
+    <line x1="0" y1="594"  x2="420" y2="594"/>
+    <line x1="0" y1="891"  x2="420" y2="891"/>
+  </g>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 9: GOLD SHIMMER BANDS (horizontal)
+  ══════════════════════════════════════════════ -->
+  <rect x="0" y="0"   width="420" height="1188" fill="url(#gold-h)" opacity="0.6"/>
+  <rect x="0" y="0"   width="420" height="1188" fill="url(#navy-v)" opacity="0.5"/>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 10: DIGITAL CIRCUIT TRACES
+       Left and right edges
+  ══════════════════════════════════════════════ -->
+  <g stroke="#1a3a6e" stroke-width="0.5" fill="none" opacity="0.06">
+    <!-- Left spine -->
+    <polyline points="10,80   30,80   45,95  45,180  60,195  60,280"/>
+    <polyline points="10,380  35,380  50,395 50,470  65,485 65,570"/>
+    <polyline points="10,670  35,670  50,685 50,760  65,775 65,860"/>
+    <polyline points="10,960  35,960  50,975 50,1050 65,1065 65,1150"/>
+    <circle cx="45"  cy="180" r="2" fill="#b8950a" stroke="none" opacity="0.5"/>
+    <circle cx="50"  cy="470" r="2" fill="#1a6b45" stroke="none" opacity="0.5"/>
+    <circle cx="50"  cy="760" r="2" fill="#b8950a" stroke="none" opacity="0.5"/>
+    <circle cx="50"  cy="1050" r="2" fill="#1a6b45" stroke="none" opacity="0.5"/>
+
+    <!-- Right spine -->
+    <polyline points="410,100  390,100  375,115 375,200 360,215 360,290"/>
+    <polyline points="410,400  390,400  375,415 375,490 360,505 360,585"/>
+    <polyline points="410,700  390,700  375,715 375,790 360,805 360,880"/>
+    <polyline points="410,1000 390,1000 375,1015 375,1090 360,1105 360,1180"/>
+    <circle cx="375" cy="200"  r="2" fill="#b8950a" stroke="none" opacity="0.5"/>
+    <circle cx="375" cy="490"  r="2" fill="#1a6b45" stroke="none" opacity="0.5"/>
+    <circle cx="375" cy="790"  r="2" fill="#b8950a" stroke="none" opacity="0.5"/>
+    <circle cx="375" cy="1090" r="2" fill="#1a6b45" stroke="none" opacity="0.5"/>
+
+    <!-- Horizontal connectors across tile boundaries -->
+    <line x1="65" y1="195"  x2="360" y2="195"  stroke-dasharray="4,4"/>
+    <line x1="65" y1="485"  x2="360" y2="485"  stroke-dasharray="4,4"/>
+    <line x1="65" y1="775"  x2="360" y2="775"  stroke-dasharray="4,4"/>
+    <line x1="65" y1="1065" x2="360" y2="1065" stroke-dasharray="4,4"/>
+  </g>
+
+  <!-- ══════════════════════════════════════════════
+       LAYER 11: TITLE WATERMARK (centre of poster)
+  ══════════════════════════════════════════════ -->
+  <text x="210" y="594"
+        text-anchor="middle" dominant-baseline="middle"
+        font-family="'Hind Siliguri','Inter',sans-serif"
+        font-size="22" font-weight="700" letter-spacing="2"
+        fill="#1a3a6e" opacity="0.025"
+        transform="rotate(-30, 210, 594)">
+    বিজফ্লো
+  </text>
+  <text x="210" y="618"
+        text-anchor="middle" dominant-baseline="middle"
+        font-family="'Inter',sans-serif"
+        font-size="11" font-weight="600" letter-spacing="3"
+        fill="#b8950a" opacity="0.025"
+        transform="rotate(-30, 210, 594)">
+    BIZFLOW · BANGLADESH
+  </text>
+
+</svg>

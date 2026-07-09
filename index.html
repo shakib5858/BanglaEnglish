@@ -1,914 +1,727 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" dir="ltr">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>বিজফ্লো — সিটিও ব্লুপ্রিন্ট | হালিম</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap');
-
-/* ━━━━━━━━━━━━━━ টোকেন ━━━━━━━━━━━━━━ */
-:root{
-  --ink:#fff;
-  --muted:rgba(255,255,255,.58);
-  --dim:rgba(255,255,255,.32);
-  --ghost:rgba(255,255,255,.07);
-  --line:rgba(255,255,255,.1);
-
-  /* উচ্চারণ রঙ */
-  --sky:#5ba4e0;   /* নীল  */
-  --teal:#4db8a6;  /* সবুজ */
-  --gold:#c9a850;  /* সোনা */
-  --rose:#c47a7a;  /* গোলাপী */
-
-  /* প্রতিটি পেজের শিরা রঙ */
-  --p1a:#0c1a2e; --p1b:#122340; --p1c:#1a3555;  /* গভীর নীল */
-  --p2a:#0e1f18; --p2b:#152b22; --p2c:#1c3a2e;  /* গভীর সবুজ */
-  --p3a:#1a1428; --p3b:#231b38; --p3c:#2c2248;  /* গভীর বেগুনি */
-  --p4a:#1e1408; --p4b:#2a1c0a; --p4c:#372410;  /* গভীর বাদামি */
-  --p5a:#0e1c20; --p5b:#152830; --p5c:#1c3340;  /* গভীর সিয়ান */
-  --p6a:#1a1010; --p6b:#261616; --p6c:#321c1c;  /* গভীর লাল */
-}
-
-/* ━━━━━━━━━━━━━━ রিসেট ━━━━━━━━━━━━━━ */
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Hind Siliguri','Noto Serif Bengali',sans-serif;background:#0c1a2e;color:var(--ink);line-height:1.7;font-size:14px}
-
-/* ━━━━━━━━━━━━━━ পেজ কাঠামো ━━━━━━━━━━━━━━ */
-.pg{
-  min-height:100vh;
-  padding:42px 44px 60px;
-  position:relative;
-  overflow:hidden;
-  break-after:page;
-  page-break-after:always;
-  -webkit-print-color-adjust:exact;
-  print-color-adjust:exact;
-}
-/* প্রতিটি পেজের অনন্য গ্রেডিয়েন্ট */
-.pg1{background:linear-gradient(160deg,var(--p1a) 0%,var(--p1b) 45%,var(--p1c) 100%)}
-.pg2{background:linear-gradient(160deg,var(--p2a) 0%,var(--p2b) 45%,var(--p2c) 100%)}
-.pg3{background:linear-gradient(160deg,var(--p3a) 0%,var(--p3b) 45%,var(--p3c) 100%)}
-.pg4{background:linear-gradient(160deg,var(--p4a) 0%,var(--p4b) 45%,var(--p4c) 100%)}
-.pg5{background:linear-gradient(160deg,var(--p5a) 0%,var(--p5b) 45%,var(--p5c) 100%)}
-.pg6{background:linear-gradient(160deg,var(--p6a) 0%,var(--p6b) 45%,var(--p6c) 100%)}
-
-/* পেজের ভেতরের নরম আলো */
-.pg::before{
-  content:'';
-  position:absolute;inset:0;z-index:0;
-  pointer-events:none;
-}
-.pg1::before{background:radial-gradient(ellipse 65% 55% at 20% 15%,rgba(91,164,224,.16) 0%,transparent 65%),radial-gradient(ellipse 50% 40% at 80% 85%,rgba(77,184,166,.1) 0%,transparent 60%)}
-.pg2::before{background:radial-gradient(ellipse 65% 55% at 80% 20%,rgba(77,184,166,.18) 0%,transparent 65%),radial-gradient(ellipse 50% 40% at 15% 80%,rgba(91,164,224,.1) 0%,transparent 60%)}
-.pg3::before{background:radial-gradient(ellipse 60% 50% at 25% 25%,rgba(160,120,220,.16) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 75% 75%,rgba(91,164,224,.1) 0%,transparent 55%)}
-.pg4::before{background:radial-gradient(ellipse 65% 55% at 75% 20%,rgba(201,168,80,.14) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(196,122,122,.1) 0%,transparent 55%)}
-.pg5::before{background:radial-gradient(ellipse 60% 50% at 20% 20%,rgba(77,184,166,.16) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(91,164,224,.1) 0%,transparent 55%)}
-.pg6::before{background:radial-gradient(ellipse 65% 55% at 50% 30%,rgba(201,168,80,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 85%,rgba(196,122,122,.12) 0%,transparent 55%)}
-
-/* পেজের ডান দিকে রঙিন উল্লম্ব বার */
-.pg::after{
-  content:'';
-  position:absolute;top:0;right:0;bottom:0;width:4px;z-index:2;
-}
-.pg1::after{background:linear-gradient(to bottom,transparent,rgba(91,164,224,.5),transparent)}
-.pg2::after{background:linear-gradient(to bottom,transparent,rgba(77,184,166,.5),transparent)}
-.pg3::after{background:linear-gradient(to bottom,transparent,rgba(160,120,220,.5),transparent)}
-.pg4::after{background:linear-gradient(to bottom,transparent,rgba(201,168,80,.5),transparent)}
-.pg5::after{background:linear-gradient(to bottom,transparent,rgba(77,184,166,.5),transparent)}
-.pg6::after{background:linear-gradient(to bottom,transparent,rgba(201,168,80,.5),transparent)}
-
-.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto}
-
-/* ━━━━━━━━━━━━━━ পেজ হেডার বার ━━━━━━━━━━━━━━ */
-.ph{
-  display:flex;align-items:center;justify-content:space-between;
-  padding-bottom:20px;margin-bottom:24px;
-  border-bottom:1px solid var(--line);
-}
-.ph-logo{display:flex;align-items:center;gap:10px}
-.ph-icon{
-  width:36px;height:36px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-}
-.ph-brand{font-size:.78rem;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
-.ph-pg{font-size:.68rem;color:var(--dim);letter-spacing:.12em}
-
-/* ━━━━━━━━━━━━━━ আয়াত ব্লক ━━━━━━━━━━━━━━ */
-.aya{
-  text-align:center;
-  padding:14px 28px;
-  border-radius:12px;
-  border:1px solid rgba(201,168,80,.2);
-  background:rgba(201,168,80,.05);
-  margin-bottom:22px;
-}
-.aya-ar{
-  font-family:'Times New Roman',serif;
-  font-size:1.3rem;color:var(--gold);
-  line-height:2;
-  direction:rtl;
-}
-.aya-tr{font-size:.75rem;color:var(--muted);font-style:italic;margin-top:4px;direction:ltr}
-
-/* ━━━━━━━━━━━━━━ টাইপোগ্রাফি ━━━━━━━━━━━━━━ */
-h1{font-size:2.8rem;font-weight:700;line-height:1.15;color:#fff}
-h2{font-size:1.5rem;font-weight:700;color:#fff;line-height:1.25}
-h3{font-size:1rem;font-weight:600;color:#fff}
-h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
-.sky{color:var(--sky)}
-.teal{color:var(--teal)}
-.gold{color:var(--gold)}
-.rose{color:var(--rose)}
-.muted{color:var(--muted)}
-.dim{color:var(--dim)}
-
-/* ━━━━━━━━━━━━━━ কার্ড ━━━━━━━━━━━━━━ */
-.card{
-  background:var(--ghost);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:20px 24px;
-  backdrop-filter:blur(4px);
-}
-.card-sm{padding:13px 16px;border-radius:11px}
-.c-sky{border-color:rgba(91,164,224,.3);background:rgba(91,164,224,.07)}
-.c-teal{border-color:rgba(77,184,166,.3);background:rgba(77,184,166,.07)}
-.c-gold{border-color:rgba(201,168,80,.3);background:rgba(201,168,80,.07)}
-.c-rose{border-color:rgba(196,122,122,.3);background:rgba(196,122,122,.07)}
-.c-purple{border-color:rgba(160,120,220,.3);background:rgba(160,120,220,.07)}
-
-/* ━━━━━━━━━━━━━━ ব্যাজ ━━━━━━━━━━━━━━ */
-.b{display:inline-block;padding:3px 9px;border-radius:99px;font-size:.65rem;font-weight:700;border:1px solid;letter-spacing:.04em}
-.b-sky{color:#93c5fd;background:rgba(91,164,224,.13);border-color:rgba(91,164,224,.28)}
-.b-teal{color:#6ee7d4;background:rgba(77,184,166,.13);border-color:rgba(77,184,166,.28)}
-.b-gold{color:#fcd34d;background:rgba(201,168,80,.13);border-color:rgba(201,168,80,.28)}
-.b-rose{color:#fca5a5;background:rgba(196,122,122,.13);border-color:rgba(196,122,122,.28)}
-.b-purple{color:#d8b4fe;background:rgba(160,120,220,.13);border-color:rgba(160,120,220,.28)}
-.b-gray{color:var(--muted);background:var(--ghost);border-color:var(--line)}
-
-/* ━━━━━━━━━━━━━━ গ্রিড ━━━━━━━━━━━━━━ */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-
-/* ━━━━━━━━━━━━━━ বিভাজক ━━━━━━━━━━━━━━ */
-.hr{height:1px;background:var(--line);margin:18px 0}
-
-/* ━━━━━━━━━━━━━━ স্ট্যাট ━━━━━━━━━━━━━━ */
-.stat{background:var(--ghost);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:center}
-.stat-n{font-size:1.9rem;font-weight:800;line-height:1}
-.stat-l{font-size:.67rem;color:var(--dim);margin-top:4px;text-transform:uppercase;letter-spacing:.07em}
-
-/* ━━━━━━━━━━━━━━ দিন কার্ড ━━━━━━━━━━━━━━ */
-.day{background:var(--ghost);border:1px solid var(--line);border-radius:11px;padding:12px 14px}
-.dn{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
-.dt{font-size:.82rem;font-weight:700;color:#fff;margin:4px 0 3px;line-height:1.3}
-.dd{font-size:.7rem;color:var(--muted);line-height:1.6}
-.dtg{font-size:.62rem;font-weight:700;padding:2px 6px;border-radius:4px;margin-top:6px;display:inline-block}
-.tg-arch{background:rgba(91,164,224,.22);color:#93c5fd}
-.tg-feat{background:rgba(77,184,166,.2);color:#6ee7d4}
-.tg-sec{background:rgba(196,122,122,.2);color:#fca5a5}
-.tg-ux{background:rgba(201,168,80,.2);color:#fcd34d}
-.tg-qa{background:rgba(160,120,220,.2);color:#d8b4fe}
-.tg-ops{background:rgba(255,255,255,.1);color:var(--muted)}
-
-/* ━━━━━━━━━━━━━━ অডিট সারি ━━━━━━━━━━━━━━ */
-.ar{display:grid;grid-template-columns:155px 68px 1fr;gap:10px;align-items:start;padding:9px 12px;border-radius:9px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.03);margin-bottom:5px}
-.ar .st{font-size:.67rem;font-weight:700;padding:3px 6px;border-radius:5px;text-align:center}
-.sk{background:rgba(77,184,166,.2);color:#6ee7d4}
-.si{background:rgba(91,164,224,.2);color:#93c5fd}
-.sm{background:rgba(201,168,80,.2);color:#fcd34d}
-.sr{background:rgba(196,122,122,.18);color:#fca5a5}
-.an{font-size:.8rem;font-weight:600;color:#fff}
-.at{font-size:.66rem;color:var(--dim)}
-.ad{font-size:.7rem;color:var(--muted);line-height:1.55}
-
-/* ━━━━━━━━━━━━━━ কোড ব্লক ━━━━━━━━━━━━━━ */
-code{background:rgba(255,255,255,.09);padding:1px 5px;border-radius:4px;font-size:.78em;font-family:monospace;color:var(--teal)}
-.cb{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 15px;font-family:monospace;font-size:.72rem;color:var(--teal);line-height:1.7}
-
-/* ━━━━━━━━━━━━━━ ফুটার বার ━━━━━━━━━━━━━━ */
-.pfoot{
-  position:absolute;bottom:0;left:0;right:0;
-  height:40px;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 44px;
-  border-top:1px solid var(--line);
-  background:rgba(0,0,0,.18);
-  z-index:3;
-}
-.pfoot-l{font-size:.65rem;color:var(--dim);letter-spacing:.06em}
-.pfoot-r{font-size:.65rem;color:var(--dim)}
-
-/* ━━━━━━━━━━━━━━ পেজ এর রঙিন বিভাজক শিরোনাম ━━━━━━━━━━━━━━ */
-.sec-head{
-  display:flex;align-items:center;gap:10px;margin-bottom:16px;
-}
-.sec-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.sec-line{flex:1;height:1px;background:var(--line)}
-
-/* ━━━━━━━━━━━━━━ প্রিন্ট ━━━━━━━━━━━━━━ */
-@media print{
-  @page{size:A4 landscape;margin:0}
-
-  *{
-    -webkit-print-color-adjust:exact!important;
-    print-color-adjust:exact!important;
-    color-adjust:exact!important;
-  }
-
-  html,body{
-    width:297mm;
-    height:210mm;
-    background:#0c1a2e!important;
-  }
-
-  .pg{
-    width:297mm!important;
-    height:210mm!important;
-    min-height:unset!important;
-    max-height:210mm!important;
-    overflow:hidden!important;
-    padding:28px 36px 44px!important;
-    page-break-after:always!important;
-    break-after:page!important;
-    position:relative!important;
-    display:block!important;
-  }
-
-  /* বড় গ্রিডগুলো একটু ছোট করে পেজে ফিট করা */
-  .g3{grid-template-columns:1fr 1fr 1fr!important;gap:6px!important}
-  .g2{gap:10px!important}
-  .g4{gap:7px!important}
-  .day{padding:9px 11px!important}
-  .dd{font-size:.66rem!important}
-  .dt{font-size:.78rem!important}
-  .card{padding:14px 18px!important}
-  .card-sm{padding:10px 14px!important}
-
-  .print-bar{display:none!important}
-}
-</style>
+<meta name="description" content="বিজফ্লো প্ল্যাটফর্ম সিটিও ব্লুপ্রিন্ট — মো. আব্দুল হালিম কর্তৃক ৩০ দিনের বাস্তবায়ন পরিকল্পনা"/>
+<meta name="author" content="মো. আব্দুল হালিম, BizFlow Platform"/>
+<meta name="theme-color" content="#1a3a6e"/>
+<title>বিজফ্লো — সিটিও ব্লুপ্রিন্ট | মো. আব্দুল হালিম</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+<main class="pages-wrap">
 
-<!-- ══════════ পেজ ১ — কভার (গভীর নীল) ══════════ -->
-<div class="pg pg1">
-<div class="wrap">
-
-  <!-- শীর্ষ বার -->
-  <div class="ph">
-    <div class="ph-logo">
-      <div class="ph-icon" style="background:linear-gradient(135deg,#2a6090,#3a8a78)">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-      </div>
-      <span class="ph-brand">BizFlow Platform</span>
-    </div>
-    <span class="ph-pg">পেজ ১ / ৬ · কভার</span>
-  </div>
-
-  <!-- কেন্দ্রীয় কভার বিষয়বস্তু -->
-  <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;padding:20px 0">
-
-    <!-- বিসমিল্লাহ -->
-    <div style="padding:14px 36px;border-radius:14px;border:1px solid rgba(201,168,80,.25);background:rgba(201,168,80,.06);">
-      <div class="aya-ar" style="font-size:1.5rem">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-      <div class="aya-tr">পরম করুণাময়, অতি দয়ালু আল্লাহর নামে শুরু করছি</div>
-    </div>
-
-    <!-- লোগো মার্ক -->
-    <div style="width:80px;height:80px;border-radius:22px;background:linear-gradient(135deg,#1e5080,#2a7a6a);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(91,164,224,.22);">
-      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.7"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-    </div>
-
-    <!-- ছবি -->
-    <div style="width:120px;height:120px;border-radius:50%;border:3px solid rgba(201,168,80,.5);box-shadow:0 0 50px rgba(91,164,224,.25),0 0 0 6px rgba(91,164,224,.08);overflow:hidden;flex-shrink:0;">
-      <img src="halim.png" alt="Md. Abdul Halim" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,rgba(91,164,224,.25),rgba(77,184,166,.25));display:flex;align-items:center;justify-content:center;font-size:2.5rem;\'>👤</div>'"/>
-    </div>
-
-    <!-- নাম ও পরিচয় -->
-    <div>
-      <h1 style="font-size:3.2rem;letter-spacing:.03em;background:linear-gradient(135deg,#fff 40%,rgba(255,255,255,.7));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">মো. আব্দুল হালিম</h1>
-      <div style="font-size:.88rem;color:var(--muted);margin-top:4px;letter-spacing:.05em">প্রতিষ্ঠাতা ও পূর্ণ স্বত্বাধিকারী · BizFlow Platform</div>
-      <div style="font-size:.78rem;color:var(--sky);margin-top:6px;letter-spacing:.06em">📞 01312-125858</div>
-    </div>
-
-    <!-- প্রধান কার্ড -->
-    <div class="card" style="max-width:620px;width:100%;padding:28px 36px;">
-      <h2 style="color:var(--sky);margin-bottom:8px;font-size:1.4rem">বিজফ্লো প্ল্যাটফর্ম</h2>
-      <div style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:7px">সিটিও ব্লুপ্রিন্ট · ৩০ দিনের বাস্তবায়ন পরিকল্পনা</div>
-      <div style="font-size:.8rem;color:var(--muted);margin-bottom:18px;line-height:1.75">আর্কিটেকচার অডিট · নো-কোড সুপার অ্যাডমিন · অডিট ও স্বচ্ছতা সিস্টেম<br>বাংলাদেশের ব্যবসার জন্য স্কেলেবল সমাধান</div>
-      <div style="display:flex;gap:7px;justify-content:center;flex-wrap:wrap">
-        <span class="b b-sky">Next.js 14</span>
-        <span class="b b-teal">Prisma MySQL</span>
-        <span class="b b-gold">মোবাইল-ফার্স্ট</span>
-        <span class="b b-gray">Bangladesh SaaS</span>
-        <span class="b b-rose">Production-Ready</span>
-      </div>
-    </div>
-
-    <!-- পরিসংখ্যান -->
-    <div class="g4" style="max-width:600px;width:100%">
-      <div class="stat"><div class="stat-n sky">৩০</div><div class="stat-l">দিনের পরিকল্পনা</div></div>
-      <div class="stat"><div class="stat-n teal">১৮</div><div class="stat-l">মডিউল</div></div>
-      <div class="stat"><div class="stat-n gold">৬</div><div class="stat-l">পেজ</div></div>
-      <div class="stat"><div class="stat-n rose">∞</div><div class="stat-l">স্কেলেবল</div></div>
-    </div>
-
-    <!-- দোয়া -->
-    <div style="font-size:.78rem;color:var(--dim);font-style:italic">
-      اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا — হে আল্লাহ, আমাদের রিজিকে বরকত দাও
-    </div>
-  </div>
-</div>
-<div class="pfoot">
-  <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
-  <span class="pfoot-r">পেজ ১ / ৬</span>
-</div>
-</div>
-
-<!-- ══════════ পেজ ২ — আর্কিটেকচার অডিট (গভীর সবুজ) ══════════ -->
-<div class="pg pg2">
-<div class="wrap">
-
-  <div class="ph">
-    <div class="ph-logo">
-      <div class="ph-icon" style="background:linear-gradient(135deg,#1a6050,#2a8a6a)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
-      </div>
-      <span class="ph-brand">আর্কিটেকচার অডিট</span>
-    </div>
-    <span class="ph-pg">পেজ ২ / ৬</span>
-  </div>
-
-  <!-- কোরআনের আয়াত -->
-  <div class="aya" style="border-color:rgba(77,184,166,.25);background:rgba(77,184,166,.06)">
-    <div class="aya-ar">وَشَاوِرْهُمْ فِي الْأَمْرِ</div>
-    <div class="aya-tr">"এবং কাজে তাদের সাথে পরামর্শ করো।" — সূরা আলে-ইমরান: ১৫৯</div>
-  </div>
-
-  <div class="sec-head">
-    <div class="sec-dot" style="background:var(--teal)"></div>
-    <h2>সম্পূর্ণ প্ল্যাটফর্ম মূল্যায়ন ও পরামর্শ</h2>
-    <div class="sec-line"></div>
-  </div>
-
-  <!-- শক্তিশালী দিক -->
-  <div class="card c-teal card-sm" style="margin-bottom:14px">
-    <h3 style="color:var(--teal);margin-bottom:10px">✅ ইতিমধ্যে শক্তিশালী যা আছে</h3>
-    <div class="g3" style="gap:7px">
-      <div style="font-size:.72rem;color:var(--muted);padding:7px 10px;background:var(--ghost);border-radius:7px">Next.js 14 App Router + TypeScript — শক্ত ভিত্তি</div>
-      <div style="font-size:.72rem;color:var(--muted);padding:7px 10px;background:var(--ghost);border-radius:7px">Prisma ORM + MySQL — সুনির্মিত স্কিমা</div>
-      <div style="font-size:.72rem;color:var(--muted);padding:7px 10px;background:var(--ghost);border-radius:7px">মডিউল রেজিস্ট্রি — configuration-first ডিজাইন</div>
-      <div style="font-size:.72rem;color:var(--muted);padding:7px 10px;background:var(--ghost);border-radius:7px">Settings টেবিল — কোড পরিবর্তন ছাড়া config</div>
-      <div style="font-size:.72rem;color:var(--muted);padding:7px 10px;background:var(--ghost);border-radius:7px">PaymentModal / BonusModal — পুনর্নির্মিত ✓</div>
-      <div style="font-size:.72rem;color:var(--muted);padding:7px 10px;background:var(--ghost);border-radius:7px">Payroll Config — database-driven defaults ✓</div>
-    </div>
-  </div>
-
-  <!-- মডিউল অডিট -->
-  <div class="card" style="margin-bottom:14px">
-    <h3 style="margin-bottom:12px">মডিউল অডিট ম্যাট্রিক্স</h3>
-    <div class="ar"><div><div class="an">Auth সিস্টেম</div><span class="at">/api/auth/</span></div><span class="st si">উন্নত করো</span><div class="ad">2FA যোগ, session revocation, IP লগিং। register route একত্র করো auth.service.ts এর সাথে।</div></div>
-    <div class="ar"><div><div class="an">SaaS Core / বিলিং</div><span class="at">/super-admin/packages/</span></div><span class="st si">উন্নত করো</span><div class="ad">Admin UI থেকে configurable billing cycles। super-admin-packages.ts + billing-cycles.ts একত্র করো।</div></div>
-    <div class="ar"><div><div class="an">বেতন মডিউল</div><span class="at">/salary/</span></div><span class="st sk">রাখো ✓</span><div class="ad">SalaryConfigPanel, payroll-config.ts, GiveAdvanceModal সম্পূর্ণ পুনর্নির্মিত। মাসিক লক, overpayment guard — সব ঠিক।</div></div>
-    <div class="ar"><div><div class="an">Storefront Builder</div><span class="at">/edit/_components/</span></div><span class="st si">উন্নত করো</span><div class="ad">StorefrontEditorChrome + InlineEditorSidebar একত্র করো। Section definitions ডেটাবেসে সরাও।</div></div>
-    <div class="ar"><div><div class="an">কমিশন / রিসেলার</div><span class="at">/admin/commission/</span></div><span class="st sk">রাখো</span><div class="ad">Architecture পরিষ্কার। Admin Settings এ configurable commission tiers যোগ করো। Audit log যোগ করো।</div></div>
-    <div class="ar"><div><div class="an">ইনভেন্টরি / পণ্য</div><span class="at">/api/inventory/</span></div><span class="st si">উন্নত করো</span><div class="ad">/api/inventory/route.ts + /api/v1/inventory/route.ts একত্র করো — এখন duplicate আছে।</div></div>
-    <div class="ar"><div><div class="an">অর্ডার / ই-কমার্স</div><span class="at">/api/orders/ + /api/v1/</span></div><span class="st sm">একত্র করো</span><div class="ad">একই কাজ দুই জায়গায়। /api/v1/orders/ কে wrapper হিসেবে রাখো, মূল ফাইল মুছো।</div></div>
-    <div class="ar"><div><div class="an">অর্থ / খরচ</div><span class="at">/api/money-transfer/</span></div><span class="st si">উন্নত করো</span><div class="ad">প্রতিটি লেনদেনে immutable audit log। Configurable amount threshold এ approval workflow।</div></div>
-    <div class="ar"><div><div class="an">Debug রুট</div><span class="at">/api/debug-session/</span></div><span class="st sr">সরিয়ে দাও</span><div class="ad">Production এ অবশ্যই সরাতে হবে। NODE_ENV=production চেকে gate করো।</div></div>
-  </div>
-
-  <!-- কার্যসূচি নোট -->
-  <div class="card c-sky card-sm">
-    <h4 style="color:var(--sky);margin-bottom:7px">⏱️ তোমার configurable কাজের সময়সূচি</h4>
-    <p style="font-size:.76rem;color:var(--muted);line-height:1.75">
-      কাজের সময় <code>Settings</code> টেবিলে <code>founder_schedule</code> key তে সংরক্ষিত।
-      ডিফল্ট: <strong style="color:var(--sky)">সকাল ৯টা – রাত ৮টা</strong>, বাদ ফজর, যোহর, আসর, মাগরিব, এশা ও ঘুম।
-      <strong style="color:var(--teal)">কার্যকর প্রতিদিন: ~৬.৫–৭ ঘণ্টা।</strong>
-      যেকোনো সময় Super Admin → Settings → Schedule থেকে পরিবর্তন করা যাবে।
-    </p>
-  </div>
-</div>
-<div class="pfoot">
-  <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
-  <span class="pfoot-r">পেজ ২ / ৬</span>
-</div>
-</div>
-
-<!-- ══════════ পেজ ৩ — দিন ১–১৫ (গভীর বেগুনি) ══════════ -->
-<div class="pg pg3">
-<div class="wrap">
-
-  <div class="ph">
-    <div class="ph-logo">
-      <div class="ph-icon" style="background:linear-gradient(135deg,#4a2580,#6040a0)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      </div>
-      <span class="ph-brand">পর্যায় ১ — ভিত্তি ও মূল কাজ</span>
-    </div>
-    <span class="ph-pg">পেজ ৩ / ৬</span>
-  </div>
-
-  <div class="aya" style="border-color:rgba(160,120,220,.25);background:rgba(160,120,220,.06)">
-    <div class="aya-ar">وَقُل رَّبِّ زِدْنِي عِلْمًا</div>
-    <div class="aya-tr">"বলো: হে আমার প্রভু, আমার জ্ঞান বৃদ্ধি করো।" — সূরা ত্বহা: ১১৪</div>
-  </div>
-
-  <div class="sec-head">
-    <div class="sec-dot" style="background:#a078dc"></div>
-    <h2>৩০ দিনের পরিকল্পনা — দিন ১–১৫</h2>
-    <div class="sec-line"></div>
-    <span style="font-size:.72rem;color:var(--muted);white-space:nowrap">প্রতিদিন ~৬.৫ ঘণ্টা</span>
-  </div>
-
-  <div class="g3" style="gap:9px;margin-bottom:12px">
-    <div class="day">
-      <div class="dn">দিন ১</div>
-      <div class="dt">🏗️ কাজের সময়সূচি সিস্টেম</div>
-      <div class="dd">founder_schedule Settings key তৈরি। Admin UI তে কাজের সময়, নামাজ বিরতি, ঘুমের সময় configure করার সুবিধা।</div>
-      <span class="dtg tg-arch">আর্কিটেকচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২</div>
-      <div class="dt">🔐 Auth শক্তিশালী করা</div>
-      <div class="dd">Production এ /api/debug-session সরানো। passwordChangedAt দিয়ে auto-logout। সন্দেহজনক লগইনে Telegram বিজ্ঞপ্তি।</div>
-      <span class="dtg tg-sec">নিরাপত্তা</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ৩</div>
-      <div class="dt">📋 Immutable Audit Log</div>
-      <div class="dd">AuditLog Prisma model: entity, actorId, before, after, ipAddress। প্রতিটি আর্থিক mutation এ লেখা হবে। কখনো সম্পাদনযোগ্য নয়।</div>
-      <span class="dtg tg-arch">আর্কিটেকচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ৪</div>
-      <div class="dt">⚙️ নো-কোড Config ইঞ্জিন</div>
-      <div class="dd">/super-admin/config পেজ তৈরি। Settings টেবিল ব্যবহার করে rate limits, payment threshold, module toggles — সব UI থেকে।</div>
-      <span class="dtg tg-feat">ফিচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ৫</div>
-      <div class="dt">🔀 Duplicate API একত্র করা</div>
-      <div class="dd">/api/orders/ + /api/v1/orders/ একত্র। /api/inventory/ + /api/v1/inventory/ একত্র। v1 শুধু wrapper হিসেবে থাকবে।</div>
-      <span class="dtg tg-arch">আর্কিটেকচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ৬</div>
-      <div class="dt">💰 আর্থিক Traceability</div>
-      <div class="dd">প্রতিটি collection, expense, transfer, বেতন AuditLog এ লেখা হবে। /admin/audit-trail পেজ তৈরি।</div>
-      <span class="dtg tg-sec">সম্মতি</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ৭</div>
-      <div class="dt">📡 SSE বিজ্ঞপ্তি সিস্টেম</div>
-      <div class="dd">WebSocket কে Server-Sent Events দিয়ে প্রতিস্থাপন। Admin settings থেকে configurable channels: in-app, Telegram, SMS।</div>
-      <span class="dtg tg-feat">ফিচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ৮</div>
-      <div class="dt">📦 নো-কোড Package Manager</div>
-      <div class="dd">/super-admin/packages/ উন্নত। Feature flags, configurable trial days, auto-suspend, grace period — সব UI থেকে।</div>
-      <span class="dtg tg-feat">ফিচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ৯</div>
-      <div class="dt">💳 Dynamic Pricing ইঞ্জিন</div>
-      <div class="dd">billing-cycles.ts প্রসারিত। ঈদ অফার, স্বাধীনতা দিবস ছাড়, মৌসুমী প্রমোশন Admin UI থেকে — কোড পরিবর্তন ছাড়া।</div>
-      <span class="dtg tg-feat">ফিচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ১০</div>
-      <div class="dt">👥 ভূমিকা ও অনুমতি Matrix</div>
-      <div class="dd">Super Admin এ visual permission grid। সারি = ভূমিকা, কলাম = অনুমতি। Cell toggle করে মঞ্জুর/বাতিল।</div>
-      <span class="dtg tg-sec">নিরাপত্তা</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ১১</div>
-      <div class="dt">🎨 Section Definitions → DB</div>
-      <div class="dd">sections.ts এর hardcode Settings টেবিলে সরানো। Admin নতুন section type যোগ করতে পারবে deployment ছাড়া।</div>
-      <span class="dtg tg-arch">আর্কিটেকচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ১২</div>
-      <div class="dt">📱 Mobile-First পরিমার্জন</div>
-      <div class="dd">প্রতিটি admin পেজ mobile পরীক্ষা: touch target ন্যূনতম 44px, no horizontal scroll, mobile তে bottom sheets।</div>
-      <span class="dtg tg-ux">UX</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ১৩</div>
-      <div class="dt">✅ Approval Workflow Engine</div>
-      <div class="dd">নতুন ApprovalRequest model। Configurable: X টাকার উপরে transfer এ approval লাগবে। Notification system এর সাথে সংযুক্ত।</div>
-      <span class="dtg tg-feat">ফিচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ১৪</div>
-      <div class="dt">🧪 Test Suite বিস্তার</div>
-      <div class="dd">Audit log, approval workflow, payment guard এর integration test। salary-payment-flow.test.ts প্রসারিত। লক্ষ্য: 85% coverage।</div>
-      <span class="dtg tg-qa">QA</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ১৫</div>
-      <div class="dt">🔍 পর্যায় ১ পর্যালোচনা</div>
-      <div class="dd">সম্পূর্ণ regression test। ১–১৪ দিনের সমস্যা সমাধান। API documentation update। Staging এ deploy। اَلْحَمْدُ لِلّٰهِ</div>
-      <span class="dtg tg-ops">Buffer 🤲</span>
-    </div>
-  </div>
-
-  <div class="card c-purple card-sm">
-    <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
-      <div><h4 style="color:#d8b4fe;margin-bottom:4px">পর্যায় ১ এর ফলাফল</h4><p style="font-size:.76rem;color:var(--muted)">ভিত্তি শক্ত · নিরাপত্তা কঠোর · Audit সিস্টেম সক্রিয় · নো-কোড config প্রস্তুত</p></div>
-      <div style="display:flex;gap:7px;flex-wrap:wrap">
-        <span class="b b-teal">Audit Log সক্রিয়</span>
-        <span class="b b-sky">Super Admin Config</span>
-        <span class="b b-gold">API পরিষ্কার</span>
-        <span class="b b-rose">Approval কাজ করছে</span>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="pfoot">
-  <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
-  <span class="pfoot-r">পেজ ৩ / ৬</span>
-</div>
-</div>
-
-<!-- ══════════ পেজ ৪ — দিন ১৬–৩০ (গভীর বাদামি/সোনা) ══════════ -->
-<div class="pg pg4">
-<div class="wrap">
-
-  <div class="ph">
-    <div class="ph-logo">
-      <div class="ph-icon" style="background:linear-gradient(135deg,#7a4510,#a06020)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-      </div>
-      <span class="ph-brand">পর্যায় ২ — Scale, Polish & Launch</span>
-    </div>
-    <span class="ph-pg">পেজ ৪ / ৬</span>
-  </div>
-
-  <div class="aya" style="border-color:rgba(201,168,80,.28);background:rgba(201,168,80,.06)">
-    <div class="aya-ar">وَأَنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ</div>
-    <div class="aya-tr">"আল্লাহ সৎকর্মশীলদের পুরস্কার নষ্ট করেন না।" — সূরা তওবা: ১২০</div>
-  </div>
-
-  <div class="sec-head">
-    <div class="sec-dot" style="background:var(--gold)"></div>
-    <h2>৩০ দিনের পরিকল্পনা — দিন ১৬–৩০</h2>
-    <div class="sec-line"></div>
-    <span style="font-size:.72rem;color:var(--muted);white-space:nowrap">Bangladesh market প্রস্তুতি</span>
-  </div>
-
-  <div class="g3" style="gap:9px;margin-bottom:12px">
-    <div class="day">
-      <div class="dn">দিন ১৬</div>
-      <div class="dt">📊 BI Dashboard</div>
-      <div class="dd">/admin/reports উন্নত। Configurable KPI widgets। PDF/CSV export। মাসিক বেতন report স্বয়ংক্রিয় তৈরি।</div>
-      <span class="dtg tg-feat">ফিচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ১৭</div>
-      <div class="dt">🤝 গ্রাহক Activity Timeline</div>
-      <div class="dd">প্রতিটি গ্রাহক কাজ AuditLog এ। গ্রাহক detail পেজে timeline view। Admin settings থেকে configurable retention।</div>
-      <span class="dtg tg-feat">ফিচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ১৮</div>
-      <div class="dt">📡 ISP Module উন্নয়ন</div>
-      <div class="dd">Admin থেকে configurable ISP package templates। Billing failure এ auto-suspend। Source এ কোনো hardcoded ISP logic নেই।</div>
-      <span class="dtg tg-feat">ফিচার</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ১৯</div>
-      <div class="dt">⚡ DB ও API Optimization</div>
-      <div class="dd">Composite indexes সর্বাধিক queried patterns এ। http-cache.ts দিয়ে query result caching। লক্ষ্য: P99 &lt; 200ms।</div>
-      <span class="dtg tg-arch">Performance</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২০</div>
-      <div class="dt">🇧🇩 Bangladesh Market Polish</div>
-      <div class="dd">সব BDT ৳ format সঠিক। Bangla date picker। bKash/Nagad payment labels। জেলাভিত্তিক address সিস্টেম সম্পূর্ণ।</div>
-      <span class="dtg tg-ux">স্থানীয়করণ</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২১</div>
-      <div class="dt">🔌 Public API শক্তিশালী</div>
-      <div class="dd">V1 routes এ API key authentication। Super Admin থেকে rate limits configure। Webhook signature verification।</div>
-      <span class="dtg tg-sec">নিরাপত্তা</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২২</div>
-      <div class="dt">⚡ Business Rule Automation</div>
-      <div class="dd">Admin configure করে: অর্ডারে auto-invoice, overdue subscription এ auto-suspend। Trigger/Action engine Settings এ।</div>
-      <span class="dtg tg-feat">Automation</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২৩</div>
-      <div class="dt">💾 Automated Backup</div>
-      <div class="dd">/api/backup উন্নত। Admin থেকে schedule configure: daily/weekly। Encrypted export। Cloudflare R2 storage।</div>
-      <span class="dtg tg-ops">অপারেশন</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২৪</div>
-      <div class="dt">🚀 Business Onboarding</div>
-      <div class="dd">নতুন ব্যবসার জন্য multi-step wizard। Starter modules auto-enable। স্বাগত email। Dashboard এ first-day checklist।</div>
-      <span class="dtg tg-ux">UX</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২৫</div>
-      <div class="dt">🏢 Multi-Tenant Isolation</div>
-      <div class="dd">প্রতিটি API route businessId isolation এর জন্য audit। Middleware যা প্রতিটি request এ businessId auto-inject করে।</div>
-      <span class="dtg tg-sec">নিরাপত্তা</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২৬</div>
-      <div class="dt">🩺 System Health Monitor</div>
-      <div class="dd">/api/health উন্নত: DB connection, storage। Super Admin এ uptime page। Configurable alert thresholds। Downtime এ Telegram।</div>
-      <span class="dtg tg-ops">অপারেশন</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২৭</div>
-      <div class="dt">📚 Internal Wiki ও Runbook</div>
-      <div class="dd">সব Settings keys, module dependency graph, deployment checklist, emergency procedures — /docs/ এ Markdown হিসেবে।</div>
-      <span class="dtg tg-ops">Docs</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২৮</div>
-      <div class="dt">🔬 Performance Validation</div>
-      <div class="dd">100 concurrent business tenant দিয়ে load test। N+1 query চিহ্নিত। DB connection pooling verify। Rate limiters চাপে যাচাই।</div>
-      <span class="dtg tg-qa">QA</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ২৯</div>
-      <div class="dt">🎯 Staging Deploy ও UAT</div>
-      <div class="dd">Staging এ সম্পূর্ণ deploy। সব roles এ end-to-end UAT: Super Admin, Business Admin, Manager, Employee। সমস্যা সমাধান।</div>
-      <span class="dtg tg-qa">QA</span>
-    </div>
-    <div class="day">
-      <div class="dn">দিন ৩০</div>
-      <div class="dt">🚀 Production Launch</div>
-      <div class="dd">Blue-green deployment। DNS cutover। 2 ঘণ্টা error rate monitor। Telegram alerts চালু। প্রথম দিন support। <strong>الحمد لله</strong></div>
-      <span class="dtg tg-ops">Launch 🎉</span>
-    </div>
-  </div>
-
-  <div class="card c-gold card-sm">
-    <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
-      <div><h4 style="color:var(--gold);margin-bottom:4px">পর্যায় ২ এর ফলাফল</h4><p style="font-size:.76rem;color:var(--muted)">Production-grade SaaS · সম্পূর্ণ no-code manageable · Bangladesh-optimized</p></div>
-      <div style="display:flex;gap:7px;flex-wrap:wrap">
-        <span class="b b-teal">Production সক্রিয়</span>
-        <span class="b b-sky">Auto Backup</span>
-        <span class="b b-gold">V1 API নিরাপদ</span>
-        <span class="b b-rose">BD Market Ready</span>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="pfoot">
-  <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
-  <span class="pfoot-r">পেজ ৪ / ৬</span>
-</div>
-</div>
-
-<!-- ══════════ পেজ ৫ — সুপার অ্যাডমিন ও অডিট (গভীর সিয়ান) ══════════ -->
-<div class="pg pg5">
-<div class="wrap">
-
-  <div class="ph">
-    <div class="ph-logo">
-      <div class="ph-icon" style="background:linear-gradient(135deg,#0d5060,#1a7080)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <span class="ph-brand">নো-কোড সুপার অ্যাডমিন · অডিট সিস্টেম</span>
-    </div>
-    <span class="ph-pg">পেজ ৫ / ৬</span>
-  </div>
-
-  <div class="aya" style="border-color:rgba(77,184,166,.25);background:rgba(77,184,166,.06)">
-    <div class="aya-ar">وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ</div>
-    <div class="aya-tr">"যখন মানুষের মধ্যে বিচার করো, ন্যায়বিচার করো।" — সূরা নিসা: ৫৮</div>
-  </div>
-
-  <div class="sec-head">
-    <div class="sec-dot" style="background:var(--teal)"></div>
-    <h2>নো-কোড পরিচালনা ও অডিট স্বচ্ছতা সিস্টেম</h2>
-    <div class="sec-line"></div>
-  </div>
-
-  <div class="g2" style="gap:13px;margin-bottom:13px">
-    <!-- সুপার অ্যাডমিন মডিউল -->
-    <div class="card">
-      <h3 style="color:var(--sky);margin-bottom:13px">🎛️ সুপার অ্যাডমিন মডিউলসমূহ</h3>
-      <div>
-        <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid var(--line)"><span style="font-size:1rem">📦</span><div><div style="font-size:.8rem;font-weight:600;color:#fff">Package Manager</div><div style="font-size:.7rem;color:var(--muted)">Package তৈরি/সম্পাদনা, pricing, trial days, feature flags — deployment ছাড়া</div></div></div>
-        <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid var(--line)"><span style="font-size:1rem">👥</span><div><div style="font-size:.8rem;font-weight:600;color:#fff">ভূমিকা ও অনুমতি Grid</div><div style="font-size:.7rem;color:var(--muted)">Visual matrix — যেকোনো ভূমিকার যেকোনো অনুমতি toggle। তাৎক্ষণিক কার্যকর</div></div></div>
-        <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid var(--line)"><span style="font-size:1rem">⚙️</span><div><div style="font-size:.8rem;font-weight:600;color:#fff">Platform Config</div><div style="font-size:.7rem;color:var(--muted)">Rate limits, session timeouts, max upload, Telegram bot, SMS gateway</div></div></div>
-        <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid var(--line)"><span style="font-size:1rem">🏷️</span><div><div style="font-size:.8rem;font-weight:600;color:#fff">Promotions ও Coupons</div><div style="font-size:.7rem;color:var(--muted)">ঈদ, স্বাধীনতা দিবস, মৌসুমী অফার। Configurable % বা নির্দিষ্ট ছাড়, মেয়াদ</div></div></div>
-        <div style="display:flex;gap:9px;padding:8px 0;border-bottom:1px solid var(--line)"><span style="font-size:1rem">📊</span><div><div style="font-size:.8rem;font-weight:600;color:#fff">Business Intelligence</div><div style="font-size:.7rem;color:var(--muted)">Platform-wide revenue, MRR, churn, নতুন signup, trial conversion</div></div></div>
-        <div style="display:flex;gap:9px;padding:8px 0"><span style="font-size:1rem">⏰</span><div><div style="font-size:.8rem;font-weight:600;color:#fff">Schedule Manager</div><div style="font-size:.7rem;color:var(--muted)">তোমার কাজের সময়, নামাজ বিরতি, ছুটি — configurable। পরিকল্পনা auto-adjust</div></div></div>
-      </div>
-    </div>
-
-    <!-- অডিট সিস্টেম -->
-    <div class="card">
-      <h3 style="color:var(--teal);margin-bottom:12px">🔍 Audit ও স্বচ্ছতা সিস্টেম</h3>
-      <p style="font-size:.76rem;color:var(--muted);margin-bottom:11px;line-height:1.7">সকল পরিবর্তন <code>AuditLog</code> এ অপরিবর্তনযোগ্যভাবে সংরক্ষিত। কোনো user — এমনকি Super Admin ও — audit log সম্পাদনা বা মুছতে পারবে না।</p>
-      <div class="cb">
-        model AuditLog {<br>
-        &nbsp;&nbsp;id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String &nbsp;@id @default(cuid())<br>
-        &nbsp;&nbsp;entity &nbsp;&nbsp;String &nbsp;// "SalaryPayment"<br>
-        &nbsp;&nbsp;entityId String<br>
-        &nbsp;&nbsp;action &nbsp;&nbsp;String &nbsp;// "CREATE" | "UPDATE"<br>
-        &nbsp;&nbsp;actorId &nbsp;String<br>
-        &nbsp;&nbsp;before &nbsp;&nbsp;Json?<br>
-        &nbsp;&nbsp;after &nbsp;&nbsp;&nbsp;Json?<br>
-        &nbsp;&nbsp;ipAddress String?<br>
-        &nbsp;&nbsp;createdAt DateTime @default(now())<br>
-        &nbsp;&nbsp;// updatedAt নেই — ইচ্ছাকৃতভাবে immutable<br>
-        }
-      </div>
-      <div style="margin-top:11px;display:flex;flex-direction:column;gap:5px">
-        <div style="font-size:.72rem;color:var(--muted);display:flex;gap:6px"><span style="color:var(--teal)">✓</span>প্রতিটি বেতন, অগ্রিম, বোনাস — আগে/পরের পরিমাণ সহ লগ</div>
-        <div style="font-size:.72rem;color:var(--muted);display:flex;gap:6px"><span style="color:var(--teal)">✓</span>প্রতিটি অনুমতি পরিবর্তন — কে, কখন, কোন IP থেকে</div>
-        <div style="font-size:.72rem;color:var(--muted);display:flex;gap:6px"><span style="color:var(--teal)">✓</span>প্রতিটি অর্থ transfer — সম্পূর্ণ আর্থিক trail</div>
-        <div style="font-size:.72rem;color:var(--muted);display:flex;gap:6px"><span style="color:var(--teal)">✓</span>Approval requests — requester, approver, কারণ, timestamp</div>
-        <div style="font-size:.72rem;color:var(--muted);display:flex;gap:6px"><span style="color:var(--teal)">✓</span>Login events — success/fail, IP, user agent</div>
-        <div style="font-size:.72rem;color:var(--muted);display:flex;gap:6px"><span style="color:var(--teal)">✓</span>হিসাবরক্ষক বা আইনি পর্যালোচনার জন্য CSV export</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Approval Workflow -->
-  <div class="card card-sm" style="margin-bottom:12px">
-    <h3 style="color:#fff;margin-bottom:9px">✅ Configurable Approval Workflow</h3>
-    <div class="g3" style="gap:8px">
-      <div style="font-size:.72rem;color:var(--muted);padding:8px 10px;background:var(--ghost);border-radius:8px"><strong style="color:var(--sky);display:block;margin-bottom:3px">Transfer Threshold</strong>Admin নির্ধারণ করে: "৫,০০০ টাকার বেশি যেকোনো transfer এ approval লাগবে।" Business type অনুযায়ী configurable।</div>
-      <div style="font-size:.72rem;color:var(--muted);padding:8px 10px;background:var(--ghost);border-radius:8px"><strong style="color:var(--teal);display:block;margin-bottom:3px">বেতন Override</strong>Manager বেতন payment এ Admin confirmation লাগবে। প্রতি employee বা position অনুযায়ী configurable।</div>
-      <div style="font-size:.72rem;color:var(--muted);padding:8px 10px;background:var(--ghost);border-radius:8px"><strong style="color:var(--gold);display:block;margin-bottom:3px">Auto-Approval</strong>কম-ঝুঁকির কাজ নির্দিষ্ট সময়ের পরে স্বয়ংক্রিয়ভাবে approved। Configurable timeout। সর্বদা logged।</div>
-    </div>
-  </div>
-
-  <!-- আর্থিক traceability -->
-  <div class="card c-gold card-sm">
-    <h4 style="color:var(--gold);margin-bottom:7px">💰 আর্থিক Traceability Chain</h4>
-    <div style="font-size:.76rem;color:var(--muted);line-height:1.85">
-      Collection রেকর্ড → Admin যাচাই → Balance update → AuditLog entry →
-      বেতন পরিশোধ → কর্তন লগ → নেট নগদ রেকর্ড → AuditLog entry →
-      অগ্রিম প্রদান → Balance কর্তন → Expense তৈরি → AuditLog entry →
-      <strong style="color:var(--gold)">প্রতি employee, প্রতি মাস, প্রতি ব্যবসার সম্পূর্ণ আর্থিক timeline।</strong>
-    </div>
-  </div>
-</div>
-<div class="pfoot">
-  <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
-  <span class="pfoot-r">পেজ ৫ / ৬</span>
-</div>
-</div>
-
-<!-- ══════════ পেজ ৬ — স্কেলেবিলিটি + বাংলাদেশ (গভীর লাল/সোনা) ══════════ -->
-<div class="pg pg6">
-<div class="wrap">
-
-  <div class="ph">
-    <div class="ph-logo">
-      <div class="ph-icon" style="background:linear-gradient(135deg,#7a2020,#a04020)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      </div>
-      <span class="ph-brand">স্কেলেবিলিটি ও Bangladesh Market</span>
-    </div>
-    <span class="ph-pg">পেজ ৬ / ৬</span>
-  </div>
-
-  <div class="aya" style="border-color:rgba(201,168,80,.28);background:rgba(201,168,80,.06)">
-    <div class="aya-ar">إِنَّ اللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَن يُتْقِنَهُ</div>
-    <div class="aya-tr">"আল্লাহ পছন্দ করেন, যখন কেউ কাজ করে, সে তা নিখুঁতভাবে করুক।" — হাদিস</div>
-  </div>
-
-  <div class="sec-head">
-    <div class="sec-dot" style="background:var(--rose)"></div>
-    <h2>Production-Ready সুপারিশসমূহ</h2>
-    <div class="sec-line"></div>
-  </div>
-
-  <div class="g2" style="gap:13px;margin-bottom:13px">
-    <!-- প্রযুক্তিগত স্কেলেবিলিটি -->
-    <div class="card">
-      <h3 style="color:var(--sky);margin-bottom:12px">🔧 প্রযুক্তিগত স্কেলেবিলিটি</h3>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="padding:9px 11px;background:var(--ghost);border-radius:9px;border-left:3px solid var(--sky)">
-          <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:2px">Database Sharding প্রস্তুত</div>
-          <div style="font-size:.7rem;color:var(--muted)">প্রতিটি table এ businessId আছে। ৫০০+ tenant এ businessId দিয়ে shard করো। Application কোড পরিবর্তন লাগবে না।</div>
+<!-- ══ PAGE 1 — Cover: Vision & Mission ══ -->
+<article class="page pg-1">
+  <div class="page-inner">
+    <div class="page-accent"></div>
+    <div class="page-brand-bar"></div>
+    <div class="bd-pattern"></div>
+    <span class="crop-mark crop-tl" aria-hidden="true"></span>
+    <span class="crop-mark crop-tr" aria-hidden="true"></span>
+    <span class="crop-mark crop-bl" aria-hidden="true"></span>
+    <span class="crop-mark crop-br" aria-hidden="true"></span>
+    <header class="page-content" style="padding-bottom:0">
+      <div class="ph">
+        <div class="ph-logo">
+          <div class="ph-icon" style="background:linear-gradient(135deg,#1a3a6e,#1a6b45)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <span class="ph-brand">BizFlow Platform</span>
+          <span class="ph-title">সিটিও ব্লুপ্রিন্ট</span>
         </div>
-        <div style="padding:9px 11px;background:var(--ghost);border-radius:9px;border-left:3px solid var(--teal)">
-          <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:2px">Edge Caching</div>
-          <div style="font-size:.7rem;color:var(--muted)">http-cache.ts + Cloudflare Cache Rules। stale-while-revalidate দিয়ে API response cache। DB load ৬০-৭০% কমবে।</div>
-        </div>
-        <div style="padding:9px 11px;background:var(--ghost);border-radius:9px;border-left:3px solid var(--gold)">
-          <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:2px">Redis Session</div>
-          <div style="font-size:.7rem;color:var(--muted)">বিদ্যমান redis.ts প্রস্তুত। Session store, rate limiting, notification queue এর জন্য ব্যবহার করো।</div>
-        </div>
-        <div style="padding:9px 11px;background:var(--ghost);border-radius:9px;border-left:3px solid var(--rose)">
-          <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:2px">Background Jobs</div>
-          <div style="font-size:.7rem;color:var(--muted)">Vercel Cron বা QStash: scheduled backup, subscription expiry check, মাসিক বেতন reminder। কোনো server লাগবে না।</div>
+        <span class="ph-page-num">পেজ ১ / ৮ · কভার</span>
+      </div>
+    </header>
+    <section class="page-content" style="padding-top:2mm;display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px;">
+      <div class="aya" style="max-width:320px;width:100%;">
+        <div class="aya-ar" style="font-size:1.15rem;">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <div class="aya-tr">পরম করুণাময়, অতি দয়ালু আল্লাহর নামে শুরু করছি</div>
+      </div>
+      <div class="flex flex-center gap8" style="justify-content:center;margin-top:2px;">
+        <figure class="cover-photo">
+          <img src="halim.png" alt="মো. আব্দুল হালিম" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=cover-photo-fallback>👤</div>'"/>
+        </figure>
+        <div style="text-align:left;">
+          <h1 style="font-size:1.4rem;margin-bottom:2px;">মো. আব্দুল হালিম</h1>
+          <p class="text-muted" style="font-size:.72rem;line-height:1.4;">প্রতিষ্ঠাতা ও সিইও · BizFlow Platform</p>
+          <p style="font-size:.72rem;color:var(--navy);font-weight:600;font-family:'Inter',sans-serif;margin-top:2px;">📞 01312-125858</p>
         </div>
       </div>
-    </div>
-
-    <!-- Bangladesh market -->
-    <div class="card">
-      <h3 style="color:var(--teal);margin-bottom:12px">🇧🇩 Bangladesh Market সুপারিশ</h3>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="padding:9px 11px;background:var(--ghost);border-radius:9px;border-left:3px solid var(--rose)">
-          <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:2px">Payment: bKash ও Nagad প্রথমে</div>
-          <div style="font-size:.7rem;color:var(--muted)">Bangladesh এর ৮০% ব্যবসা mobile banking ব্যবহার করে। GatewayCredential model ইতিমধ্যে configurable।</div>
-        </div>
-        <div style="padding:9px 11px;background:var(--ghost);border-radius:9px;border-left:3px solid var(--teal)">
-          <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:2px">বাংলা-First UI</div>
-          <div style="font-size:.7rem;color:var(--muted)">সব admin পেজ bilingual। language=bn হলে Bangla সংখ্যায় date format। সর্বদা ৳ মুদ্রা। Bangla SMS support।</div>
-        </div>
-        <div style="padding:9px 11px;background:var(--ghost);border-radius:9px;border-left:3px solid var(--gold)">
-          <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:2px">Low Bandwidth Optimization</div>
-          <div style="font-size:.7rem;color:var(--muted)">image-processor.ts দিয়ে ছবি compress। Lazy loading। Mobile data saver mode। Offline capability এর জন্য PWA।</div>
-        </div>
-        <div style="padding:9px 11px;background:var(--ghost);border-radius:9px;border-left:3px solid var(--sky)">
-          <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:2px">কর সম্মতি (VAT/TIN)</div>
-          <div style="font-size:.7rem;color:var(--muted)">TIN/VAT বিদ্যমান Business model এ সংরক্ষিত। Invoice এ auto-populate। Admin settings থেকে VAT % configurable। NBR-format export।</div>
+      <div class="card card-navy" style="max-width:380px;width:100%;padding:10px 16px;">
+        <h2 style="font-size:1.15rem;margin-bottom:3px;">বিজফ্লো প্ল্যাটফর্ম — সিটিও ব্লুপ্রিন্ট</h2>
+        <p style="font-size:.8rem;font-weight:600;color:var(--navy);margin-bottom:5px;">৩০ দিনের বাস্তবায়ন পরিকল্পনা</p>
+        <p class="text-muted" style="font-size:.68rem;line-height:1.6;">আর্কিটেকচার অডিট · নো-কোড সুপার অ্যাডমিন · অডিট ও স্বচ্ছতা · বাংলাদেশ SaaS</p>
+        <div class="flex flex-wrap gap4 mt4" style="justify-content:center;">
+          <span class="badge b-navy">Next.js 14</span>
+          <span class="badge b-green">Prisma MySQL</span>
+          <span class="badge b-gold">মোবাইল-ফার্স্ট</span>
+          <span class="badge b-blue">Bangladesh SaaS</span>
+          <span class="badge b-red">Production-Ready</span>
         </div>
       </div>
-    </div>
+      <div class="g4" style="max-width:380px;width:100%;gap:6px;">
+        <div class="stat"><div class="stat-n en-num">৩০</div><div class="stat-l">দিন</div></div>
+        <div class="stat"><div class="stat-n en-num text-green">১৮</div><div class="stat-l">মডিউল</div></div>
+        <div class="stat stat-gold"><div class="stat-n en-num">৬.৫</div><div class="stat-l">ঘণ্টা/দিন</div></div>
+        <div class="stat"><div class="stat-n en-num text-navy">∞</div><div class="stat-l">স্কেলেবল</div></div>
+      </div>
+      <div class="g2" style="max-width:400px;width:100%;gap:6px;">
+        <div class="card card-green" style="padding:7px 10px;text-align:left;">
+          <h4 class="text-green mb4">🎯 ভিশন</h4>
+          <p style="font-size:.68rem;color:var(--ink-2);line-height:1.6;">"বাংলাদেশের প্রতিটি ব্যবসাকে digital করা — সহজে, সাশ্রয়ে, নিরাপদে"</p>
+        </div>
+        <div class="card card-navy" style="padding:7px 10px;text-align:left;">
+          <h4 class="text-navy mb4">🚀 মিশন</h4>
+          <p style="font-size:.68rem;color:var(--ink-2);line-height:1.6;">"একটি no-code SaaS platform যা ISP, retail, payroll সহ সব ব্যবসার জন্য কাজ করে"</p>
+        </div>
+      </div>
+      <div class="card card-gold" style="max-width:340px;width:100%;padding:7px 12px;text-align:center;">
+        <div class="ar-text" style="font-size:.9rem;color:#7a5e00;margin-bottom:3px;">اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا</div>
+        <p class="italic" style="font-size:.65rem;color:var(--ink-muted);">হে আল্লাহ, আমাদের রিজিকে বরকত দাও</p>
+      </div>
+    </section>
+    <footer class="pfoot">
+      <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
+      <span class="pfoot-r">পেজ ১ / ৮</span>
+    </footer>
   </div>
+</article>
 
-  <!-- নিরাপত্তা চেকলিস্ট -->
-  <div class="card card-sm" style="margin-bottom:13px">
-    <h3 style="color:#fff;margin-bottom:11px">🛡️ নিরাপত্তা নীতিমালা — Production Checklist</h3>
-    <div class="g4" style="gap:7px">
-      <div style="font-size:.7rem;color:var(--muted);padding:8px;background:var(--ghost);border-radius:8px;text-align:center"><span style="font-size:1.1rem;display:block;margin-bottom:3px">🔐</span>HMAC-SHA256 password pepper (auth.service.ts)</div>
-      <div style="font-size:.7rem;color:var(--muted);padding:8px;background:var(--ghost);border-radius:8px;text-align:center"><span style="font-size:1.1rem;display:block;margin-bottom:3px">🚦</span>ভূমিকা অনুযায়ী rate limiting (Admin থেকে)</div>
-      <div style="font-size:.7rem;color:var(--muted);padding:8px;background:var(--ghost);border-radius:8px;text-align:center"><span style="font-size:1.1rem;display:block;margin-bottom:3px">🏷️</span>সব mutation এ CSRF সুরক্ষা (csrf.ts)</div>
-      <div style="font-size:.7rem;color:var(--muted);padding:8px;background:var(--ghost);border-radius:8px;text-align:center"><span style="font-size:1.1rem;display:block;margin-bottom:3px">🧹</span>প্রতিটি endpoint এ input sanitization</div>
-      <div style="font-size:.7rem;color:var(--muted);padding:8px;background:var(--ghost);border-radius:8px;text-align:center"><span style="font-size:1.1rem;display:block;margin-bottom:3px">🔑</span>Gateway credentials AES-256 encrypted</div>
-      <div style="font-size:.7rem;color:var(--muted);padding:8px;background:var(--ghost);border-radius:8px;text-align:center"><span style="font-size:1.1rem;display:block;margin-bottom:3px">📋</span>Immutable audit logs (UPDATE/DELETE নেই)</div>
-      <div style="font-size:.7rem;color:var(--muted);padding:8px;background:var(--ghost);border-radius:8px;text-align:center"><span style="font-size:1.1rem;display:block;margin-bottom:3px">🏢</span>Multi-tenant isolation (businessId)</div>
-      <div style="font-size:.7rem;color:var(--muted);padding:8px;background:var(--ghost);border-radius:8px;text-align:center"><span style="font-size:1.1rem;display:block;margin-bottom:3px">📡</span>V1 API তে request signing</div>
-    </div>
+<!-- ══ PAGE 2 — Business Goals & Platform Overview ══ -->
+<article class="page pg-2">
+  <div class="page-inner">
+    <div class="page-accent"></div><div class="page-brand-bar"></div><div class="bd-pattern"></div>
+    <span class="crop-mark crop-tl" aria-hidden="true"></span><span class="crop-mark crop-tr" aria-hidden="true"></span>
+    <span class="crop-mark crop-bl" aria-hidden="true"></span><span class="crop-mark crop-br" aria-hidden="true"></span>
+    <header class="page-content" style="padding-bottom:0">
+      <div class="ph">
+        <div class="ph-logo">
+          <div class="ph-icon" style="background:linear-gradient(135deg,#1a6b45,#22885a)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <span class="ph-brand">BizFlow Platform</span>
+          <span class="ph-title">ব্যবসায়িক লক্ষ্য ও প্ল্যাটফর্ম ওভারভিউ</span>
+        </div>
+        <span class="ph-page-num">পেজ ২ / ৮</span>
+      </div>
+    </header>
+    <section class="page-content" style="padding-top:3mm;">
+      <div class="aya">
+        <div class="aya-ar">وَشَاوِرْهُمْ فِي الْأَمْرِ</div>
+        <div class="aya-tr">"এবং কাজে তাদের সাথে পরামর্শ করো।" — সূরা আলে-ইমরান: ১৫৯</div>
+      </div>
+      <div class="sec-hd mb8">
+        <div class="sec-hd-dot" style="background:var(--green)"></div>
+        <h2>সম্পূর্ণ প্ল্যাটফর্ম মূল্যায়ন ও পরামর্শ</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="card card-green mb8">
+        <h3 class="text-green mb6">✅ ইতিমধ্যে শক্তিশালী — Platform Strengths</h3>
+        <div class="g3" style="gap:5px;">
+          <div class="card" style="padding:5px 8px;"><p style="font-size:.67rem;color:var(--ink-2);"><strong>Next.js 14</strong> App Router + TypeScript — শক্ত ভিত্তি</p></div>
+          <div class="card" style="padding:5px 8px;"><p style="font-size:.67rem;color:var(--ink-2);"><strong>Prisma ORM</strong> + MySQL — সুনির্মিত স্কিমা</p></div>
+          <div class="card" style="padding:5px 8px;"><p style="font-size:.67rem;color:var(--ink-2);"><strong>মডিউল রেজিস্ট্রি</strong> — configuration-first ডিজাইন</p></div>
+          <div class="card" style="padding:5px 8px;"><p style="font-size:.67rem;color:var(--ink-2);"><strong>Settings টেবিল</strong> — কোড পরিবর্তন ছাড়া config</p></div>
+          <div class="card" style="padding:5px 8px;"><p style="font-size:.67rem;color:var(--ink-2);"><strong>PaymentModal/BonusModal</strong> পুনর্নির্মিত ✓</p></div>
+          <div class="card" style="padding:5px 8px;"><p style="font-size:.67rem;color:var(--ink-2);"><strong>Payroll Config</strong> database-driven defaults ✓</p></div>
+        </div>
+      </div>
+      <div class="g2 mb8">
+        <div class="card card-navy">
+          <h3 class="text-navy mb4">⏰ Configurable কাজের সময়সূচি</h3>
+          <ul style="list-style:none;font-size:.67rem;color:var(--ink-muted);line-height:1.8;">
+            <li>🔑 Settings key: <code>founder_schedule</code></li>
+            <li>⏱ ডিফল্ট: সকাল ৯টা – রাত ৮টা</li>
+            <li>🕌 ৫ ওয়াক্ত নামাজ বিরতি (auto-adjust)</li>
+            <li>💼 ৬.৫–৭ ঘণ্টা কার্যকর/দিন</li>
+            <li>⚙️ Super Admin → Settings → Schedule থেকে পরিবর্তন</li>
+          </ul>
+        </div>
+        <div class="card card-blue">
+          <h3 class="text-navy mb6">📊 দৈনিক পরিসংখ্যান</h3>
+          <div class="g2" style="gap:5px;">
+            <div class="stat"><div class="stat-n en-num">৬.৫</div><div class="stat-l">ঘণ্টা কাজ</div></div>
+            <div class="stat stat-gold"><div class="stat-n en-num">৫</div><div class="stat-l">বার নামাজ</div></div>
+            <div class="stat"><div class="stat-n en-num text-navy">৪</div><div class="stat-l">ঘণ্টা ঘুম</div></div>
+            <div class="stat stat-green"><div class="stat-n en-num">✓</div><div class="stat-l">Custom OK</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb8">
+        <h3 class="text-navy mb6">📅 দৈনিক সময়সূচি ভিজ্যুয়াল (রাত ১২টা — রাত ১১টা)</h3>
+        <div class="sched-bar">
+          <div class="sb-sleep" title="ঘুম রাত ১২–৪"></div>
+          <div class="sb-fajr" title="ফজর"></div>
+          <div class="sb-work1" title="কাজ ৫–৯"></div>
+          <div class="sb-dhuhr" title="যোহর"></div>
+          <div class="sb-work2" title="কাজ ১–৩"></div>
+          <div class="sb-asr" title="আসর"></div>
+          <div class="sb-work3" title="কাজ ৪–৬"></div>
+          <div class="sb-maghrib" title="মাগরিব"></div>
+          <div class="sb-work4" title="কাজ ৭–৮"></div>
+          <div class="sb-isha" title="এশা"></div>
+          <div class="sb-free" title="বিশ্রাম/মুক্ত"></div>
+        </div>
+        <div class="sched-legend mt4">
+          <div class="sl-item"><div class="sl-dot" style="background:#c8d8f0;"></div>ঘুম</div>
+          <div class="sl-item"><div class="sl-dot" style="background:#b8950a;"></div>নামাজ</div>
+          <div class="sl-item"><div class="sl-dot" style="background:#1a6b45;"></div>কাজ (সকাল)</div>
+          <div class="sl-item"><div class="sl-dot" style="background:#1a3a6e;"></div>কাজ (বিকাল)</div>
+          <div class="sl-item"><div class="sl-dot" style="background:#e8e4dc;"></div>মুক্ত সময়</div>
+        </div>
+      </div>
+      <div class="card card-cream">
+        <h3 class="text-navy mb6">🏗️ টেক স্ট্যাক আর্কিটেকচার</h3>
+        <div class="tech-chain flex-wrap">
+          <div class="tech-node">Next.js 14</div><div class="tech-arrow">→</div>
+          <div class="tech-node">Prisma ORM</div><div class="tech-arrow">→</div>
+          <div class="tech-node tech-node-green">MySQL</div><div class="tech-arrow">→</div>
+          <div class="tech-node tech-node-gold">Redis</div><div class="tech-arrow">→</div>
+          <div class="tech-node">Cloudflare</div>
+        </div>
+      </div>
+    </section>
+    <footer class="pfoot">
+      <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
+      <span class="pfoot-r">পেজ ২ / ৮</span>
+    </footer>
   </div>
+</article>
 
-  <!-- সমাপনী বার্তা -->
-  <div class="card" style="background:linear-gradient(135deg,rgba(91,164,224,.08),rgba(77,184,166,.08));border-color:rgba(91,164,224,.22);text-align:center;padding:26px 32px">
-    <div style="font-family:'Times New Roman',serif;font-size:1.4rem;color:var(--gold);direction:rtl;margin-bottom:8px">تَوَكَّلْ عَلَى اللَّهِ وَاعْمَلْ</div>
-    <div style="font-size:.75rem;color:var(--muted);font-style:italic;margin-bottom:16px;direction:ltr">আল্লাহর উপর ভরসা করো এবং কাজে লেগে যাও</div>
-    <div class="hr"></div>
-    <h3 style="color:var(--sky);margin-bottom:8px">তোমার CTO এর পক্ষ থেকে</h3>
-    <p style="font-size:.8rem;color:var(--muted);max-width:660px;margin:0 auto;line-height:1.85">
-      হালিম ভাই, তোমার ভিত্তি শক্ত। ৩০টি মনোযোগী দিনে — তোমার ইসলামিক সময়সূচির মধ্যে দৈনিক ৬.৫ ঘণ্টা মানসম্পন্ন কাজ করে —
-      তুমি এমন একটি production-grade SaaS platform তৈরি করতে পারবে যা হাজার হাজার বাংলাদেশি ব্যবসাকে সেবা দেবে।
-      প্রতিটি নামাজের বিরতি একটি রিসেট। প্রতিটি কাজের session ইচ্ছাকৃত।
-      <strong style="color:#c4b5fd;display:block;margin-top:8px">বিজফ্লো হবে তোমার উত্তরাধিকার। বরকতের সাথে গড়ো।</strong>
-    </p>
-    <div style="margin-top:10px;font-size:.72rem;color:var(--gold)">— মো. আব্দুল হালিম · 01312-125858</div>
-    <div style="margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-      <span class="b b-sky">بَارَكَ اللَّهُ فِيكَ</span>
-      <span class="b b-teal">اللَّهُمَّ أَعِنِّي</span>
-      <span class="b b-gold">الحمد لله</span>
-      <span class="b b-rose">إِنَّ مَعَ الْعُسْرِ يُسْرًا</span>
-    </div>
+<!-- ══ PAGE 3 — System Architecture & Module Audit ══ -->
+<article class="page pg-3">
+  <div class="page-inner">
+    <div class="page-accent"></div><div class="page-brand-bar"></div><div class="bd-pattern"></div>
+    <span class="crop-mark crop-tl" aria-hidden="true"></span><span class="crop-mark crop-tr" aria-hidden="true"></span>
+    <span class="crop-mark crop-bl" aria-hidden="true"></span><span class="crop-mark crop-br" aria-hidden="true"></span>
+    <header class="page-content" style="padding-bottom:0">
+      <div class="ph">
+        <div class="ph-logo">
+          <div class="ph-icon" style="background:linear-gradient(135deg,#2a5298,#1a3a6e)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          </div>
+          <span class="ph-brand">BizFlow Platform</span>
+          <span class="ph-title">সিস্টেম আর্কিটেকচার ও মডিউল অডিট ম্যাট্রিক্স</span>
+        </div>
+        <span class="ph-page-num">পেজ ৩ / ৮</span>
+      </div>
+    </header>
+    <section class="page-content" style="padding-top:3mm;">
+      <div class="sec-hd mb8">
+        <div class="sec-hd-dot" style="background:var(--navy)"></div>
+        <h2>মডিউল অডিট ম্যাট্রিক্স — ৯ মডিউল বিশ্লেষণ</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="mb8">
+        <div class="audit-row">
+          <div><div class="audit-name">Auth সিস্টেম</div><div class="audit-path">/api/auth/</div></div>
+          <div class="audit-status as-improve">IMPROVE</div>
+          <div class="audit-desc">2FA যোগ করো, session revocation, IP লগিং। register route একত্র করো <code>auth.service.ts</code> এর সাথে।</div>
+        </div>
+        <div class="audit-row">
+          <div><div class="audit-name">SaaS Core/বিলিং</div><div class="audit-path">/super-admin/packages/</div></div>
+          <div class="audit-status as-improve">IMPROVE</div>
+          <div class="audit-desc">Admin UI থেকে configurable billing cycles। <code>super-admin-packages.ts</code> + <code>billing-cycles.ts</code> একত্র করো।</div>
+        </div>
+        <div class="audit-row">
+          <div><div class="audit-name">বেতন মডিউল</div><div class="audit-path">/salary/</div></div>
+          <div class="audit-status as-keep">KEEP ✓</div>
+          <div class="audit-desc">SalaryConfigPanel পুনর্নির্মিত, overpayment guard সক্রিয়, monthly lock কাজ করছে। সম্পূর্ণ ভালো।</div>
+        </div>
+        <div class="audit-row">
+          <div><div class="audit-name">Storefront Builder</div><div class="audit-path">/edit/_components/</div></div>
+          <div class="audit-status as-improve">IMPROVE</div>
+          <div class="audit-desc">StorefrontEditorChrome + InlineEditorSidebar একত্র করো। Section definitions DB তে সরাও।</div>
+        </div>
+        <div class="audit-row">
+          <div><div class="audit-name">কমিশন/রিসেলার</div><div class="audit-path">/admin/commission/</div></div>
+          <div class="audit-status as-keep">KEEP</div>
+          <div class="audit-desc">Architecture পরিষ্কার। Configurable commission tiers Admin Settings এ। Audit log যোগ করো।</div>
+        </div>
+        <div class="audit-row">
+          <div><div class="audit-name">ইনভেন্টরি</div><div class="audit-path">/api/inventory/</div></div>
+          <div class="audit-status as-improve">IMPROVE</div>
+          <div class="audit-desc"><code>/api/inventory/</code> + <code>/api/v1/inventory/</code> একত্র করো — এখন duplicate রয়েছে।</div>
+        </div>
+        <div class="audit-row">
+          <div><div class="audit-name">অর্ডার/ই-কমার্স</div><div class="audit-path">/api/orders/ + /api/v1/</div></div>
+          <div class="audit-status as-merge">MERGE</div>
+          <div class="audit-desc">একই কাজ দুই জায়গায়। <code>/api/v1/orders/</code> wrapper হিসেবে রাখো, মূল মুছো।</div>
+        </div>
+        <div class="audit-row">
+          <div><div class="audit-name">অর্থ/খরচ</div><div class="audit-path">/api/money-transfer/</div></div>
+          <div class="audit-status as-improve">IMPROVE</div>
+          <div class="audit-desc">প্রতিটি লেনদেনে immutable audit log। Configurable threshold এ approval workflow।</div>
+        </div>
+        <div class="audit-row">
+          <div><div class="audit-name">Debug রুট</div><div class="audit-path">/api/debug-session/</div></div>
+          <div class="audit-status as-remove">REMOVE ❌</div>
+          <div class="audit-desc">Production এ অবশ্যই সরাতে হবে। <code>NODE_ENV=production</code> check এ gate করো।</div>
+        </div>
+      </div>
+      <div class="flex gap6 flex-wrap mb8">
+        <span class="badge b-green">KEEP ✓ — ভালো আছে</span>
+        <span class="badge b-gold">IMPROVE — উন্নত করো</span>
+        <span class="badge b-blue">MERGE — একত্র করো</span>
+        <span class="badge b-red">REMOVE — সরাও</span>
+      </div>
+      <div class="card card-blue">
+        <h3 class="text-navy mb6">🏗️ সম্পূর্ণ টেক স্ট্যাক</h3>
+        <div class="tech-chain flex-wrap">
+          <div class="tech-node" style="font-weight:700;">Next.js 14<br/><span style="font-size:.55rem;font-weight:400;color:var(--ink-muted);">App Router</span></div>
+          <div class="tech-arrow">→</div>
+          <div class="tech-node">TypeScript<br/><span style="font-size:.55rem;font-weight:400;color:var(--ink-muted);">Strict</span></div>
+          <div class="tech-arrow">→</div>
+          <div class="tech-node tech-node-green">Prisma ORM<br/><span style="font-size:.55rem;font-weight:400;color:var(--ink-muted);">Type-safe</span></div>
+          <div class="tech-arrow">→</div>
+          <div class="tech-node tech-node-green">MySQL<br/><span style="font-size:.55rem;font-weight:400;color:var(--ink-muted);">Multi-tenant</span></div>
+          <div class="tech-arrow">→</div>
+          <div class="tech-node tech-node-gold">Redis<br/><span style="font-size:.55rem;font-weight:400;color:var(--ink-muted);">Session/Queue</span></div>
+          <div class="tech-arrow">→</div>
+          <div class="tech-node">Cloudflare<br/><span style="font-size:.55rem;font-weight:400;color:var(--ink-muted);">Edge/CDN</span></div>
+        </div>
+      </div>
+    </section>
+    <footer class="pfoot">
+      <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
+      <span class="pfoot-r">পেজ ৩ / ৮</span>
+    </footer>
   </div>
-</div>
-<div class="pfoot">
-  <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
-  <span class="pfoot-r">পেজ ৬ / ৬</span>
-</div>
-</div>
+</article>
 
-<!-- ══════════ প্রিন্ট টুলবার ══════════ -->
-<div class="print-bar" style="
-  position:fixed;bottom:24px;right:24px;z-index:9999;
-  display:flex;align-items:center;gap:10px;
-  background:rgba(12,26,46,0.96);
-  border:1px solid rgba(91,164,224,.25);
-  border-radius:16px;
-  padding:10px 16px;
-  backdrop-filter:blur(12px);
-  box-shadow:0 8px 40px rgba(0,0,0,.5),0 0 0 1px rgba(91,164,224,.08);
-">
-  <button onclick="window.print()" style="
-    background:linear-gradient(135deg,#2a6090,#2a7a6a);
-    color:#fff;border:none;border-radius:10px;
-    padding:9px 22px;font-size:.82rem;font-weight:700;
-    cursor:pointer;font-family:inherit;
-    box-shadow:0 4px 14px rgba(91,164,224,.3);
-    transition:transform .15s;
-  " onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-    🖨️ প্রিন্ট / PDF সেভ
-  </button>
-  <div style="font-size:.68rem;color:rgba(255,255,255,.45);line-height:1.5">
-    প্রিন্টের সময় <strong style="color:rgba(201,168,80,.8)">"Background graphics"</strong><br>
-    অবশ্যই চালু রাখুন
+<!-- ══ PAGE 4 — Complete Module Ecosystem (18 modules) ══ -->
+<article class="page pg-4">
+  <div class="page-inner">
+    <div class="page-accent"></div><div class="page-brand-bar"></div><div class="bd-pattern"></div>
+    <span class="crop-mark crop-tl" aria-hidden="true"></span><span class="crop-mark crop-tr" aria-hidden="true"></span>
+    <span class="crop-mark crop-bl" aria-hidden="true"></span><span class="crop-mark crop-br" aria-hidden="true"></span>
+    <header class="page-content" style="padding-bottom:0">
+      <div class="ph">
+        <div class="ph-logo">
+          <div class="ph-icon" style="background:linear-gradient(135deg,#b8950a,#d4a912)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <span class="ph-brand">BizFlow Platform</span>
+          <span class="ph-title">সম্পূর্ণ মডিউল ইকোসিস্টেম</span>
+        </div>
+        <span class="ph-page-num">পেজ ৪ / ৮</span>
+      </div>
+    </header>
+    <section class="page-content" style="padding-top:3mm;">
+      <div class="sec-hd mb8">
+        <div class="sec-hd-dot" style="background:var(--gold)"></div>
+        <h2>১৮টি মডিউল — সম্পূর্ণ ইকোসিস্টেম</h2>
+        <div class="sec-line"></div>
+        <div class="flex gap4">
+          <span class="badge b-active">Active ✓</span>
+          <span class="badge b-enhance">Enhance</span>
+          <span class="badge b-planned">Planned</span>
+        </div>
+      </div>
+      <div class="g3" style="gap:6px;">
+        <div class="module-card"><div class="module-icon">🔐</div><div class="module-name">Auth System</div><span class="badge b-enhance" style="font-size:.55rem;padding:1px 5px;">Enhance</span><div class="module-desc mt2">JWT, 2FA, session revocation, IP logging, suspicious login alerts</div></div>
+        <div class="module-card"><div class="module-icon">💳</div><div class="module-name">SaaS Billing</div><span class="badge b-enhance" style="font-size:.55rem;padding:1px 5px;">Enhance</span><div class="module-desc mt2">Configurable packages, trial days, feature flags, auto-suspend</div></div>
+        <div class="module-card"><div class="module-icon">💰</div><div class="module-name">Salary/Payroll</div><span class="badge b-active" style="font-size:.55rem;padding:1px 5px;">Active ✓</span><div class="module-desc mt2">SalaryConfigPanel, advance, bonus, monthly lock, overpayment guard</div></div>
+        <div class="module-card"><div class="module-icon">🎨</div><div class="module-name">Storefront Builder</div><span class="badge b-enhance" style="font-size:.55rem;padding:1px 5px;">Enhance</span><div class="module-desc mt2">No-code page builder, section types from DB, visual editor</div></div>
+        <div class="module-card"><div class="module-icon">🤝</div><div class="module-name">Commission/Reseller</div><span class="badge b-active" style="font-size:.55rem;padding:1px 5px;">Active ✓</span><div class="module-desc mt2">Configurable tiers, multi-level, audit trail, Admin Settings</div></div>
+        <div class="module-card"><div class="module-icon">📦</div><div class="module-name">Inventory/Products</div><span class="badge b-enhance" style="font-size:.55rem;padding:1px 5px;">Enhance</span><div class="module-desc mt2">Unified API, stock tracking, low stock alerts, variants</div></div>
+        <div class="module-card"><div class="module-icon">🛒</div><div class="module-name">Orders/eCommerce</div><span class="badge b-enhance" style="font-size:.55rem;padding:1px 5px;">Enhance</span><div class="module-desc mt2">Merged API, order lifecycle, status tracking, PDF invoice</div></div>
+        <div class="module-card"><div class="module-icon">💸</div><div class="module-name">Finance/Transfers</div><span class="badge b-enhance" style="font-size:.55rem;padding:1px 5px;">Enhance</span><div class="module-desc mt2">Immutable audit, approval workflow, bKash/Nagad, BDT ৳</div></div>
+        <div class="module-card"><div class="module-icon">📡</div><div class="module-name">ISP Module</div><span class="badge b-enhance" style="font-size:.55rem;padding:1px 5px;">Enhance</span><div class="module-desc mt2">Configurable templates, auto-suspend, renewal reminders</div></div>
+        <div class="module-card"><div class="module-icon">📊</div><div class="module-name">Business Intelligence</div><span class="badge b-planned" style="font-size:.55rem;padding:1px 5px;">Planned</span><div class="module-desc mt2">KPI dashboard, MRR, churn, PDF/CSV export, monthly reports</div></div>
+        <div class="module-card"><div class="module-icon">🔔</div><div class="module-name">Notification Center</div><span class="badge b-planned" style="font-size:.55rem;padding:1px 5px;">Planned</span><div class="module-desc mt2">SSE, in-app, Telegram, SMS, Email — configurable triggers</div></div>
+        <div class="module-card"><div class="module-icon">✅</div><div class="module-name">Approval Workflow</div><span class="badge b-planned" style="font-size:.55rem;padding:1px 5px;">Planned</span><div class="module-desc mt2">ApprovalRequest model, threshold-based, multi-level, notifications</div></div>
+        <div class="module-card"><div class="module-icon">📋</div><div class="module-name">Audit Trail</div><span class="badge b-planned" style="font-size:.55rem;padding:1px 5px;">Planned</span><div class="module-desc mt2">Immutable AuditLog, before/after, IP tracking, CSV export</div></div>
+        <div class="module-card"><div class="module-icon">👑</div><div class="module-name">Super Admin</div><span class="badge b-active" style="font-size:.55rem;padding:1px 5px;">Active ✓</span><div class="module-desc mt2">Platform config, packages, roles, promotions, BI — no-code</div></div>
+        <div class="module-card"><div class="module-icon">⏰</div><div class="module-name">Schedule Manager</div><span class="badge b-planned" style="font-size:.55rem;padding:1px 5px;">Planned</span><div class="module-desc mt2">founder_schedule, prayer times, holidays, auto-adjust</div></div>
+        <div class="module-card"><div class="module-icon">💾</div><div class="module-name">Backup System</div><span class="badge b-planned" style="font-size:.55rem;padding:1px 5px;">Planned</span><div class="module-desc mt2">Daily/weekly, AES-256 encrypted, Cloudflare R2, restore UI</div></div>
+        <div class="module-card"><div class="module-icon">🏢</div><div class="module-name">Multi-Tenant</div><span class="badge b-active" style="font-size:.55rem;padding:1px 5px;">Active ✓</span><div class="module-desc mt2">businessId isolation, middleware auto-inject, data separation</div></div>
+        <div class="module-card"><div class="module-icon">🔌</div><div class="module-name">Public API v1</div><span class="badge b-planned" style="font-size:.55rem;padding:1px 5px;">Planned</span><div class="module-desc mt2">API key auth, rate limiting, webhook signature, /docs/</div></div>
+      </div>
+    </section>
+    <footer class="pfoot">
+      <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
+      <span class="pfoot-r">পেজ ৪ / ৮</span>
+    </footer>
   </div>
-</div>
+</article>
 
+<!-- ══ PAGE 5 — 30-Day Roadmap: Days 1–15 ══ -->
+<article class="page pg-5">
+  <div class="page-inner">
+    <div class="page-accent"></div><div class="page-brand-bar"></div><div class="bd-pattern"></div>
+    <span class="crop-mark crop-tl" aria-hidden="true"></span><span class="crop-mark crop-tr" aria-hidden="true"></span>
+    <span class="crop-mark crop-bl" aria-hidden="true"></span><span class="crop-mark crop-br" aria-hidden="true"></span>
+    <header class="page-content" style="padding-bottom:0">
+      <div class="ph">
+        <div class="ph-logo">
+          <div class="ph-icon" style="background:linear-gradient(135deg,#1a3a6e,#c8102e)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <span class="ph-brand">BizFlow Platform</span>
+          <span class="ph-title">পর্যায় ১ — ভিত্তি ও মূল কাজ (দিন ১–১৫)</span>
+        </div>
+        <span class="ph-page-num">পেজ ৫ / ৮</span>
+      </div>
+    </header>
+    <section class="page-content" style="padding-top:2mm;">
+      <div class="aya" style="padding:5px 12px;margin-bottom:7px;">
+        <div class="aya-ar">وَقُل رَّبِّ زِدْنِي عِلْمًا</div>
+        <div class="aya-tr">"বলো: হে আমার প্রভু, আমার জ্ঞান বৃদ্ধি করো।" — সূরা ত্বহা: ১১৪</div>
+      </div>
+      <div class="sec-hd mb6">
+        <div class="sec-hd-dot" style="background:#c8102e"></div>
+        <h2>৩০ দিনের পরিকল্পনা — দিন ১–১৫</h2>
+        <div class="sec-line"></div>
+        <span style="font-size:.65rem;color:var(--ink-muted);white-space:nowrap;font-family:'Hind Siliguri',sans-serif;">প্রতিদিন ~৬.৫ ঘণ্টা</span>
+      </div>
+      <div class="g3" style="gap:6px;margin-bottom:8px;">
+        <div class="day-card"><div class="day-num">দিন ১</div><div class="day-title">🏗️ সময়সূচি সিস্টেম</div><div class="day-desc">founder_schedule Settings key তৈরি। Admin UI তে নামাজ বিরতি, ঘুম configure। Roadmap auto-adjust API।</div><span class="day-tag tg-arch">আর্কিটেকচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ২</div><div class="day-title">🔐 Auth শক্তিশালী</div><div class="day-desc">Production এ /api/debug-session সরানো। passwordChangedAt দিয়ে auto-logout। সন্দেহজনক লগইনে Telegram।</div><span class="day-tag tg-sec">নিরাপত্তা</span></div>
+        <div class="day-card"><div class="day-num">দিন ৩</div><div class="day-title">📋 Immutable Audit Log</div><div class="day-desc">AuditLog Prisma model: entity, actorId, before, after, ipAddress। প্রতিটি আর্থিক mutation এ লেখা হবে।</div><span class="day-tag tg-arch">আর্কিটেকচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ৪</div><div class="day-title">⚙️ নো-কোড Config</div><div class="day-desc">/super-admin/config পেজ। Settings টেবিল দিয়ে rate limits, payment threshold, module toggles।</div><span class="day-tag tg-feat">ফিচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ৫</div><div class="day-title">🔀 Duplicate API একত্র</div><div class="day-desc">/api/orders/+/api/v1/orders/ একত্র। /api/inventory/+/api/v1/inventory/ একত্র। v1 শুধু wrapper।</div><span class="day-tag tg-arch">আর্কিটেকচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ৬</div><div class="day-title">💰 আর্থিক Traceability</div><div class="day-desc">collection, expense, transfer, বেতন → AuditLog। /admin/audit-trail পেজ। Filter, search, CSV export।</div><span class="day-tag tg-comp">সম্মতি</span></div>
+        <div class="day-card"><div class="day-num">দিন ৭</div><div class="day-title">📡 SSE বিজ্ঞপ্তি</div><div class="day-desc">WebSocket → Server-Sent Events। Admin settings থেকে configurable channels: in-app, Telegram, SMS।</div><span class="day-tag tg-feat">ফিচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ৮</div><div class="day-title">📦 Package Manager</div><div class="day-desc">/super-admin/packages/ উন্নত। Feature flags, trial days, auto-suspend, grace period — UI থেকে।</div><span class="day-tag tg-feat">ফিচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ৯</div><div class="day-title">💳 Dynamic Pricing</div><div class="day-desc">billing-cycles.ts প্রসারিত। ঈদ অফার, স্বাধীনতা দিবস ছাড়, মৌসুমী প্রমোশন Admin UI থেকে।</div><span class="day-tag tg-feat">ফিচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ১০</div><div class="day-title">👥 Permission Matrix</div><div class="day-desc">Super Admin এ visual permission grid। সারি=ভূমিকা, কলাম=অনুমতি। Cell toggle করে মঞ্জুর/বাতিল।</div><span class="day-tag tg-sec">নিরাপত্তা</span></div>
+        <div class="day-card"><div class="day-num">দিন ১১</div><div class="day-title">🎨 Sections → DB</div><div class="day-desc">sections.ts hardcode Settings টেবিলে সরানো। Admin নতুন section type যোগ করতে পারবে।</div><span class="day-tag tg-arch">আর্কিটেকচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ১২</div><div class="day-title">📱 Mobile-First</div><div class="day-desc">প্রতিটি admin পেজ mobile পরীক্ষা। touch target ন্যূনতম 44px, no horizontal scroll, bottom sheets।</div><span class="day-tag tg-ux">UX</span></div>
+        <div class="day-card"><div class="day-num">দিন ১৩</div><div class="day-title">✅ Approval Workflow</div><div class="day-desc">নতুন ApprovalRequest model। Configurable: X টাকার উপরে approval। Notification system এর সাথে।</div><span class="day-tag tg-feat">ফিচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ১৪</div><div class="day-title">🧪 Test Suite</div><div class="day-desc">Audit log, approval workflow, payment guard এর integration test। লক্ষ্য: 85% coverage।</div><span class="day-tag tg-qa">QA</span></div>
+        <div class="day-card" style="border-color:rgba(26,107,69,.3);background:rgba(26,107,69,.04);"><div class="day-num">দিন ১৫</div><div class="day-title">🔍 পর্যায় ১ পর্যালোচনা</div><div class="day-desc">সম্পূর্ণ regression test। ১–১৪ দিনের সমস্যা সমাধান। API docs update। Staging এ deploy। اَلْحَمْدُ لِلّٰهِ</div><span class="day-tag tg-buffer">Buffer 🤲</span></div>
+      </div>
+      <div class="card card-green" style="padding:7px 10px;">
+        <div class="flex flex-center gap8 flex-wrap">
+          <div><h4 class="text-green mb4">পর্যায় ১ এর ফলাফল</h4><p style="font-size:.68rem;color:var(--ink-2);">ভিত্তি শক্ত · নিরাপত্তা কঠোর · Audit সিস্টেম সক্রিয় · নো-কোড config প্রস্তুত</p></div>
+          <div class="flex gap4 flex-wrap">
+            <span class="badge b-green">Audit Log ✓</span>
+            <span class="badge b-navy">Super Admin Config ✓</span>
+            <span class="badge b-gold">API পরিষ্কার ✓</span>
+            <span class="badge b-blue">Approval ✓</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="pfoot">
+      <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
+      <span class="pfoot-r">পেজ ৫ / ৮</span>
+    </footer>
+  </div>
+</article>
+
+<!-- ══ PAGE 6 — 30-Day Roadmap: Days 16–30 ══ -->
+<article class="page pg-6">
+  <div class="page-inner">
+    <div class="page-accent"></div><div class="page-brand-bar"></div><div class="bd-pattern"></div>
+    <span class="crop-mark crop-tl" aria-hidden="true"></span><span class="crop-mark crop-tr" aria-hidden="true"></span>
+    <span class="crop-mark crop-bl" aria-hidden="true"></span><span class="crop-mark crop-br" aria-hidden="true"></span>
+    <header class="page-content" style="padding-bottom:0">
+      <div class="ph">
+        <div class="ph-logo">
+          <div class="ph-icon" style="background:linear-gradient(135deg,#1a6b45,#b8950a)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <span class="ph-brand">BizFlow Platform</span>
+          <span class="ph-title">পর্যায় ২ — Scale, Polish & Launch (দিন ১৬–৩০)</span>
+        </div>
+        <span class="ph-page-num">পেজ ৬ / ৮</span>
+      </div>
+    </header>
+    <section class="page-content" style="padding-top:2mm;">
+      <div class="aya" style="padding:5px 12px;margin-bottom:7px;">
+        <div class="aya-ar">وَأَنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ</div>
+        <div class="aya-tr">"আল্লাহ সৎকর্মশীলদের পুরস্কার নষ্ট করেন না।" — সূরা তওবা: ১২০</div>
+      </div>
+      <div class="sec-hd mb6">
+        <div class="sec-hd-dot" style="background:var(--gold)"></div>
+        <h2>৩০ দিনের পরিকল্পনা — দিন ১৬–৩০</h2>
+        <div class="sec-line"></div>
+        <span style="font-size:.65rem;color:var(--ink-muted);white-space:nowrap;font-family:'Hind Siliguri',sans-serif;">Bangladesh market প্রস্তুতি</span>
+      </div>
+      <div class="g3" style="gap:6px;margin-bottom:8px;">
+        <div class="day-card"><div class="day-num">দিন ১৬</div><div class="day-title">📊 BI Dashboard</div><div class="day-desc">/admin/reports উন্নত। Configurable KPI widgets। PDF/CSV export। মাসিক বেতন report স্বয়ংক্রিয়।</div><span class="day-tag tg-feat">ফিচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ১৭</div><div class="day-title">🤝 Activity Timeline</div><div class="day-desc">গ্রাহক detail পেজে AuditLog timeline view। Admin settings থেকে configurable retention।</div><span class="day-tag tg-feat">ফিচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ১৮</div><div class="day-title">📡 ISP Module</div><div class="day-desc">Admin থেকে configurable ISP package templates। Billing failure এ auto-suspend। No hardcoded logic।</div><span class="day-tag tg-feat">ফিচার</span></div>
+        <div class="day-card"><div class="day-num">দিন ১৯</div><div class="day-title">⚡ DB Optimization</div><div class="day-desc">Composite indexes সর্বাধিক queried patterns এ। http-cache.ts দিয়ে caching। P99 &lt; 200ms লক্ষ্য।</div><span class="day-tag tg-perf">Performance</span></div>
+        <div class="day-card"><div class="day-num">দিন ২০</div><div class="day-title">🇧🇩 Bangladesh Polish</div><div class="day-desc">BDT ৳ format সঠিক। Bangla date picker। bKash/Nagad labels। জেলাভিত্তিক address সিস্টেম।</div><span class="day-tag tg-loc">স্থানীয়করণ</span></div>
+        <div class="day-card"><div class="day-num">দিন ২১</div><div class="day-title">🔌 Public API</div><div class="day-desc">V1 routes এ API key authentication। Super Admin থেকে rate limits configure। Webhook signature।</div><span class="day-tag tg-sec">নিরাপত্তা</span></div>
+        <div class="day-card"><div class="day-num">দিন ২২</div><div class="day-title">⚡ Rule Automation</div><div class="day-desc">Admin configure: অর্ডারে auto-invoice, overdue subscription auto-suspend। Trigger/Action engine।</div><span class="day-tag tg-auto">Automation</span></div>
+        <div class="day-card"><div class="day-num">দিন ২৩</div><div class="day-title">💾 Auto Backup</div><div class="day-desc">/api/backup উন্নত। Admin থেকে schedule: daily/weekly। Encrypted export। Cloudflare R2।</div><span class="day-tag tg-ops">অপারেশন</span></div>
+        <div class="day-card"><div class="day-num">দিন ২৪</div><div class="day-title">🚀 Onboarding Wizard</div><div class="day-desc">নতুন ব্যবসার multi-step wizard। Starter modules auto-enable। স্বাগত email। First-day checklist।</div><span class="day-tag tg-ux">UX</span></div>
+        <div class="day-card"><div class="day-num">দিন ২৫</div><div class="day-title">🏢 Multi-Tenant</div><div class="day-desc">প্রতিটি API route businessId isolation audit। Middleware যা প্রতিটি request এ businessId inject।</div><span class="day-tag tg-sec">নিরাপত্তা</span></div>
+        <div class="day-card"><div class="day-num">দিন ২৬</div><div class="day-title">🩺 Health Monitor</div><div class="day-desc">/api/health: DB, storage, Redis। Super Admin এ uptime page। Alert thresholds। Telegram downtime।</div><span class="day-tag tg-ops">অপারেশন</span></div>
+        <div class="day-card"><div class="day-num">দিন ২৭</div><div class="day-title">📚 Internal Wiki</div><div class="day-desc">Settings keys, module dependency graph, deployment checklist, emergency procedures — /docs/ Markdown।</div><span class="day-tag tg-ops">Docs</span></div>
+        <div class="day-card"><div class="day-num">দিন ২৮</div><div class="day-title">🔬 Performance QA</div><div class="day-desc">100 concurrent tenant load test। N+1 query চিহ্নিত। DB connection pooling। Rate limiters যাচাই।</div><span class="day-tag tg-qa">QA</span></div>
+        <div class="day-card"><div class="day-num">দিন ২৯</div><div class="day-title">🎯 Staging UAT</div><div class="day-desc">Staging এ সম্পূর্ণ deploy। সব roles এ end-to-end: Super Admin, Business Admin, Manager, Employee।</div><span class="day-tag tg-qa">QA</span></div>
+        <div class="day-card" style="border-color:rgba(200,16,46,.25);background:rgba(200,16,46,.04);"><div class="day-num">দিন ৩০</div><div class="day-title">🚀 Production Launch!</div><div class="day-desc">Blue-green deployment। DNS cutover। 2 ঘণ্টা monitor। Telegram alerts। প্রথম দিন support। <strong>الحمد لله</strong></div><span class="day-tag tg-launch">Launch 🎉</span></div>
+      </div>
+      <div class="card card-gold" style="padding:7px 10px;">
+        <div class="flex flex-center gap8 flex-wrap">
+          <div><h4 style="color:#7a5e00;margin-bottom:4px;">পর্যায় ২ এর ফলাফল</h4><p style="font-size:.68rem;color:var(--ink-2);">Production-grade SaaS · সম্পূর্ণ no-code manageable · Bangladesh-optimized</p></div>
+          <div class="flex gap4 flex-wrap">
+            <span class="badge b-green">Production সক্রিয় ✓</span>
+            <span class="badge b-navy">Auto Backup ✓</span>
+            <span class="badge b-gold">V1 API নিরাপদ ✓</span>
+            <span class="badge b-red">BD Market Ready ✓</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="pfoot">
+      <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
+      <span class="pfoot-r">পেজ ৬ / ৮</span>
+    </footer>
+  </div>
+</article>
+
+<!-- ══ PAGE 7 — Super Admin, No-Code Automation, Audit & Security ══ -->
+<article class="page pg-7">
+  <div class="page-inner">
+    <div class="page-accent"></div><div class="page-brand-bar"></div><div class="bd-pattern"></div>
+    <span class="crop-mark crop-tl" aria-hidden="true"></span><span class="crop-mark crop-tr" aria-hidden="true"></span>
+    <span class="crop-mark crop-bl" aria-hidden="true"></span><span class="crop-mark crop-br" aria-hidden="true"></span>
+    <header class="page-content" style="padding-bottom:0">
+      <div class="ph">
+        <div class="ph-logo">
+          <div class="ph-icon" style="background:linear-gradient(135deg,#1a3a6e,#1a6b45)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="ph-brand">BizFlow Platform</span>
+          <span class="ph-title">নো-কোড সুপার অ্যাডমিন · অডিট ও নিরাপত্তা</span>
+        </div>
+        <span class="ph-page-num">পেজ ৭ / ৮</span>
+      </div>
+    </header>
+    <section class="page-content" style="padding-top:2mm;">
+      <div class="aya" style="padding:5px 12px;margin-bottom:7px;">
+        <div class="aya-ar">وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ</div>
+        <div class="aya-tr">"যখন মানুষের মধ্যে বিচার করো, ন্যায়বিচার করো।" — সূরা নিসা: ৫৮</div>
+      </div>
+      <div class="g2 mb8" style="gap:8px;">
+        <!-- Super Admin Modules -->
+        <div class="card card-navy">
+          <h3 class="text-navy mb6">🎛️ সুপার অ্যাডমিন মডিউলসমূহ</h3>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <div style="display:flex;gap:7px;padding:5px 0;border-bottom:1px solid rgba(26,58,110,.1);align-items:flex-start;"><span>📦</span><div><div style="font-size:.75rem;font-weight:600;color:var(--navy);">Package Manager</div><div style="font-size:.65rem;color:var(--ink-muted);line-height:1.5;">pricing, trial days, feature flags — deployment ছাড়া</div></div></div>
+            <div style="display:flex;gap:7px;padding:5px 0;border-bottom:1px solid rgba(26,58,110,.1);align-items:flex-start;"><span>👥</span><div><div style="font-size:.75rem;font-weight:600;color:var(--navy);">ভূমিকা ও অনুমতি Grid</div><div style="font-size:.65rem;color:var(--ink-muted);line-height:1.5;">Visual matrix — toggle তাৎক্ষণিক কার্যকর</div></div></div>
+            <div style="display:flex;gap:7px;padding:5px 0;border-bottom:1px solid rgba(26,58,110,.1);align-items:flex-start;"><span>⚙️</span><div><div style="font-size:.75rem;font-weight:600;color:var(--navy);">Platform Config</div><div style="font-size:.65rem;color:var(--ink-muted);line-height:1.5;">Rate limits, session timeouts, Telegram bot, SMS gateway</div></div></div>
+            <div style="display:flex;gap:7px;padding:5px 0;border-bottom:1px solid rgba(26,58,110,.1);align-items:flex-start;"><span>🏷️</span><div><div style="font-size:.75rem;font-weight:600;color:var(--navy);">Promotions ও Coupons</div><div style="font-size:.65rem;color:var(--ink-muted);line-height:1.5;">ঈদ, স্বাধীনতা দিবস — configurable %, মেয়াদ</div></div></div>
+            <div style="display:flex;gap:7px;padding:5px 0;border-bottom:1px solid rgba(26,58,110,.1);align-items:flex-start;"><span>📊</span><div><div style="font-size:.75rem;font-weight:600;color:var(--navy);">Business Intelligence</div><div style="font-size:.65rem;color:var(--ink-muted);line-height:1.5;">Platform-wide revenue, MRR, churn, trial conversion</div></div></div>
+            <div style="display:flex;gap:7px;padding:5px 0;border-bottom:1px solid rgba(26,58,110,.1);align-items:flex-start;"><span>⏰</span><div><div style="font-size:.75rem;font-weight:600;color:var(--navy);">Schedule Manager</div><div style="font-size:.65rem;color:var(--ink-muted);line-height:1.5;">কাজের সময়, নামাজ বিরতি, ছুটি — auto-adjust</div></div></div>
+            <div style="display:flex;gap:7px;padding:5px 0;align-items:flex-start;"><span>🔔</span><div><div style="font-size:.75rem;font-weight:600;color:var(--navy);">Notification Center</div><div style="font-size:.65rem;color:var(--ink-muted);line-height:1.5;">in-app, Telegram, SMS, Email — configurable triggers</div></div></div>
+          </div>
+        </div>
+        <!-- Audit System -->
+        <div class="card card-green">
+          <h3 class="text-green mb6">🔍 Audit ও স্বচ্ছতা সিস্টেম</h3>
+          <p style="font-size:.67rem;color:var(--ink-muted);margin-bottom:7px;line-height:1.6;">সকল পরিবর্তন <code>AuditLog</code> এ অপরিবর্তনযোগ্যভাবে সংরক্ষিত। কোনো user — এমনকি Super Admin ও — মুছতে পারবে না।</p>
+          <div class="cb" style="font-size:.6rem;padding:7px 9px;margin-bottom:7px;">model AuditLog {
+  id        String   @id @default(cuid())
+  entity    String   // "SalaryPayment"
+  entityId  String
+  action    String   // "CREATE" | "UPDATE"
+  actorId   String
+  before    Json?
+  after     Json?
+  ipAddress String?
+  createdAt DateTime @default(now())
+  // updatedAt নেই — immutable
+}</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="font-size:.67rem;color:var(--ink-muted);display:flex;gap:5px;"><span class="check-green">✓</span>বেতন, অগ্রিম, বোনাস — আগে/পরে পরিমাণ সহ লগ</div>
+            <div style="font-size:.67rem;color:var(--ink-muted);display:flex;gap:5px;"><span class="check-green">✓</span>অনুমতি পরিবর্তন — কে, কখন, কোন IP থেকে</div>
+            <div style="font-size:.67rem;color:var(--ink-muted);display:flex;gap:5px;"><span class="check-green">✓</span>অর্থ transfer — সম্পূর্ণ আর্থিক trail</div>
+            <div style="font-size:.67rem;color:var(--ink-muted);display:flex;gap:5px;"><span class="check-green">✓</span>Approval: requester, approver, কারণ, timestamp</div>
+            <div style="font-size:.67rem;color:var(--ink-muted);display:flex;gap:5px;"><span class="check-green">✓</span>Login events — success/fail, IP, user agent</div>
+            <div style="font-size:.67rem;color:var(--ink-muted);display:flex;gap:5px;"><span class="check-green">✓</span>হিসাবরক্ষক ও আইনি পর্যালোচনার জন্য CSV export</div>
+          </div>
+        </div>
+      </div>
+      <!-- Approval Workflow -->
+      <div class="card mb8" style="padding:8px 10px;">
+        <h3 class="text-navy mb6">✅ Configurable Approval Workflow</h3>
+        <div class="g3" style="gap:6px;">
+          <div class="approval-card"><div class="approval-icon">💸</div><div class="approval-title">Transfer Threshold</div><div class="approval-desc">৫,০০০ টাকার বেশি যেকোনো transfer এ approval লাগবে। Business type অনুযায়ী configurable।</div></div>
+          <div class="approval-card"><div class="approval-icon">💰</div><div class="approval-title">বেতন Override</div><div class="approval-desc">Manager বেতন payment এ Admin confirmation। প্রতি employee বা position অনুযায়ী configurable।</div></div>
+          <div class="approval-card"><div class="approval-icon">⚡</div><div class="approval-title">Auto-Approval</div><div class="approval-desc">কম-ঝুঁকির কাজ নির্দিষ্ট সময়ের পরে স্বয়ংক্রিয়ভাবে approved। Configurable timeout। সর্বদা logged।</div></div>
+        </div>
+      </div>
+      <!-- Financial Traceability + Security -->
+      <div class="g2" style="gap:8px;">
+        <div class="card card-gold" style="padding:8px 10px;">
+          <h4 style="color:#7a5e00;margin-bottom:6px;">💰 আর্থিক Traceability Chain</h4>
+          <div style="font-size:.65rem;color:var(--ink-muted);line-height:2;">
+            <span class="tl-box">Collection</span> <span class="tl-arrow">→</span>
+            <span class="tl-box tl-audit">AuditLog</span> <span class="tl-arrow">→</span>
+            <span class="tl-box">বেতন পরিশোধ</span> <span class="tl-arrow">→</span>
+            <span class="tl-box tl-audit">AuditLog</span> <span class="tl-arrow">→</span>
+            <span class="tl-box">অগ্রিম</span> <span class="tl-arrow">→</span>
+            <span class="tl-box tl-audit">AuditLog</span><br/>
+            <strong style="font-size:.65rem;color:#7a5e00;">→ প্রতি employee, প্রতি মাস, প্রতি ব্যবসার সম্পূর্ণ timeline।</strong>
+          </div>
+        </div>
+        <div class="card card-blue" style="padding:8px 10px;">
+          <h4 class="text-navy mb6">🛡️ Security Production Checklist</h4>
+          <ul class="sec-check-list">
+            <li>HMAC-SHA256 password pepper (auth.service.ts)</li>
+            <li>ভূমিকা অনুযায়ী rate limiting (Admin থেকে)</li>
+            <li>সব mutation এ CSRF সুরক্ষা (csrf.ts)</li>
+            <li>প্রতিটি endpoint এ input sanitization</li>
+            <li>Gateway credentials AES-256 encrypted</li>
+            <li>Immutable audit logs (UPDATE/DELETE নেই)</li>
+            <li>Multi-tenant isolation (businessId)</li>
+            <li>V1 API তে request signing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer class="pfoot">
+      <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
+      <span class="pfoot-r">পেজ ৭ / ৮</span>
+    </footer>
+  </div>
+</article>
+
+<!-- ══ PAGE 8 — Daily Planning Board with Notes ══ -->
+<article class="page pg-8">
+  <div class="page-inner">
+    <div class="page-accent"></div><div class="page-brand-bar"></div><div class="bd-pattern"></div>
+    <span class="crop-mark crop-tl" aria-hidden="true"></span><span class="crop-mark crop-tr" aria-hidden="true"></span>
+    <span class="crop-mark crop-bl" aria-hidden="true"></span><span class="crop-mark crop-br" aria-hidden="true"></span>
+    <header class="page-content" style="padding-bottom:0">
+      <div class="ph">
+        <div class="ph-logo">
+          <div class="ph-icon" style="background:linear-gradient(135deg,#b8950a,#1a3a6e)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <span class="ph-brand">BizFlow Platform</span>
+          <span class="ph-title">দৈনিক পরিকল্পনা বোর্ড — হালিম</span>
+        </div>
+        <span class="ph-page-num">পেজ ৮ / ৮</span>
+      </div>
+    </header>
+    <section class="page-content" style="padding-top:2mm;">
+
+      <!-- Date + Prayer tracker row -->
+      <div class="flex flex-center flex-between mb8 flex-wrap gap6">
+        <div class="card card-gold" style="padding:5px 12px;display:flex;align-items:center;gap:8px;min-width:180px;">
+          <span style="font-size:.75rem;color:#7a5e00;font-weight:700;">📅 তারিখ:</span>
+          <span id="plan-date" style="font-size:.75rem;color:var(--navy);font-weight:600;min-width:100px;">____ / ____ / ২০২৬</span>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-item"><div class="prayer-name">ফজর</div><div class="prayer-check"></div></div>
+          <div class="prayer-item"><div class="prayer-name">যোহর</div><div class="prayer-check"></div></div>
+          <div class="prayer-item"><div class="prayer-name">আসর</div><div class="prayer-check"></div></div>
+          <div class="prayer-item"><div class="prayer-name">মাগরিব</div><div class="prayer-check"></div></div>
+          <div class="prayer-item"><div class="prayer-name">এশা</div><div class="prayer-check"></div></div>
+        </div>
+      </div>
+
+      <div class="g2 mb6" style="gap:8px;">
+        <!-- Top 3 Priorities -->
+        <div>
+          <div class="notes-label">🎯 আজকের TOP 3 অগ্রাধিকার</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="font-size:.85rem;font-weight:800;color:var(--navy);font-family:'Inter',sans-serif;min-width:16px;">①</span>
+              <div class="notes-area" style="flex:1;min-height:22px;"></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="font-size:.85rem;font-weight:800;color:var(--navy);font-family:'Inter',sans-serif;min-width:16px;">②</span>
+              <div class="notes-area" style="flex:1;min-height:22px;"></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="font-size:.85rem;font-weight:800;color:var(--navy);font-family:'Inter',sans-serif;min-width:16px;">③</span>
+              <div class="notes-area" style="flex:1;min-height:22px;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Custom Schedule -->
+        <div>
+          <div class="notes-label">🕐 আজকের কাস্টম সময়সূচি</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:grid;grid-template-columns:40px 1fr;gap:5px;align-items:center;"><span style="font-size:.65rem;font-weight:700;color:var(--ink-dim);font-family:'Inter',sans-serif;">সকাল</span><div class="notes-area" style="min-height:19px;"></div></div>
+            <div style="display:grid;grid-template-columns:40px 1fr;gap:5px;align-items:center;"><span style="font-size:.65rem;font-weight:700;color:var(--ink-dim);font-family:'Inter',sans-serif;">দুপুর</span><div class="notes-area" style="min-height:19px;"></div></div>
+            <div style="display:grid;grid-template-columns:40px 1fr;gap:5px;align-items:center;"><span style="font-size:.65rem;font-weight:700;color:var(--ink-dim);font-family:'Inter',sans-serif;">বিকাল</span><div class="notes-area" style="min-height:19px;"></div></div>
+            <div style="display:grid;grid-template-columns:40px 1fr;gap:5px;align-items:center;"><span style="font-size:.65rem;font-weight:700;color:var(--ink-dim);font-family:'Inter',sans-serif;">রাত</span><div class="notes-area" style="min-height:19px;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task checklist + Completed/Pending -->
+      <div class="g3 mb6" style="gap:8px;">
+        <div>
+          <div class="notes-label">📋 আজকের কাজের তালিকা</div>
+          <ul class="check-list" style="margin-top:3px;">
+            <li><div class="check-box"></div></li>
+            <li><div class="check-box"></div></li>
+            <li><div class="check-box"></div></li>
+            <li><div class="check-box"></div></li>
+            <li><div class="check-box"></div></li>
+            <li><div class="check-box"></div></li>
+            <li><div class="check-box"></div></li>
+            <li><div class="check-box"></div></li>
+          </ul>
+        </div>
+        <div>
+          <div class="notes-label">✅ সম্পন্ন কাজ</div>
+          <div class="notes-area" style="min-height:88px;margin-top:3px;"></div>
+          <div class="notes-label mt6">⏳ বাকি কাজ (Carry Forward)</div>
+          <div class="notes-area" style="min-height:55px;margin-top:3px;"></div>
+        </div>
+        <div>
+          <div class="notes-label">🔔 রিমাইন্ডার</div>
+          <div class="notes-area" style="min-height:50px;margin-top:3px;"></div>
+          <div class="notes-label mt6">📅 সাপ্তাহিক লক্ষ্য</div>
+          <div class="notes-area" style="min-height:44px;margin-top:3px;"></div>
+          <div class="notes-label mt6">📆 মাসিক লক্ষ্য</div>
+          <div class="notes-area" style="min-height:44px;margin-top:3px;"></div>
+        </div>
+      </div>
+
+      <!-- Ideas + Meeting notes -->
+      <div class="g2 mb6" style="gap:8px;">
+        <div>
+          <div class="notes-label">💡 আইডিয়া ও গবেষণা</div>
+          <div class="notes-area" style="min-height:80px;margin-top:3px;"></div>
+        </div>
+        <div>
+          <div class="notes-label">🤝 মিটিং নোট</div>
+          <div class="notes-area" style="min-height:80px;margin-top:3px;"></div>
+        </div>
+      </div>
+
+      <!-- Closing message -->
+      <div class="card card-gold" style="padding:8px 14px;text-align:center;">
+        <div class="ar-text" style="font-size:1rem;color:#7a5e00;margin-bottom:4px;">تَوَكَّلْ عَلَى اللَّهِ وَاعْمَلْ</div>
+        <p class="italic" style="font-size:.65rem;color:var(--ink-muted);margin-bottom:6px;">আল্লাহর উপর ভরসা করো এবং কাজে লেগে যাও</p>
+        <div class="hr hr-gold"></div>
+        <p style="font-size:.68rem;color:var(--ink-2);line-height:1.7;max-width:480px;margin:4px auto 0;">হালিম ভাই, তোমার ভিত্তি শক্ত। ৩০টি মনোযোগী দিনে — তোমার ইসলামিক সময়সূচির মধ্যে দৈনিক ৬.৫ ঘণ্টা কাজ করে — তুমি এমন একটি production-grade SaaS platform তৈরি করতে পারবে যা হাজার হাজার বাংলাদেশি ব্যবসাকে সেবা দেবে। প্রতিটি নামাজের বিরতি একটি রিসেট। <strong style="color:var(--navy);">বিজফ্লো হবে তোমার উত্তরাধিকার। বরকতের সাথে গড়ো।</strong></p>
+        <p style="font-size:.65rem;color:#7a5e00;margin-top:4px;font-weight:600;">— মো. আব্দুল হালিম · 01312-125858</p>
+        <div class="flex gap6 mt6" style="justify-content:center;flex-wrap:wrap;">
+          <span class="badge b-navy">بَارَكَ اللَّهُ فِيكَ</span>
+          <span class="badge b-green">اللَّهُمَّ أَعِنِّي</span>
+          <span class="badge b-gold">الحمد لله</span>
+          <span class="badge b-blue">إِنَّ مَعَ الْعُسْرِ يُسْرًا</span>
+        </div>
+      </div>
+
+    </section>
+    <footer class="pfoot">
+      <span class="pfoot-l">বিজফ্লো প্ল্যাটফর্ম · গোপনীয় · হালিমের জন্য প্রস্তুত · ২০২৬</span>
+      <span class="pfoot-r">পেজ ৮ / ৮</span>
+    </footer>
+  </div>
+</article>
+
+</main>
+<script src="blueprint.js"></script>
 </body>
 </html>
