@@ -1,552 +1,324 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07111f">
-<title>বাংলা English Coach 🇧🇩</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+
+<title>AI Social Poster Studio</title>
 
 <style>
 *{box-sizing:border-box}
 
 :root{
- --bg:#050b16;
- --card:#0d1728;
- --card2:#111f34;
- --line:#24344d;
- --text:#f8fafc;
- --muted:#94a3b8;
- --blue:#38bdf8;
- --purple:#8b5cf6;
- --green:#22c55e;
- --red:#ef4444;
- --yellow:#facc15;
+  --bg:#f1f5f9;
+  --card:#fff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --primary:#2563eb;
 }
 
 body{
- margin:0;
- background:
- radial-gradient(circle at 50% -10%,#173d68 0,#07111f 40%,#02050b 100%);
- color:var(--text);
- font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  margin:0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans Bengali",
+    sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
 .app{
- max-width:620px;
- min-height:100vh;
- margin:auto;
- background:#02081755;
- overflow:hidden;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
+/* HEADER */
+
 header{
- height:68px;
- padding:10px 15px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- border-bottom:1px solid var(--line);
- background:#07111fe8;
- backdrop-filter:blur(20px);
- position:sticky;
- top:0;
- z-index:20;
+  height:62px;
+  background:#0b1220;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
 }
 
 .brand{
- display:flex;
- gap:10px;
- align-items:center;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 .logo{
- width:42px;
- height:42px;
- border-radius:14px;
- display:grid;
- place-items:center;
- background:linear-gradient(135deg,#38bdf8,#8b5cf6);
- font-size:22px;
- box-shadow:0 10px 35px #38bdf833;
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#38bdf8,#6366f1);
 }
 
 .brand b{
- font-size:15px;
+  font-size:15px;
 }
 
 .brand small{
- display:block;
- color:var(--muted);
- font-size:10px;
- margin-top:2px;
+  display:block;
+  color:#94a3b8;
+  font-size:10px;
 }
 
-.icon{
- width:42px;
- height:42px;
- border:1px solid var(--line);
- background:#ffffff08;
- color:white;
- border-radius:13px;
- font-size:18px;
+.headerBtn{
+  border:1px solid #ffffff22;
+  background:#ffffff0d;
+  color:white;
+  padding:9px 12px;
+  border-radius:10px;
 }
 
-/* teacher */
+/* LAYOUT */
 
-.hero{
- text-align:center;
- padding:18px 15px 4px;
+.workspace{
+  display:grid;
+  grid-template-columns:320px 1fr 280px;
+  gap:0;
+  min-height:calc(100vh - 62px);
 }
 
-.online{
- display:inline-flex;
- gap:7px;
- align-items:center;
- padding:7px 12px;
- border:1px solid #22c55e44;
- border-radius:30px;
- background:#22c55e0b;
- color:#86efac;
- font-size:11px;
+.sidebar{
+  background:var(--card);
+  border-right:1px solid var(--line);
+  padding:15px;
+  overflow:auto;
 }
 
-.teacher{
- height:290px;
- position:relative;
- display:flex;
- justify-content:center;
- align-items:center;
- perspective:900px;
+.rightbar{
+  background:var(--card);
+  border-left:1px solid var(--line);
+  padding:15px;
+  overflow:auto;
 }
 
-.ring{
- position:absolute;
- width:250px;
- height:250px;
- border-radius:50%;
- border:1px solid #38bdf833;
- transform:rotateX(65deg);
- box-shadow:0 0 55px #38bdf81a;
- animation:spin 8s linear infinite;
+h3{
+  margin:4px 0 13px;
+  font-size:14px;
 }
 
-@keyframes spin{
- to{transform:rotateX(65deg) rotateZ(360deg)}
+label{
+  display:block;
+  font-size:11px;
+  font-weight:700;
+  margin:12px 0 6px;
 }
 
-.avatar{
- width:150px;
- height:215px;
- position:relative;
- transform-style:preserve-3d;
- animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
- 0%,100%{transform:translateY(0) rotateY(-3deg)}
- 50%{transform:translateY(-9px) rotateY(3deg)}
-}
-
-.hair{
- position:absolute;
- top:5px;
- left:25px;
- width:100px;
- height:67px;
- background:#171b2c;
- border-radius:55px 55px 30px 30px;
- z-index:3;
-}
-
-.head{
- position:absolute;
- top:25px;
- left:25px;
- width:100px;
- height:112px;
- border-radius:48%;
- background:linear-gradient(145deg,#ffd9bd,#d99670);
- z-index:2;
- box-shadow:inset -10px -8px 20px #8e4d3855;
-}
-
-.eye{
- position:absolute;
- top:66px;
- width:11px;
- height:7px;
- border-radius:50%;
- background:#111827;
-}
-
-.eye1{left:24px}
-.eye2{right:24px}
-
-.nose{
- position:absolute;
- left:47px;
- top:70px;
- width:8px;
- height:15px;
- border-right:2px solid #b76d51;
- border-radius:50%;
-}
-
-.mouth{
- position:absolute;
- left:36px;
- top:91px;
- width:29px;
- height:8px;
- border-bottom:3px solid #8d3545;
- border-radius:0 0 50% 50%;
- transition:.15s;
-}
-
-.speaking .mouth{
- height:18px;
- background:#8d3545;
- border:0;
- border-radius:50%;
- animation:mouth .16s infinite alternate;
-}
-
-@keyframes mouth{
- from{transform:scaleY(.55)}
- to{transform:scaleY(1)}
-}
-
-.body{
- position:absolute;
- top:130px;
- left:0;
- width:150px;
- height:105px;
- border-radius:55px 55px 15px 15px;
- background:linear-gradient(135deg,#2563eb,#7c3aed);
- box-shadow:inset -18px -15px 30px #11184c66;
-}
-
-.status{
- font-size:13px;
- color:var(--muted);
- min-height:20px;
-}
-
-.status b{
- color:#7dd3fc;
-}
-
-/* controls */
-
-.controls{
- padding:8px 15px 18px;
-}
-
-.mic{
- width:84px;
- height:84px;
- display:block;
- margin:auto;
- border:5px solid #ffffff13;
- border-radius:50%;
- background:linear-gradient(145deg,#2563eb,#7c3aed);
- color:white;
- font-size:30px;
- box-shadow:0 15px 50px #2563eb55;
-}
-
-.mic.active{
- background:linear-gradient(145deg,#ef4444,#be123c);
- box-shadow:0 0 0 14px #ef444422,0 0 55px #ef444466;
- transform:scale(.96);
-}
-
-.hint{
- text-align:center;
- color:var(--muted);
- font-size:11px;
- margin-top:7px;
-}
-
-/* level */
-
-.levelBox{
- margin:0 15px 12px;
- padding:13px;
- border:1px solid var(--line);
- background:#ffffff06;
- border-radius:16px;
-}
-
-.levelTop{
- display:flex;
- justify-content:space-between;
- align-items:center;
- font-size:12px;
- margin-bottom:8px;
-}
-
-.levelTop span{
- color:#7dd3fc;
-}
-
+textarea,
+input,
 select{
- width:100%;
- padding:11px;
- border:1px solid var(--line);
- border-radius:11px;
- background:#0b1627;
- color:white;
- outline:none;
-}
-
-/* topics */
-
-.section{
- padding:5px 15px;
-}
-
-.title{
- display:flex;
- justify-content:space-between;
- margin-bottom:9px;
-}
-
-.title b{
- font-size:13px;
-}
-
-.title span{
- font-size:10px;
- color:var(--muted);
-}
-
-.topics{
- display:flex;
- gap:7px;
- overflow-x:auto;
- scrollbar-width:none;
-}
-
-.topics::-webkit-scrollbar{
- display:none;
-}
-
-.topic{
- flex:0 0 auto;
- padding:9px 12px;
- border:1px solid var(--line);
- border-radius:12px;
- background:#ffffff06;
- color:#dbeafe;
- font-size:11px;
-}
-
-.topic.active{
- border-color:#38bdf866;
- background:#38bdf812;
- color:#7dd3fc;
-}
-
-/* chat */
-
-.chat{
- margin:12px 15px;
- border:1px solid var(--line);
- border-radius:18px;
- overflow:hidden;
- background:#ffffff04;
-}
-
-.chatHead{
- padding:11px 13px;
- display:flex;
- justify-content:space-between;
- border-bottom:1px solid var(--line);
-}
-
-.chatHead b{
- font-size:12px;
-}
-
-.chatHead span{
- color:#4ade80;
- font-size:10px;
-}
-
-.messages{
- max-height:330px;
- overflow-y:auto;
- padding:10px;
-}
-
-.message{
- display:flex;
- margin:9px 0;
-}
-
-.message.user{
- justify-content:flex-end;
-}
-
-.bubble{
- max-width:88%;
- padding:11px 13px;
- border-radius:15px;
- font-size:13px;
- line-height:1.6;
-}
-
-.message.ai .bubble{
- background:#ffffff08;
- border:1px solid var(--line);
-}
-
-.message.user .bubble{
- background:linear-gradient(135deg,#2563eb,#4f46e5);
-}
-
-.box{
- margin-top:9px;
- padding:9px;
- border-radius:10px;
- background:#ffffff08;
-}
-
-.correct{
- border-left:3px solid var(--green);
-}
-
-.error{
- border-left:3px solid var(--red);
-}
-
-.bangla{
- border-left:3px solid var(--yellow);
-}
-
-.question{
- border-left:3px solid var(--blue);
-}
-
-/* input */
-
-.input{
- display:flex;
- gap:7px;
- padding:10px 15px;
- position:sticky;
- bottom:0;
- background:#07111fee;
- backdrop-filter:blur(20px);
- border-top:1px solid var(--line);
+  width:100%;
+  padding:11px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:white;
+  color:var(--text);
+  outline:none;
+  font-family:inherit;
 }
 
 textarea{
- flex:1;
- min-height:46px;
- max-height:100px;
- resize:none;
- padding:12px;
- border-radius:13px;
- background:#ffffff08;
- border:1px solid var(--line);
- color:white;
- outline:none;
- font-family:inherit;
+  min-height:90px;
+  resize:vertical;
 }
 
-.send{
- width:48px;
- border:0;
- border-radius:13px;
- background:#2563eb;
- color:white;
- font-size:18px;
+/* CANVAS AREA */
+
+.canvasArea{
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  background:
+    radial-gradient(circle at 50% 20%,#fff,#e2e8f0);
+  overflow:auto;
 }
 
-/* modal */
-
-.modal{
- display:none;
- position:fixed;
- inset:0;
- background:#000c;
- z-index:100;
- align-items:flex-end;
- justify-content:center;
+.canvasWrap{
+  background:#cbd5e1;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 20px 60px #0f172a22;
 }
 
-.modal.show{
- display:flex;
+#poster{
+  display:block;
+  max-width:min(100%,700px);
+  height:auto;
+  background:white;
 }
 
-.modalBox{
- width:100%;
- max-width:620px;
- background:#0b1627;
- border:1px solid var(--line);
- border-radius:24px 24px 0 0;
- padding:20px;
- max-height:90vh;
- overflow:auto;
+.canvasInfo{
+  color:var(--muted);
+  font-size:11px;
 }
 
-.modalBox h2{
- margin:0 0 17px;
- font-size:18px;
+/* BUTTONS */
+
+button{
+  cursor:pointer;
+  font-family:inherit;
 }
 
-.field{
- margin:13px 0;
+.primary{
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:11px;
+  background:var(--primary);
+  color:white;
+  font-weight:700;
 }
 
-.field label{
- display:block;
- color:#cbd5e1;
- font-size:11px;
- margin-bottom:6px;
+.secondary{
+  width:100%;
+  padding:11px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:white;
+  color:var(--text);
 }
 
-.field input{
- width:100%;
- padding:12px;
- background:#ffffff08;
- border:1px solid var(--line);
- border-radius:11px;
- color:white;
- outline:none;
+.row{
+  display:flex;
+  gap:7px;
 }
 
-.save{
- width:100%;
- padding:13px;
- border:0;
- border-radius:12px;
- background:#2563eb;
- color:white;
- font-weight:700;
+.row>*{
+  flex:1;
 }
 
-.close{
- width:100%;
- padding:12px;
- border:0;
- border-radius:12px;
- background:#ffffff0a;
- color:white;
- margin-top:8px;
+.color{
+  height:42px;
+  padding:3px;
 }
 
-.info{
- padding:11px;
- background:#38bdf80a;
- border:1px solid #38bdf822;
- border-radius:12px;
- font-size:11px;
- color:#bae6fd;
- line-height:1.6;
+/* TEMPLATES */
+
+.templates{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+
+.template{
+  height:70px;
+  border-radius:10px;
+  border:2px solid transparent;
+  overflow:hidden;
+  position:relative;
+  color:white;
+  font-size:10px;
+  font-weight:700;
+}
+
+.template.active{
+  border-color:#2563eb;
+}
+
+.t1{background:linear-gradient(135deg,#111827,#2563eb)}
+.t2{background:linear-gradient(135deg,#7c2d12,#f97316)}
+.t3{background:linear-gradient(135deg,#14532d,#22c55e)}
+.t4{background:linear-gradient(135deg,#581c87,#ec4899)}
+.t5{background:linear-gradient(135deg,#0f172a,#334155)}
+.t6{background:linear-gradient(135deg,#7f1d1d,#ef4444)}
+
+.template span{
+  position:absolute;
+  left:8px;
+  bottom:7px;
+}
+
+/* AI */
+
+.aiBox{
+  padding:12px;
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  border-radius:12px;
+  font-size:11px;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+.aiResult{
+  margin-top:10px;
+  padding:10px;
+  background:#f8fafc;
+  border:1px solid var(--line);
+  border-radius:10px;
+  font-size:11px;
+  white-space:pre-wrap;
+}
+
+/* SLIDER */
+
+input[type="range"]{
+  padding:0;
+}
+
+/* MOBILE */
+
+@media(max-width:1050px){
+
+ .workspace{
+  grid-template-columns:280px 1fr;
+ }
+
+ .rightbar{
+  display:none;
+ }
+
+}
+
+@media(max-width:700px){
+
+ header{
+  height:58px;
+ }
+
+ .workspace{
+  display:flex;
+  flex-direction:column;
+ }
+
+ .sidebar{
+  order:2;
+  border-right:0;
+  border-top:1px solid var(--line);
+ }
+
+ .canvasArea{
+  order:1;
+  min-height:520px;
+  padding:15px;
+ }
+
+ .canvasWrap{
+  width:min(94vw,500px);
+  padding:8px;
+ }
+
+ #poster{
+  width:100%;
+ }
+
 }
 </style>
 </head>
@@ -558,881 +330,907 @@ textarea{
 <header>
 
  <div class="brand">
-  <div class="logo">🎓</div>
+  <div class="logo">🎨</div>
   <div>
-   <b>বাংলা English Coach</b>
-   <small>বাংলাভাষীদের জন্য AI Teacher 🇧🇩</small>
+   <b>AI Social Poster Studio</b>
+   <small>বাংলা Poster Generator</small>
   </div>
  </div>
 
- <button class="icon" onclick="openSettings()">⚙️</button>
+ <button
+  class="headerBtn"
+  onclick="downloadPoster()">
+  ⬇️ Download
+ </button>
 
 </header>
 
 
-<section class="hero">
+<div class="workspace">
 
- <div class="online">● AI Teacher প্রস্তুত</div>
 
- <div class="teacher" id="teacher">
+<!-- LEFT -->
 
-  <div class="ring"></div>
+<aside class="sidebar">
 
-  <div class="avatar">
+ <h3>🤖 AI Design Assistant</h3>
 
-   <div class="hair"></div>
-
-   <div class="head">
-
-    <div class="eye eye1"></div>
-    <div class="eye eye2"></div>
-
-    <div class="nose"></div>
-
-    <div class="mouth"></div>
-
-   </div>
-
-   <div class="body"></div>
-
-  </div>
-
+ <div class="aiBox">
+  আপনার অফার/ব্যবসার তথ্য লিখুন।
+  AI আপনার জন্য poster-এর headline,
+  description এবং CTA সাজিয়ে দেবে।
  </div>
 
- <div class="status" id="status">
-  <b>প্রস্তুত</b> — English বলার জন্য মাইক্রোফোন চাপুন
- </div>
-
-</section>
-
-
-<div class="controls">
-
- <button class="mic" id="mic" onclick="toggleMic()">🎤</button>
-
- <div class="hint" id="hint">
-  মাইক্রোফোন চাপুন → English বলুন → AI শুনবে
- </div>
-
-</div>
-
-
-<div class="levelBox">
-
- <div class="levelTop">
-  <b>আপনার English Level</b>
-  <span id="levelName">Beginner</span>
- </div>
-
- <select id="level" onchange="changeLevel()">
-  <option value="Beginner">Beginner — একদম শুরু</option>
-  <option value="Elementary">Elementary — সহজ কথাবার্তা</option>
-  <option value="Intermediate">Intermediate — মাঝারি</option>
-  <option value="Advanced">Advanced — উন্নত</option>
- </select>
-
-</div>
-
-
-<section class="section">
-
- <div class="title">
-  <b>আজ কী শিখবেন?</b>
-  <span id="topicName">Daily Conversation</span>
- </div>
-
- <div class="topics">
-
-  <button class="topic active" onclick="topic(this,'Daily Conversation')">
-   👋 দৈনন্দিন
-  </button>
-
-  <button class="topic" onclick="topic(this,'Job Interview')">
-   💼 চাকরি
-  </button>
-
-  <button class="topic" onclick="topic(this,'Shopping')">
-   🛒 কেনাকাটা
-  </button>
-
-  <button class="topic" onclick="topic(this,'Restaurant')">
-   🍽️ রেস্টুরেন্ট
-  </button>
-
-  <button class="topic" onclick="topic(this,'Travel')">
-   ✈️ ভ্রমণ
-  </button>
-
-  <button class="topic" onclick="topic(this,'Business')">
-   🤝 ব্যবসা
-  </button>
-
-  <button class="topic" onclick="topic(this,'Free Conversation')">
-   🗣️ মুক্ত কথা
-  </button>
-
- </div>
-
-</section>
-
-
-<div class="chat">
-
- <div class="chatHead">
-  <b>💬 শেখার কথোপকথন</b>
-  <span>● Live</span>
- </div>
-
- <div class="messages" id="messages">
-
-  <div class="message ai">
-
-   <div class="bubble">
-
-    👋 <b>আসসালামু আলাইকুম!</b>
-
-    <div class="box bangla">
-     🇧🇩 আমি আপনার English Speaking Teacher।
-     <br><br>
-     ভয় পাবেন না। আপনি ভুল করলে আমি
-     <b>বাংলায় বুঝিয়ে</b> দেব।
-    </div>
-
-    <div class="box question">
-     🗣️ <b>প্রথম প্রশ্ন:</b><br>
-     What is your name?
-    </div>
-
-   </div>
-
-  </div>
-
- </div>
-
-</div>
-
-
-<div class="input">
+ <label>Poster সম্পর্কে লিখুন</label>
 
  <textarea
-  id="input"
-  placeholder="এখানে English লিখুন..."
-  onkeydown="enterSend(event)"
+  id="aiPrompt"
+  placeholder="যেমন: ঈদ উপলক্ষে আমাদের দোকানে সব পণ্যে ২০% ছাড়..."
  ></textarea>
 
- <button class="send" onclick="sendText()">➤</button>
+ <label>Platform</label>
 
-</div>
+ <select id="platform" onchange="platformChanged()">
+  <option value="facebook">Facebook Post</option>
+  <option value="instagram">Instagram Post</option>
+  <option value="story">Instagram Story</option>
+  <option value="whatsapp">WhatsApp Status</option>
+  <option value="youtube">YouTube Thumbnail</option>
+  <option value="linkedin">LinkedIn Post</option>
+ </select>
 
-</div>
+ <br><br>
+
+ <button
+  class="primary"
+  onclick="generateAI()">
+  ✨ AI দিয়ে Design তৈরি করুন
+ </button>
 
 
-<!-- SETTINGS -->
+ <label>Business Name</label>
 
-<div class="modal" id="modal">
+ <input
+  id="business"
+  value="আমার ব্যবসা"
+  oninput="draw()"
+ >
 
- <div class="modalBox">
+ <label>Headline</label>
 
-  <h2>⚙️ AI Teacher Settings</h2>
+ <input
+  id="headline"
+  value="বিশেষ অফার!"
+  oninput="draw()"
+ >
 
-  <div class="info">
-   এখানে আপনার OpenRouter API Key দিন।
-   <br>
-   ⚠️ Backend ছাড়া API Key browser-এ থাকবে। Public website-এর জন্য এটি নিরাপদ নয়।
-  </div>
+ <label>Subheadline</label>
 
-  <div class="field">
+ <input
+  id="subheadline"
+  value="আজই কিনুন এবং সাশ্রয় করুন"
+  oninput="draw()"
+ >
 
-   <label>OpenRouter API Key</label>
+ <label>Offer</label>
 
-   <input
-    id="api"
-    type="password"
-    placeholder="sk-or-v1-..."
-   >
+ <input
+  id="offer"
+  value="২০% ছাড়"
+  oninput="draw()"
+ >
 
-  </div>
+ <label>CTA</label>
 
-  <div class="field">
+ <input
+  id="cta"
+  value="এখনই অর্ডার করুন"
+  oninput="draw()"
+ >
 
-   <label>Model</label>
+ <label>Phone</label>
 
-   <input
-    id="model"
-    placeholder="openai/gpt-oss-20b:free"
-   >
+ <input
+  id="phone"
+  value="০১৭০০-০০০০০০"
+  oninput="draw()"
+ >
 
-  </div>
+ <label>Address</label>
 
-  <button class="save" onclick="saveSettings()">
-   💾 Save Settings
+ <input
+  id="address"
+  value="ঢাকা, বাংলাদেশ"
+  oninput="draw()"
+ >
+
+ <label>Logo / Product Image</label>
+
+ <input
+  type="file"
+  accept="image/*"
+  onchange="loadImage(event)"
+ >
+
+ <br>
+
+ <button
+  class="secondary"
+  onclick="clearImage()">
+  🗑️ Image Remove
+ </button>
+
+</aside>
+
+
+<!-- CANVAS -->
+
+<main class="canvasArea">
+
+ <div class="canvasWrap">
+
+  <canvas
+   id="poster"
+   width="1080"
+   height="1080">
+  </canvas>
+
+ </div>
+
+ <div class="canvasInfo">
+  Editable Canvas • বাংলা Text Supported • PNG/JPG Export
+ </div>
+
+</main>
+
+
+<!-- RIGHT -->
+
+<aside class="rightbar">
+
+ <h3>🎨 Design</h3>
+
+ <label>Template</label>
+
+ <div class="templates">
+
+  <button
+   class="template t1 active"
+   onclick="setTemplate(1,this)">
+   <span>Blue</span>
   </button>
 
-  <button class="close" onclick="closeSettings()">
-   বন্ধ করুন
+  <button
+   class="template t2"
+   onclick="setTemplate(2,this)">
+   <span>Orange</span>
+  </button>
+
+  <button
+   class="template t3"
+   onclick="setTemplate(3,this)">
+   <span>Green</span>
+  </button>
+
+  <button
+   class="template t4"
+   onclick="setTemplate(4,this)">
+   <span>Pink</span>
+  </button>
+
+  <button
+   class="template t5"
+   onclick="setTemplate(5,this)">
+   <span>Dark</span>
+  </button>
+
+  <button
+   class="template t6"
+   onclick="setTemplate(6,this)">
+   <span>Red</span>
   </button>
 
  </div>
+
+
+ <label>Primary Color</label>
+
+ <input
+  class="color"
+  id="primaryColor"
+  type="color"
+  value="#2563eb"
+  oninput="draw()"
+ >
+
+
+ <label>Font Size</label>
+
+ <input
+  type="range"
+  min="40"
+  max="110"
+  value="75"
+  id="fontSize"
+  oninput="draw()"
+ >
+
+
+ <label>Image Size</label>
+
+ <input
+  type="range"
+  min="250"
+  max="600"
+  value="430"
+  id="imageSize"
+  oninput="draw()"
+ >
+
+
+ <label>Export Format</label>
+
+ <select id="format">
+  <option value="png">PNG</option>
+  <option value="jpeg">JPG</option>
+ </select>
+
+ <br><br>
+
+ <button
+  class="primary"
+  onclick="downloadPoster()">
+  📥 Poster Download
+ </button>
+
+ <br>
+
+ <button
+  class="secondary"
+  onclick="resetPoster()">
+  🔄 Reset
+ </button>
+
+ <div
+  class="aiResult"
+  id="aiResult">
+  AI result এখানে দেখাবে।
+ </div>
+
+</aside>
+
+</div>
 
 </div>
 
 
 <script>
 
-/* =========================
+/* ==========================
    DATA
-========================= */
+========================== */
 
-let apiKey =
- localStorage.getItem("bn_teacher_api") || "";
+const canvas =
+ document.getElementById("poster");
 
-let model =
- localStorage.getItem("bn_teacher_model") ||
- "openai/gpt-oss-20b:free";
+const ctx =
+ canvas.getContext("2d");
 
-let level =
- localStorage.getItem("bn_teacher_level") ||
- "Beginner";
+let productImage=null;
 
-let currentTopic =
- localStorage.getItem("bn_teacher_topic") ||
- "Daily Conversation";
+let template=1;
 
-let history = [];
+let currentPlatform="facebook";
 
-let recognition = null;
 
-let listening = false;
+/* ==========================
+   PLATFORM SIZE
+========================== */
 
-let voices = [];
+function platformChanged(){
 
+ currentPlatform =
+  document.getElementById("platform").value;
 
-/* =========================
-   ELEMENTS
-========================= */
+ const sizes={
 
-const $ = id =>
- document.getElementById(id);
+  facebook:[1080,1080],
 
-$("level").value = level;
+  instagram:[1080,1080],
 
-$("levelName").textContent = level;
+  story:[1080,1920],
 
-$("topicName").textContent = currentTopic;
+  whatsapp:[1080,1920],
 
+  youtube:[1280,720],
 
-/* =========================
-   VOICES
-========================= */
-
-function loadVoices(){
-
- voices =
-  speechSynthesis.getVoices();
-
-}
-
-speechSynthesis.onvoiceschanged =
- loadVoices;
-
-loadVoices();
-
-
-function getBanglaVoice(){
-
- const list = voices;
-
- return (
-  list.find(v =>
-   v.lang.toLowerCase()==="bn-bd"
-  ) ||
-
-  list.find(v =>
-   v.lang.toLowerCase().startsWith("bn")
-  ) ||
-
-  list.find(v =>
-   v.name.toLowerCase().includes("bangla")
-  ) ||
-
-  null
- );
-}
-
-
-function getEnglishVoice(){
-
- const list = voices;
-
- return (
-  list.find(v =>
-   v.lang.toLowerCase()==="en-us"
-  ) ||
-
-  list.find(v =>
-   v.lang.toLowerCase().startsWith("en")
-  ) ||
-
-  null
- );
-}
-
-
-/* =========================
-   SPEAK BANGLA
-========================= */
-
-function speakBangla(text){
-
- if(!text)return;
-
- if(!("speechSynthesis" in window))return;
-
- const voice =
-  getBanglaVoice();
-
- if(!voice){
-
-  console.warn(
-   "Bangla voice not available"
-  );
-
-  return;
-
- }
-
- const u =
-  new SpeechSynthesisUtterance(
-   cleanText(text)
-  );
-
- u.voice=voice;
-
- u.lang="bn-BD";
-
- u.rate=.82;
-
- u.pitch=1;
-
- speechSynthesis.speak(u);
-}
-
-
-/* =========================
-   SPEAK ENGLISH
-========================= */
-
-function speakEnglish(text){
-
- if(!text)return;
-
- const voice =
-  getEnglishVoice();
-
- const u =
-  new SpeechSynthesisUtterance(
-   cleanText(text)
-  );
-
- if(voice)
-  u.voice=voice;
-
- u.lang="en-US";
-
- u.rate =
-  level==="Beginner" ? .76 :
-  level==="Elementary" ? .84 :
-  .92;
-
- u.pitch=1.02;
-
- $("teacher")
-  .classList.add("speaking");
-
- u.onend=function(){
-
-  $("teacher")
-   .classList.remove("speaking");
-
-  setStatus(
-   "আপনার পালা — এখন English বলুন"
-  );
+  linkedin:[1200,1200]
 
  };
 
- speechSynthesis.speak(u);
-}
+ const size =
+  sizes[currentPlatform] ||
+  sizes.facebook;
 
+ canvas.width=size[0];
+ canvas.height=size[1];
 
-/* =========================
-   SPEAK BOTH
-========================= */
-
-function speakTeacher(reply){
-
- speechSynthesis.cancel();
-
- const teacher =
-  getPart(reply,"TEACHER");
-
- const question =
-  getPart(reply,"QUESTION");
-
- const bangla =
-  getPart(reply,"BANGLA");
-
- /*
-   আগে English বলবে,
-   তারপর বাংলায় বুঝিয়ে বলবে,
-   তারপর আবার question বলবে।
- */
-
- if(teacher)
-  speakEnglish(
-   teacher
-  );
-
- if(bangla){
-
-  const delay =
-   Math.max(
-    1000,
-    teacher.length*55
-   );
-
-  setTimeout(()=>{
-   speakBangla(bangla);
-  },delay);
-
- }
-
- if(question){
-
-  const delay =
-   Math.max(
-    2200,
-    (teacher.length+
-     bangla.length)*55
-   );
-
-  setTimeout(()=>{
-   speakEnglish(question);
-  },delay);
-
- }
-}
-
-
-/* =========================
-   SETTINGS
-========================= */
-
-function openSettings(){
-
- $("api").value=apiKey;
-
- $("model").value=model;
-
- $("modal")
-  .classList.add("show");
-}
-
-function closeSettings(){
-
- $("modal")
-  .classList.remove("show");
-}
-
-function saveSettings(){
-
- apiKey =
-  $("api").value.trim();
-
- model =
-  $("model").value.trim();
-
- localStorage.setItem(
-  "bn_teacher_api",
-  apiKey
- );
-
- localStorage.setItem(
-  "bn_teacher_model",
-  model
- );
-
- closeSettings();
-
- setStatus(
-  "Settings সংরক্ষণ হয়েছে"
- );
+ draw();
 
 }
 
 
-/* =========================
-   LEVEL
-========================= */
+/* ==========================
+   TEMPLATE
+========================== */
 
-function changeLevel(){
+function setTemplate(number,button){
 
- level =
-  $("level").value;
-
- $("levelName")
-  .textContent=level;
-
- localStorage.setItem(
-  "bn_teacher_level",
-  level
- );
-
-}
-
-
-/* =========================
-   TOPIC
-========================= */
-
-function topic(button,name){
+ template=number;
 
  document
-  .querySelectorAll(".topic")
+  .querySelectorAll(".template")
   .forEach(x =>
    x.classList.remove("active")
   );
 
  button.classList.add("active");
 
- currentTopic=name;
-
- $("topicName")
-  .textContent=name;
-
- localStorage.setItem(
-  "bn_teacher_topic",
-  name
- );
-
- addAIMessage(
-  "আজ আমরা <b>"+
-  escapeHTML(name)+
-  "</b> বিষয় নিয়ে English practice করব।<br><br>"+
-  "আপনি প্রস্তুত হলে মাইক্রোফোন চাপুন।"
- );
-
- speakBangla(
-  "আজ আমরা "+name+
-  " বিষয় নিয়ে ইংরেজি অনুশীলন করব।"
- );
+ draw();
 
 }
 
 
-/* =========================
-   STATUS
-========================= */
+/* ==========================
+   IMAGE
+========================== */
 
-function setStatus(text){
+function loadImage(event){
 
- $("status").innerHTML =
-  "<b>"+escapeHTML(text)+"</b>";
+ const file =
+  event.target.files[0];
+
+ if(!file)return;
+
+ const reader =
+  new FileReader();
+
+ reader.onload=function(e){
+
+  const img =
+   new Image();
+
+  img.onload=function(){
+
+   productImage=img;
+
+   draw();
+
+  };
+
+  img.src=e.target.result;
+
+ };
+
+ reader.readAsDataURL(file);
+
 }
 
 
-/* =========================
-   VOICE INPUT
-========================= */
+function clearImage(){
 
-function toggleMic(){
+ productImage=null;
 
- if(listening){
+ draw();
 
-  stopListening();
-
- }else{
-
-  startListening();
-
- }
 }
 
 
-function startListening(){
+/* ==========================
+   COLORS
+========================== */
 
- const SpeechRecognition =
-  window.SpeechRecognition ||
-  window.webkitSpeechRecognition;
+function colors(){
 
- if(!SpeechRecognition){
+ const selected =
+  document.getElementById(
+   "primaryColor"
+  ).value;
 
-  alert(
-   "আপনার browser Voice Recognition support করছে না। Android Chrome ব্যবহার করুন।"
+ if(template===1)
+  return ["#0f172a",selected];
+
+ if(template===2)
+  return ["#7c2d12","#f97316"];
+
+ if(template===3)
+  return ["#052e16","#16a34a"];
+
+ if(template===4)
+  return ["#581c87","#ec4899"];
+
+ if(template===5)
+  return ["#020617","#334155"];
+
+ if(template===6)
+  return ["#450a0a","#ef4444"];
+
+ return ["#0f172a",selected];
+
+}
+
+
+/* ==========================
+   DRAW BACKGROUND
+========================== */
+
+function drawBackground(){
+
+ const [a,b]=colors();
+
+ const gradient =
+  ctx.createLinearGradient(
+   0,
+   0,
+   canvas.width,
+   canvas.height
   );
 
-  return;
- }
+ gradient.addColorStop(0,a);
 
- if(!apiKey){
+ gradient.addColorStop(1,b);
 
-  openSettings();
+ ctx.fillStyle=gradient;
 
-  alert(
-   "প্রথমে OpenRouter API Key দিন।"
-  );
-
-  return;
- }
-
- speechSynthesis.cancel();
-
- recognition =
-  new SpeechRecognition();
-
- /*
-   en-US:
-   English শেখার জন্য বেশি নির্ভরযোগ্য।
-
-   User বাংলা বললেও fallback হিসেবে
-   transcript পাওয়া গেলে AI বুঝতে পারবে।
- */
-
- recognition.lang="en-US";
-
- recognition.continuous=false;
-
- recognition.interimResults=true;
-
- listening=true;
-
- $("mic")
-  .classList.add("active");
-
- $("mic")
-  .textContent="🔴";
-
- $("hint").textContent =
-  "🎤 আমি শুনছি... English বলুন";
-
- $("teacher")
-  .classList.add("listening");
-
- setStatus(
-  "আপনার কথা শুনছি..."
+ ctx.fillRect(
+  0,
+  0,
+  canvas.width,
+  canvas.height
  );
 
- recognition.onresult =
- function(event){
+ /* decorative circles */
 
-  let text="";
+ ctx.globalAlpha=.12;
 
-  for(
-   let i=event.resultIndex;
-   i<event.results.length;
-   i++
-  ){
+ ctx.fillStyle="#ffffff";
 
-   text +=
-    event.results[i][0].transcript;
-  }
+ for(let i=0;i<7;i++){
 
-  $("input").value=text;
+  ctx.beginPath();
 
- };
+  ctx.arc(
+   Math.random()*canvas.width,
+   Math.random()*canvas.height,
+   50+Math.random()*180,
+   0,
+   Math.PI*2
+  );
 
- recognition.onerror =
- function(event){
-
-  stopListening();
-
-  let message =
-   "Voice input নেওয়া যায়নি।";
-
-  if(event.error==="not-allowed")
-   message =
-    "Microphone permission দিন।";
-
-  if(event.error==="network")
-   message =
-    "Voice recognition-এর জন্য internet প্রয়োজন।";
-
-  setStatus(message);
-
-  speakBangla(message);
-
- };
-
- recognition.onend =
- function(){
-
-  const text =
-   $("input").value.trim();
-
-  stopListening();
-
-  if(text){
-
-   $("input").value="";
-
-   sendToAI(text);
-  }
-
- };
-
- try{
-
-  recognition.start();
-
- }catch(e){
-
-  stopListening();
+  ctx.fill();
 
  }
+
+ ctx.globalAlpha=1;
 
 }
 
 
-function stopListening(){
+/* ==========================
+   DRAW IMAGE
+========================== */
 
- listening=false;
+function drawProduct(){
 
- $("mic")
-  .classList.remove("active");
+ if(!productImage)return;
 
- $("mic").textContent="🎤";
+ const max =
+  Number(
+   document.getElementById(
+    "imageSize"
+   ).value
+  );
 
- $("hint").textContent =
-  "মাইক্রোফোন চাপুন → English বলুন";
+ const ratio =
+  Math.min(
+   max/productImage.width,
+   max/productImage.height
+  );
 
- $("teacher")
-  .classList.remove("listening");
+ const w =
+  productImage.width*ratio;
 
- if(recognition){
+ const h =
+  productImage.height*ratio;
 
-  try{
-   recognition.stop();
-  }catch(e){}
+ const x =
+  canvas.width/2-w/2;
 
- }
+ const y =
+  canvas.height*.40-h/2;
+
+ /* shadow */
+
+ ctx.save();
+
+ ctx.shadowColor="#00000088";
+
+ ctx.shadowBlur=35;
+
+ ctx.shadowOffsetY=20;
+
+ ctx.drawImage(
+  productImage,
+  x,
+  y,
+  w,
+  h
+ );
+
+ ctx.restore();
 
 }
 
 
-/* =========================
-   TEXT INPUT
-========================= */
+/* ==========================
+   TEXT HELPERS
+========================== */
 
-function enterSend(e){
+function fitText(text,maxWidth,size){
 
- if(
-  e.key==="Enter" &&
-  !e.shiftKey
+ let current=size;
+
+ while(
+  current>30 &&
+  ctx.measureText(text).width>maxWidth
  ){
 
-  e.preventDefault();
+  current--;
 
-  sendText();
+  ctx.font=
+   `700 ${current}px "Noto Sans Bengali",system-ui,sans-serif`;
 
  }
+
+ return current;
 
 }
 
 
-function sendText(){
+function centerText(
+ text,
+ x,
+ y,
+ size,
+ weight="700"
+){
 
- const text =
-  $("input").value.trim();
+ ctx.font=
+  `${weight} ${size}px "Noto Sans Bengali",system-ui,sans-serif`;
 
- if(!text)return;
+ ctx.textAlign="center";
 
- $("input").value="";
+ ctx.textBaseline="middle";
 
- sendToAI(text);
-
-}
-
-
-/* =========================
-   AI
-========================= */
-
-async function sendToAI(userText){
-
- addUserMessage(userText);
-
- if(!apiKey){
-
-  addAIMessage(
-   "⚠️ OpenRouter API Key দেওয়া হয়নি।<br><br>"+
-   "⚙️ Settings খুলে API Key দিন।"
-  );
-
-  openSettings();
-
-  return;
- }
-
- setStatus(
-  "AI Teacher উত্তর তৈরি করছে..."
+ ctx.fillText(
+  text,
+  x,
+  y
  );
 
- addTyping();
+}
 
- /*
-   খুব শক্ত system instruction।
- */
 
- const systemPrompt = `
+/* ==========================
+   DRAW POSTER
+========================== */
 
-আপনি একজন অত্যন্ত বন্ধুত্বপূর্ণ English Speaking Teacher।
+function draw(){
 
-আপনার ছাত্র/ছাত্রী বাংলাদেশি এবং English শেখার সময় বাংলায় সাহায্য প্রয়োজন।
+ drawBackground();
 
-Student Level:
-${level}
+ const centerX =
+  canvas.width/2;
 
-Practice Topic:
-${currentTopic}
+ const primary =
+  document.getElementById(
+   "primaryColor"
+  ).value;
 
-অত্যন্ত গুরুত্বপূর্ণ নিয়ম:
+ /* business */
 
-1. প্রতিটি উত্তর অবশ্যই বাংলায় ব্যাখ্যা করবে।
-2. Student-এর English ভুল হলে অবশ্যই বাংলায় বুঝিয়ে বলবে।
-3. Student ঠিক বললেও বাংলায় ছোট করে উৎসাহ দেবে।
-4. English শেখানোর মূল বাক্য English হবে।
-5. Explanation অবশ্যই বাংলা ভাষায় হবে।
-6. Beginner হলে খুব সহজ English ব্যবহার করবে।
-7. একবারে একটি প্রশ্ন করবে।
-8. Student-এর ভয় দূর করবে।
-9. Student বাংলা লিখলে/বললে সেটিকে English শেখার সুযোগ হিসেবে ব্যবহার করবে।
-10. উত্তর ছোট এবং সহজ রাখবে।
-11. অপ্রয়োজনীয় কঠিন grammar lecture দেবে না।
-12. Teacher-এর English কথাগুলো voice-এ শোনানোর উপযোগী রাখবে।
-13. বাংলার অংশ বাংলাতেই লিখবে।
-14. কোনোভাবেই বাংলা explanation বাদ দেবে না।
+ ctx.fillStyle="#ffffffcc";
 
-অবশ্যই EXACTLY এই format ব্যবহার করবে:
+ centerText(
+  document.getElementById(
+   "business"
+  ).value,
+  centerX,
+  canvas.height*.09,
+  34,
+  "600"
+ );
 
-CORRECTION:
-[Student-এর ভুল থাকলে সঠিক English sentence।
-ভুল না থাকলে: খুব ভালো! কোনো বড় ভুল নেই।]
 
-BANGLA:
-[বাংলায় ব্যাখ্যা করবে কেন বাক্যটি ভুল/কেন ঠিক।
-কমপক্ষে ১টি বাংলা বাক্য অবশ্যই থাকবে।]
+ /* headline */
 
-TEACHER:
-[Teacher-এর ছোট English response]
+ const headline =
+  document.getElementById(
+   "headline"
+  ).value;
 
-QUESTION:
-[একটি সহজ English question]
+ let fs =
+  Number(
+   document.getElementById(
+    "fontSize"
+   ).value
+  );
 
-`;
+ ctx.fillStyle="#ffffff";
 
- history.push({
-  role:"user",
-  content:userText
- });
+ fs =
+  fitText(
+   headline,
+   canvas.width*.85,
+   fs
+  );
+
+ centerText(
+  headline,
+  centerX,
+  canvas.height*.20,
+  fs,
+  "800"
+ );
+
+
+ /* image */
+
+ drawProduct();
+
+
+ /* offer */
+
+ ctx.fillStyle=
+  primary;
+
+ const offer=
+  document.getElementById(
+   "offer"
+  ).value;
+
+ const offerW=
+  Math.min(
+   canvas.width*.65,
+   650
+  );
+
+ const offerH=
+  125;
+
+ ctx.beginPath();
+
+ roundRect(
+  centerX-offerW/2,
+  canvas.height*.69,
+  offerW,
+  offerH,
+  30
+ );
+
+ ctx.fill();
+
+ ctx.fillStyle="#ffffff";
+
+ centerText(
+  offer,
+  centerX,
+  canvas.height*.69+
+  offerH/2,
+  65,
+  "900"
+ );
+
+
+ /* subheadline */
+
+ ctx.fillStyle="#ffffffdd";
+
+ centerText(
+  document.getElementById(
+   "subheadline"
+  ).value,
+  centerX,
+  canvas.height*.83,
+  29,
+  "500"
+ );
+
+
+ /* CTA */
+
+ ctx.fillStyle="#ffffff";
+
+ centerText(
+  document.getElementById(
+   "cta"
+  ).value,
+  centerX,
+  canvas.height*.89,
+  30,
+  "700"
+ );
+
+
+ /* phone */
+
+ ctx.fillStyle="#ffffffaa";
+
+ centerText(
+  document.getElementById(
+   "phone"
+  ).value,
+  centerX,
+  canvas.height*.94,
+  24,
+  "600"
+ );
+
+
+ /* address */
+
+ ctx.fillStyle="#ffffff88";
+
+ centerText(
+  document.getElementById(
+   "address"
+  ).value,
+  centerX,
+  canvas.height*.975,
+  18,
+  "400"
+ );
+
+}
+
+
+/* ==========================
+   ROUNDED RECT
+========================== */
+
+function roundRect(
+ x,y,w,h,r
+){
+
+ ctx.beginPath();
+
+ ctx.moveTo(x+r,y);
+
+ ctx.lineTo(x+w-r,y);
+
+ ctx.quadraticCurveTo(
+  x+w,y,
+  x+w,y+r
+ );
+
+ ctx.lineTo(x+w,y+h-r);
+
+ ctx.quadraticCurveTo(
+  x+w,y+h,
+  x+w-r,y+h
+ );
+
+ ctx.lineTo(x+r,y+h);
+
+ ctx.quadraticCurveTo(
+  x,y+h,
+  x,y+h-r
+ );
+
+ ctx.lineTo(x,y+r);
+
+ ctx.quadraticCurveTo(
+  x,y,
+  x+r,y
+ );
+
+ ctx.closePath();
+
+}
+
+
+/* ==========================
+   DOWNLOAD
+========================== */
+
+function downloadPoster(){
+
+ draw();
+
+ const type =
+  document.getElementById(
+   "format"
+  ).value;
+
+ const mime =
+  type==="jpeg"
+  ? "image/jpeg"
+  : "image/png";
+
+ const data =
+  canvas.toDataURL(
+   mime,
+   .95
+  );
+
+ const link =
+  document.createElement("a");
+
+ link.download =
+  "social-poster."+
+  type;
+
+ link.href=data;
+
+ link.click();
+
+}
+
+
+/* ==========================
+   AI
+========================== */
+
+async function generateAI(){
+
+ const prompt =
+  document.getElementById(
+   "aiPrompt"
+  ).value.trim();
+
+ if(!prompt){
+
+  alert(
+   "প্রথমে আপনার poster সম্পর্কে লিখুন।"
+  );
+
+  return;
+
+ }
+
+ const api =
+  localStorage.getItem(
+   "poster_openrouter_key"
+  );
+
+ if(!api){
+
+  const key =
+   prompt(
+    "OpenRouter API Key দিন:"
+   );
+
+  if(!key)return;
+
+  localStorage.setItem(
+   "poster_openrouter_key",
+   key
+  );
+
+ }
+
+ const apiKey =
+  localStorage.getItem(
+   "poster_openrouter_key"
+  );
+
+ const result =
+  document.getElementById(
+   "aiResult"
+  );
+
+ result.textContent=
+  "🤖 AI design তৈরি করছে...";
 
  try{
 
@@ -1453,26 +1251,61 @@ QUESTION:
        location.href,
 
       "X-Title":
-       "Bangla English Coach"
+       "AI Social Poster Studio"
      },
 
      body:JSON.stringify({
 
-      model:model,
+      model:
+       "openai/gpt-oss-20b:free",
 
       messages:[
+
        {
         role:"system",
-        content:systemPrompt
+        content:`
+
+আপনি একজন Social Media Poster Designer।
+
+ব্যবহারকারীর দেওয়া তথ্য থেকে
+বাংলা social media poster-এর
+content তৈরি করুন।
+
+শুধু এই JSON format দিন:
+
+{
+ "business":"",
+ "headline":"",
+ "subheadline":"",
+ "offer":"",
+ "cta":"",
+ "suggestedStyle":""
+}
+
+বাংলা ব্যবহার করুন।
+Headline ছোট রাখুন।
+Offer পরিষ্কার রাখুন।
+CTA আকর্ষণীয় রাখুন।
+
+`
        },
-       ...history.slice(-10)
+
+       {
+        role:"user",
+        content:
+         prompt+
+         "\nPlatform: "+
+         currentPlatform
+       }
+
       ],
 
-      temperature:.55,
+      temperature:.7,
 
-      max_tokens:450
+      max_tokens:300
 
      })
+
     }
    );
 
@@ -1483,289 +1316,116 @@ QUESTION:
 
    throw new Error(
     data?.error?.message ||
-    "OpenRouter API error"
+    "AI request failed"
    );
 
   }
 
-  const answer =
-   data?.choices?.[0]?.message?.content;
+  let text =
+   data?.choices?.[0]?.message?.content ||
+   "";
 
-  if(!answer){
+  text =
+   text
+    .replace(/```json/g,"")
+    .replace(/```/g,"")
+    .trim();
 
-   throw new Error(
-    "AI কোনো উত্তর দেয়নি।"
-   );
+  const json =
+   JSON.parse(text);
 
-  }
+  /* Apply */
 
-  history.push({
-   role:"assistant",
-   content:answer
-  });
+  if(json.business)
+   document.getElementById(
+    "business"
+   ).value=json.business;
 
-  removeTyping();
+  if(json.headline)
+   document.getElementById(
+    "headline"
+   ).value=json.headline;
 
-  renderAI(answer);
+  if(json.subheadline)
+   document.getElementById(
+    "subheadline"
+   ).value=json.subheadline;
 
-  setStatus(
-   "AI Teacher কথা বলছে..."
-  );
+  if(json.offer)
+   document.getElementById(
+    "offer"
+   ).value=json.offer;
 
-  speakTeacher(answer);
+  if(json.cta)
+   document.getElementById(
+    "cta"
+   ).value=json.cta;
+
+  result.textContent =
+   "✨ Design তৈরি হয়েছে!\n\n"+
+   "Style: "+
+   (json.suggestedStyle || "");
+
+  draw();
 
  }catch(error){
 
-  removeTyping();
-
-  const errorText =
-   error.message || "অজানা সমস্যা";
-
-  addAIMessage(
-   "❌ <b>সমস্যা হয়েছে</b><br><br>"+
-   escapeHTML(errorText)+
-   "<br><br>"+
-   "⚙️ Settings থেকে API Key এবং Model পরীক্ষা করুন।"
-  );
-
-  setStatus(
-   "সমস্যা হয়েছে — Settings পরীক্ষা করুন"
-  );
+  result.textContent =
+   "❌ সমস্যা: "+
+   error.message;
 
  }
 
 }
 
 
-/* =========================
-   RENDER AI
-========================= */
+/* ==========================
+   RESET
+========================== */
 
-function renderAI(text){
+function resetPoster(){
 
- const correction =
-  getPart(text,"CORRECTION");
+ document.getElementById(
+  "business"
+ ).value="আমার ব্যবসা";
 
- const bangla =
-  getPart(text,"BANGLA");
+ document.getElementById(
+  "headline"
+ ).value="বিশেষ অফার!";
 
- const teacher =
-  getPart(text,"TEACHER");
+ document.getElementById(
+  "subheadline"
+ ).value=
+  "আজই কিনুন এবং সাশ্রয় করুন";
 
- const question =
-  getPart(text,"QUESTION");
+ document.getElementById(
+  "offer"
+ ).value="২০% ছাড়";
 
- /*
-   AI যদি format ঠিক না দেয়,
-   তবুও fallback।
- */
+ document.getElementById(
+  "cta"
+ ).value="এখনই অর্ডার করুন";
 
- if(
-  !correction &&
-  !bangla &&
-  !teacher &&
-  !question
- ){
+ document.getElementById(
+  "phone"
+ ).value="০১৭০০-০০০০০০";
 
-  addAIMessage(
-   "🇧🇩 <b>বাংলায় ব্যাখ্যা:</b><br>"+
-   "AI-এর উত্তর পাওয়া গেছে।<br><br>"+
-   format(text)
-  );
+ document.getElementById(
+  "address"
+ ).value="ঢাকা, বাংলাদেশ";
 
-  return;
- }
+ productImage=null;
 
- let html="";
-
- html +=
-  '<div class="box correct">'+
-  '✍️ <b>সঠিক English</b><br>'+
-  format(
-   correction ||
-   "খুব ভালো! কোনো বড় ভুল নেই।"
-  )+
-  '</div>';
-
- html +=
-  '<div class="box bangla">'+
-  '🇧🇩 <b>বাংলায় বুঝুন</b><br>'+
-  format(
-   bangla ||
-   "এই বাক্যটি English শেখার জন্য ব্যবহার করা হচ্ছে।"
-  )+
-  '</div>';
-
- if(teacher){
-
-  html +=
-   '<div class="box">'+
-   '🧑‍🏫 <b>Teacher:</b><br>'+
-   format(teacher)+
-   '</div>';
-
- }
-
- if(question){
-
-  html +=
-   '<div class="box question">'+
-   '❓ <b>এবার আপনি বলুন:</b><br>'+
-   format(question)+
-   '</div>';
-
- }
-
- addAIMessage(html);
+ draw();
 
 }
 
 
-/* =========================
-   PARSER
-========================= */
+/* ==========================
+   INIT
+========================== */
 
-function getPart(text,label){
-
- const regex =
-  new RegExp(
-   label+"\\s*:\\s*([\\s\\S]*?)(?=\\n\\s*(?:CORRECTION|BANGLA|TEACHER|QUESTION)\\s*:|$)",
-   "i"
-  );
-
- const match =
-  text.match(regex);
-
- return match ?
-  match[1].trim() :
-  "";
-}
-
-
-/* =========================
-   CHAT UI
-========================= */
-
-function addUserMessage(text){
-
- const div =
-  document.createElement("div");
-
- div.className=
-  "message user";
-
- div.innerHTML =
-  '<div class="bubble">'+
-  escapeHTML(text)+
-  '</div>';
-
- $("messages")
-  .appendChild(div);
-
-scrollChat();
-
-}
-
-
-function addAIMessage(html){
-
- const div =
-  document.createElement("div");
-
- div.className=
-  "message ai";
-
- div.innerHTML =
-  '<div class="bubble">'+
-  html+
-  '</div>';
-
- $("messages")
-  .appendChild(div);
-
- scrollChat();
-
-}
-
-
-function addTyping(){
-
- const div =
-  document.createElement("div");
-
- div.id="typing";
-
- div.className=
-  "message ai";
-
- div.innerHTML =
-  '<div class="bubble">'+
-  '🤔 AI ভাবছে...'+
-  '</div>';
-
- $("messages")
-  .appendChild(div);
-
- scrollChat();
-
-}
-
-
-function removeTyping(){
-
- const x =
-  $("typing");
-
- if(x)x.remove();
-
-}
-
-
-function scrollChat(){
-
- $("messages").scrollTop =
-  $("messages").scrollHeight;
-
-}
-
-
-/* =========================
-   SAFE HTML
-========================= */
-
-function escapeHTML(text){
-
- const div =
-  document.createElement("div");
-
- div.textContent =
-  text || "";
-
- return div.innerHTML;
-
-}
-
-
-function format(text){
-
- return escapeHTML(text || "")
-  .replace(/\n/g,"<br>")
-  .replace(
-   /\*\*(.*?)\*\*/g,
-   "<b>$1</b>"
-  );
-
-}
-
-
-function cleanText(text){
-
- return (text || "")
-  .replace(/\*\*/g,"")
-  .replace(/#/g,"")
-  .trim();
-
-}
+platformChanged();
 
 </script>
 
