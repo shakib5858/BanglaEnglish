@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101827">
+  <title>TrackZone — GPS Tracker Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="TrackZone Home"><span class="brand-mark">⌖</span><span>Track<span class="accent">Zone</span><small>SMART TRACKING STORE</small></span></a>
+  <div class="top-actions"><button class="icon-btn" id="searchToggle" aria-label="Search">⌕</button><button class="icon-btn cart-open" aria-label="Cart">🛒<i id="cartCount">0</i></button></div>
+</header>
+<section class="hero">
+  <div class="hero-copy"><span class="eyebrow"><span class="pulse"></span> SMART GPS SOLUTIONS</span>
+    <h1>আপনার প্রিয়জন ও সম্পদের<br><em>নিরাপত্তা</em> থাকুক হাতের মুঠোয়</h1>
+    <p>গাড়ি, বাইক ও ব্যক্তিগত ব্যবহারের জন্য নির্ভরযোগ্য GPS ট্র্যাকার খুঁজুন এক জায়গায়।</p>
+    <a href="#products" class="primary-btn">প্রোডাক্ট দেখুন <span>↗</span></a>
+    <div class="trust-row"><span>✓ সহজ অর্ডার</span><span>✓ দেশজুড়ে ডেলিভারি</span></div>
+  </div>
+  <div class="hero-visual"><div class="orb orb-one"></div><div class="orb orb-two"></div>
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=85" alt="GPS tracker device" onerror="this.src='https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=80'">
+    <div class="floating-card"><span class="signal">⌁</span><div><b>LIVE TRACKING</b><small>Stay connected</small></div><span class="live-dot"></span></div>
+    <div class="round-label">SMART<br><b>GPS</b></div>
+  </div>
+</section>
+<div class="benefits"><div><span>⌖</span><p><b>লাইভ ট্র্যাকিং</b><small>যেকোনো সময় লোকেশন</small></p></div><div><span>♧</span><p><b>নিরাপদ কেনাকাটা</b><small>সহজ অর্ডার প্রক্রিয়া</small></p></div><div><span>➜</span><p><b>দ্রুত ডেলিভারি</b><small>বাংলাদেশজুড়ে</small></p></div></div>
+<main>
+  <section class="section-head" id="products"><div><span class="eyebrow">OUR COLLECTION</span><h2>জনপ্রিয় প্রোডাক্ট</h2><p>আপনার প্রয়োজন অনুযায়ী সঠিক ডিভাইস বেছে নিন।</p></div><button class="text-btn" id="showAll">সব প্রোডাক্ট <span>→</span></button></section>
+  <div class="search-wrap" id="searchWrap"><input id="searchInput" type="search" placeholder="প্রোডাক্টের নাম লিখে খুঁজুন…"><span>⌕</span></div>
+  <nav class="categories" id="categories"><button class="cat active" data-cat="সব">সব</button><button class="cat" data-cat="গাড়ির GPS">গাড়ির GPS</button><button class="cat" data-cat="বাইক GPS">বাইক GPS</button><button class="cat" data-cat="পার্সোনাল">পার্সোনাল</button><button class="cat" data-cat="অন্যান্য">অন্যান্য</button></nav>
+  <div class="product-grid" id="productGrid"></div>
+  <div class="empty hidden" id="emptyState">কোনো প্রোডাক্ট পাওয়া যায়নি। অন্য নামে খুঁজুন।</div>
+  <section class="promo"><div><span class="eyebrow">TRACK SMARTER</span><h2>সঠিক ডিভাইস, আরও নিশ্চিন্ত থাকা</h2><p>প্রোডাক্ট সম্পর্কে জানতে বা অর্ডার করতে সরাসরি যোগাযোগ করুন।</p><a class="primary-btn" href="#contact">যোগাযোগ করুন <span>↗</span></a></div><div class="promo-art">⌖<span>GPS</span><i></i></div></section>
+  <section class="admin-section" id="admin"><details><summary>⚙️ স্টোর ম্যানেজমেন্ট — প্রোডাক্ট যোগ করুন</summary><p class="admin-note">এই ডেমোতে প্রোডাক্ট এই ব্রাউজারেই সেভ হবে। সব গ্রাহকের কাছে অনলাইনে একই পণ্য দেখাতে সার্ভার/ডেটাবেস সংযোগ করতে হবে।</p>
+  <form id="productForm" class="admin-form">
+    <label>প্রোডাক্টের নাম<input name="name" required placeholder="যেমন: TK905 GPS Tracker"></label>
+    <div class="form-row"><label>দাম (৳)<input name="price" type="number" min="0" required placeholder="2500"></label><label>পুরোনো দাম (৳)<input name="oldPrice" type="number" min="0" placeholder="3000"></label></div>
+    <div class="form-row"><label>ক্যাটাগরি<select name="category"><option>গাড়ির GPS</option><option>বাইক GPS</option><option>পার্সোনাল</option><option>অন্যান্য</option></select></label><label>স্টক স্ট্যাটাস<select name="stock"><option>স্টকে আছে</option><option>প্রি-অর্ডার</option><option>স্টক শেষ</option></select></label></div>
+    <label>ইমেজ URL<input name="image" type="url" required placeholder="https://example.com/product.jpg"></label>
+    <label>ছোট বিবরণ<textarea name="description" rows="2" placeholder="প্রোডাক্টের বৈশিষ্ট্য"></textarea></label>
+    <button class="primary-btn" type="submit">＋ প্রোডাক্ট যোগ করুন</button>
+  </form></details></section>
+</main>
+<footer id="contact"><div class="footer-brand"><a class="brand" href="#"><span class="brand-mark">⌖</span><span>Track<span class="accent">Zone</span><small>SMART TRACKING STORE</small></span></a><p>GPS ট্র্যাকার ও স্মার্ট সিকিউরিটি ডিভাইসের অনলাইন স্টোর।</p></div><div><b>কুইক লিংক</b><a href="#products">প্রোডাক্ট</a><a href="#admin">স্টোর ম্যানেজমেন্ট</a></div><div><b>যোগাযোগ</b><a id="phoneLink" href="tel:+8801XXXXXXXXX">📞 আপনার ফোন নম্বর যোগ করুন</a><a id="whatsappLink" href="https://wa.me/8801XXXXXXXXX">WhatsApp-এ অর্ডার</a><small class="muted">নম্বর পরিবর্তন করতে script.js সম্পাদনা করুন।</small></div><div class="copyright">© <span id="year"></span> TrackZone. All rights reserved.</div></footer>
+<div class="mobile-nav"><a href="#">⌂<small>হোম</small></a><a href="#products">▦<small>প্রোডাক্ট</small></a><button class="cart-open">🛒<small>কার্ট <b id="mobileCartCount">0</b></small></button><a href="#contact">☏<small>যোগাযোগ</small></a></div>
+<div class="toast" id="toast" role="status"></div>
+<div class="modal hidden" id="cartModal"><div class="modal-backdrop" data-close></div><div class="cart-panel"><div class="cart-heading"><h3>আপনার কার্ট</h3><button class="icon-btn" data-close>✕</button></div><div id="cartItems"></div><div class="cart-bottom"><div class="total-line"><span>মোট</span><b id="cartTotal">৳০</b></div><button class="primary-btn" id="checkoutBtn">WhatsApp-এ অর্ডার করুন ↗</button><small>অর্ডার নিশ্চিত করতে WhatsApp-এ মেসেজ পাঠানো হবে।</small></div></div></div>
+<script src="script.js"></script>
+</body></html>
